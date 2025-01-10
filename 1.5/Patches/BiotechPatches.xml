@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+    <match Class="PatchOperationSequence">
+			<success>Normal</success>
+			<operations>
+
+        <!-- Invader AI -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThinkTreeDef[defName = "MechConstant"]/thinkRoot/subNodes</xpath>
+          <value>
+
+            <!--===== Universal =====-->
+            <!-- RageDrive -->
+            <li Class="ThinkNode_ConditionalSpawned">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
+                  <subNodes>
+                    <li Class="ThinkNode_ConditionalHasAbility">
+                      <ability>IM_RageDrive</ability>
+                      <subNodes>
+                        <li Class="ThinkNode_ConditionalHashIntervalTick">
+                          <interval>45</interval>
+                          <subNodes>
+                            <li Class="JobGiver_AICastAbilityOnSelf">
+                              <ability>IM_RageDrive</ability>
+                            </li>
+                          </subNodes>
+                        </li>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+
+            <!-- ZealDrive -->
+            <li Class="ThinkNode_ConditionalSpawned">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
+                  <subNodes>
+                    <li Class="ThinkNode_ConditionalHasAbility">
+                      <ability>IM_ZealDrive</ability>
+                      <subNodes>
+                        <li Class="ThinkNode_ConditionalHashIntervalTick">
+                          <interval>45</interval>
+                          <subNodes>
+                            <li Class="JobGiver_AICastAbilityOnSelf">
+                              <ability>IM_ZealDrive</ability>
+                            </li>
+                          </subNodes>
+                        </li>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+
+            <!--===== Non-Player Mechs =====-->
+            <li Class="ThinkNode_ConditionalPlayerMech">
+              <invert>true</invert>
+              <subNodes>
+                <li Class="ThinkNode_ConditionalSpawned">
+                  <subNodes>
+                    <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
+                      <subNodes>
+                        <li Class="ThinkNode_ConditionalHashIntervalTick">
+                          <interval>45</interval>
+                          <subNodes>
+
+                            <!-- Quickjet Jump -->
+                            <li Class="ThinkNode_ConditionalHasAbility">
+                              <ability>IM_QuickjetJump</ability>
+                              <subNodes>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                  <dangerRadius>7</dangerRadius>
+                                  <minCount>1</minCount>
+                                  <subNodes>
+                                    <li Class="JobGiver_AIJumpEscapeEnemies">
+                                      <ability>IM_QuickjetJump</ability>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+                        
+                          </subNodes>
+                        </li>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+
+            <!--===== Player Mechs =====-->
+            <li Class="ThinkNode_ConditionalPlayerMech">
+              <subNodes>
+
+              <!-- Quickjet Autocast setup -->
+              <li Class="ThinkNode_ConditionalHasAbility">
+                <ability>IM_QuickjetJump_Auto_Setup</ability>
+                <subNodes>
+                  <li Class="ThinkNode_ConditionalHashIntervalTick">
+                    <interval>30</interval>
+                    <subNodes>
+                      <li Class="JobGiver_AICastAbilityOnSelf">
+                        <ability>IM_QuickjetJump_Auto_Setup</ability>
+                      </li>
+                    </subNodes>
+                  </li>
+                </subNodes>
+              </li>
+
+              <!-- Quickjet Jump -->
+              <li Class="EL_IM.ThinkNode_ConditionalCanDoConstantThinkTreeJobDrafted">
+                <subNodes>
+                  <li Class="ThinkNode_ConditionalHashIntervalTick">
+                    <interval>30</interval>
+                    <subNodes>
+                      <li Class="ThinkNode_ConditionalHasHediff">
+                        <hediff>IM_AutocastQuickjet_On</hediff>
+                        <subNodes>
+                          <li Class="ThinkNode_ConditionalHasAbility">
+                            <ability>IM_QuickjetJump</ability>
+                            <subNodes>
+                              <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                <dangerRadius>7</dangerRadius>
+                                <minCount>1</minCount>
+                                <subNodes>
+                                  <li Class="JobGiver_AIJumpEscapeEnemies">
+                                    <ability>IM_QuickjetJump</ability>
+                                  </li>
+                                </subNodes>
+                              </li>
+                            </subNodes>
+                          </li>
+                        </subNodes>
+                      </li>
+                    </subNodes>
+                  </li>
+                </subNodes>
+              </li>
+
+              </subNodes>
+            </li>
+
+         </value>
+        </li>
+
+        <!-- ThinTree Constant -->
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_Skirmisher"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_Berserker"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+        
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_Templar"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+  </Operation>
+
+</Patch>

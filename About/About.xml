@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Invader Mechanoids</name>
+	<author>Elseud</author>
+	<supportedVersions>
+	<li>1.5</li>
+    </supportedVersions>
+    <packageId>EL.InvMech</packageId>
+    <description>todo</description>
+	<modDependencies>
+		<li>
+			<packageId>EBSG.Framework</packageId>
+			<displayName>EBSG Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3112549163</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>EBSG.Framework</li>
+		<li>RelaxedOtter.BetterMechanoidLoot</li>
+	</loadAfter>
+</ModMetaData>

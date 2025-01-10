@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--======= Quickjet =======-->
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>IM_QuickjetFlame</defName>
+    <graphicData>
+      <texPath>Things/Mote/QuickjetFlame</texPath>
+      <shaderType>TransparentPostLight</shaderType>
+      <renderInstanced>true</renderInstanced>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <solidTime>0.2</solidTime>
+    <fadeOutTime>0.05</fadeOutTime>
+    <growthRate>-4</growthRate>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>IM_QuickjetGlow</defName>
+    <graphicData>
+      <texPath>Things/Mote/QuickjetFlame</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <color>(1,0.6,0.6,0.3)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <solidTime>0</solidTime>
+    <fadeOutTime>0.3</fadeOutTime>
+    <growthRate>-3</growthRate>
+  </FleckDef>
+  
+  <EffecterDef>
+    <defName>IM_QuickjetFlight</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <spawnLocType>OnSource</spawnLocType>
+        <soundDef>IM_QuickjetFlight</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <spawnLocType>OnSource</spawnLocType>
+        <fleckDef>ShotFlash</fleckDef>
+        <scale>6</scale>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <scale>0.5~0.6</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionOffset>(0,0,-0.5)</positionOffset>
+        <fleckDef>IM_QuickjetFlame</fleckDef>
+        <ticksBetweenMotes>1</ticksBetweenMotes>
+        <maxMoteCount>14</maxMoteCount>
+        <speed>4~5</speed>
+        <angle>170~190</angle>
+        <absoluteAngle>true</absoluteAngle>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <scale>0.9~0.7</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionOffset>(0,0,-0.5)</positionOffset>
+        <fleckDef>IM_QuickjetGlow</fleckDef>
+        <ticksBetweenMotes>1</ticksBetweenMotes>
+        <maxMoteCount>14</maxMoteCount>
+        <speed>4~5</speed>
+        <angle>160~200</angle>
+        <absoluteAngle>true</absoluteAngle>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <scale>0.8~1.2</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionOffset>(0,0,-0.5)</positionOffset>
+        <fleckDef>JumpSmoke</fleckDef>
+        <ticksBetweenMotes>2</ticksBetweenMotes>
+        <maxMoteCount>8</maxMoteCount>
+        <speed>5~6</speed>
+        <angle>170~190</angle>
+        <absoluteAngle>true</absoluteAngle>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <AbilityDef>
+    <defName>IM_QuickjetJump</defName>
+    <label>quickjet jump</label>
+    <description>todo</description>
+    <iconPath>UI/Abilities/QuickjetJump</iconPath>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <cooldownTicksRange>360</cooldownTicksRange>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityJump</verbClass>
+      <label>quickjet jump</label>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0</warmupTime>
+      <minRange>5.9</minRange>
+      <range>11.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <flightEffecterDef>IM_QuickjetFlight</flightEffecterDef>
+      <soundLanding>IM_QuickjetLanding</soundLanding>
+      <flyWithCarriedThing>false</flyWithCarriedThing>
+      <drawAimPie>false</drawAimPie> 
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <jobDef>CastJump</jobDef>
+  </AbilityDef>
+
+  <!--======= RageDrive =======-->
+  <AbilityDef>
+    <defName>IM_RageDrive</defName>
+    <label>rage drive</label>
+    <description>todo</description>
+    <iconPath>UI/Abilities/RageDrive</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <charges>1</charges>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>True</disableGizmo>
+        <hideGizmo>True</hideGizmo>
+        <casterHasNoneOfHediffs>
+          <li>IM_RageDrive</li>
+        </casterHasNoneOfHediffs>
+      </li>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_RageDrive</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_RageDrive</defName>
+    <label>rage drive</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0.001</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_SeverityChangeWhenDamaged">
+        <severityChangeFactor>0.01</severityChangeFactor>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-12.5</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>dormant</label>
+        <minSeverity>0.001</minSeverity>
+      </li>
+      <li>
+        <label>warming up</label>
+        <minSeverity>0.15</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.6</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeDamageFactor>1.1</MeleeDamageFactor>
+        </statFactors>
+      </li>
+      <li>
+        <label>engaged</label>
+        <minSeverity>0.35</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeCooldownFactor>0.90</MeleeCooldownFactor>
+          <MeleeDamageFactor>1.25</MeleeDamageFactor>
+        </statFactors>
+      </li>
+      <li>
+        <label>fired up</label>
+        <minSeverity>0.6</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1.4</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeCooldownFactor>0.80</MeleeCooldownFactor>
+          <MeleeDamageFactor>1.4</MeleeDamageFactor>
+        </statFactors>
+        <mentalStateGivers>
+          <li>
+            <mentalState>BerserkMechanoid</mentalState>
+            <mtbDays>4</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+      <li>
+        <label>overdrive</label>
+        <minSeverity>0.9</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1.8</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeCooldownFactor>0.7</MeleeCooldownFactor>
+          <MeleeDamageFactor>1.6</MeleeDamageFactor>
+        </statFactors>
+        <mentalStateGivers>
+          <li>
+            <mentalState>BerserkMechanoid</mentalState>
+            <mtbDays>1</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!--======= ZealDrive =======-->
+  <AbilityDef>
+    <defName>IM_ZealDrive</defName>
+    <label>zeal drive</label>
+    <description>todo</description>
+    <iconPath>UI/Abilities/ZealDrive</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <charges>1</charges>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>True</disableGizmo>
+        <hideGizmo>True</hideGizmo>
+        <casterHasNoneOfHediffs>
+          <li>IM_ZealDrive</li>
+        </casterHasNoneOfHediffs>
+      </li>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_ZealDrive</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_ZealDrive</defName>
+    <label>zeal drive</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0.001</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_SeverityChangePerAttack">
+        <changePerRangedAttack>0.0125</changePerRangedAttack>
+        <changePerMeleeAttack>0.2</changePerMeleeAttack>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-12.5</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>idle</label>
+        <minSeverity>0.001</minSeverity>
+      </li>
+      <li>
+        <label>calibrating</label>
+        <minSeverity>0.15</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.3</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.1</MeleeHitChance>
+          <ShootingAccuracyPawn>1.1</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+      <li>
+        <label>active</label>
+        <minSeverity>0.35</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.4</MeleeHitChance>
+          <ShootingAccuracyPawn>1.4</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+      <li>
+        <label>focused</label>
+        <minSeverity>0.6</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.7</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.7</MeleeHitChance>
+          <ShootingAccuracyPawn>1.7</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+      <li>
+        <label>fervent</label>
+        <minSeverity>0.9</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>2</MeleeHitChance>
+          <ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!--======= SystemMerge =======-->
+  <AbilityDef>
+    <defName>IM_SystemMerge</defName>
+    <label>system merge</label>
+    <description>todo</description>
+    <iconPath>UI/Abilities/SystemMerge</iconPath>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+	  <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+	  <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>10000</Ability_Duration>
+    </statBases>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+	  <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <label>system merge</label>
+      <violent>false</violent>
+      <drawAimPie>false</drawAimPie>
+      <range>23.9</range>
+      <warmupTime>1</warmupTime>  
+      <requireLineOfSight>true</requireLineOfSight>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetCorpses>false</canTargetCorpses>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetMutants>false</canTargetMutants>
+        <neverTargetIncapacitated>true</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>False</disableGizmo>
+        <hideGizmo>False</hideGizmo>
+        <targetHasNoneOfHediffs>
+          <li>IM_SystemMerge</li>
+        </targetHasNoneOfHediffs>
+      </li>
+      <li Class="EBSGFramework.CompProperties_CreateLinkedHediff">
+        <targetHediffOnBrain>True</targetHediffOnBrain>
+        <hediffOnTarget>IM_SystemMerge</hediffOnTarget>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithTarget</hediffClass>
+    <defName>IM_SystemMerge</defName>
+    <label>system merge</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-6</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>10000</disappearsAfterTicks>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_HediffsOnRemoval">
+        <hediffsToGive>
+          <li>
+            <hediffDef>IM_SystemDisruption</hediffDef>
+          </li>
+        </hediffsToGive>
+        <validSeverity>0.88</validSeverity>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0.879</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+        <statFactors>
+          <IncomingDamageFactor>0.85</IncomingDamageFactor>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+        <statFactors>
+          <IncomingDamageFactor>0.85</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_SystemDisruption</defName>
+    <label>system disruption</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1800~3600</disappearsAfterTicks>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.3</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>WanderConfused</mentalState>
+            <mtbDays>3</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!--======= Autocasts =======-->
+  <HediffDef>
+    <defName>IM_AutocastSetupDisabler</defName>
+    <label>autocast setup disabler</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!-- Quickjet -->
+  <AbilityDef>
+    <defName>IM_QuickjetJump_Auto_Setup</defName>
+    <label>autocast setup</label>
+    <description>Sets up the autocasts toggles. If you see this, ignore it, it should dissapear shortly.</description>
+    <iconPath>UI/Abilities/Autocast</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <charges>1</charges>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>True</disableGizmo>
+        <hideGizmo>True</hideGizmo>
+        <casterHasNoneOfHediffs>
+          <li>IM_AutocastSetupDisabler</li>
+        </casterHasNoneOfHediffs>
+      </li>
+      <li Class="EBSGFramework.CompProperties_AbilityGiveMultipleHediffs">
+        <hediffsToGive>
+          <li>
+            <hediffDef>IM_AutocastSetupDisabler</hediffDef>
+          </li>
+          <li>
+            <hediffDef>IM_AutocastQuickjet_Off</hediffDef>
+          </li>
+        </hediffsToGive>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_AutocastQuickjet_Off</defName>
+    <label>autocast off</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>IM_AutocastQuickjet_On</abilityDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <AbilityDef>
+    <defName>IM_AutocastQuickjet_On</defName>
+    <label>toggle autocast on</label>
+    <description>Enables quickjet jump's autocast.</description>
+    <iconPath>UI/Abilities/QuickjetJump_AutoOn</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_AutocastQuickjet_On</hediffDef>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <applyToSelf>true</applyToSelf>
+        <hediffDef>IM_AutocastQuickjet_Off</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_AutocastQuickjet_On</defName>
+    <label>autocast on</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>IM_AutocastQuickjet_Off</abilityDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <AbilityDef>
+    <defName>IM_AutocastQuickjet_Off</defName>
+    <label>toggle autocast off</label>
+    <description>Disables quickjet jump's autocast.</description>
+    <iconPath>UI/Abilities/QuickjetJump_AutoOff</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_AutocastQuickjet_Off</hediffDef>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <applyToSelf>true</applyToSelf>
+        <hediffDef>IM_AutocastQuickjet_On</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

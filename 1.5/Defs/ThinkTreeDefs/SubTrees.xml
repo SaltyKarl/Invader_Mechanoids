@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThinkTreeDef>
+    <defName>IM_InvaderConstant</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Despawned</treeDef>
+        </li>
+        <!--===== Universal =====-->
+
+        <!-- RageDrive -->
+        <li Class="ThinkNode_ConditionalSpawned">
+          <subNodes>
+            <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalHasAbility">
+                  <ability>IM_RageDrive</ability>
+                  <subNodes>
+                    <li Class="ThinkNode_ConditionalHashIntervalTick">
+                      <interval>45</interval>
+                      <subNodes>
+                        <li Class="JobGiver_AICastAbilityOnSelf">
+                          <ability>IM_RageDrive</ability>
+                        </li>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!-- ZealDrive -->
+        <li Class="ThinkNode_ConditionalSpawned">
+          <subNodes>
+            <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalHasAbility">
+                  <ability>IM_ZealDrive</ability>
+                  <subNodes>
+                    <li Class="ThinkNode_ConditionalHashIntervalTick">
+                      <interval>45</interval>
+                      <subNodes>
+                        <li Class="JobGiver_AICastAbilityOnSelf">
+                          <ability>IM_ZealDrive</ability>
+                        </li>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!--===== Non-Player Mechs =====-->
+        <li Class="ThinkNode_ConditionalPlayerMech">
+          <invert>true</invert>
+          <subNodes>
+            <li Class="ThinkNode_ConditionalSpawned">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
+                  <subNodes>
+                    <li Class="ThinkNode_ConditionalHashIntervalTick">
+                      <interval>45</interval>
+                      <subNodes>
+
+                        <!-- Quickjet Jump -->
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                          <ability>IM_QuickjetJump</ability>
+                          <subNodes>
+                            <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                              <dangerRadius>7</dangerRadius>
+                              <minCount>1</minCount>
+                              <subNodes>
+                                <li Class="JobGiver_AIJumpEscapeEnemies">
+                                  <ability>IM_QuickjetJump</ability>
+                                </li>
+                              </subNodes>
+                            </li>
+                          </subNodes>
+                        </li>
+
+                        <!-- System Merge -->
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                          <ability>IM_SystemMerge</ability>
+                          <subNodes>
+                            <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                              <dangerRadius>55</dangerRadius>
+                              <minCount>1</minCount>
+                              <subNodes>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalNearbyAllies">
+                                  <radius>17</radius>
+                                  <minCount>1</minCount>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
+                                      <ability>IM_SystemMerge</ability>
+                                      <onlyHostiles>False</onlyHostiles>
+                                      <onlyInFaction>True</onlyInFaction>
+                                      <subNodes>
+                                        <li Class="EL_IM.JobGiver_AICastAbilityOnFactionMembers">
+                                          <ability>IM_SystemMerge</ability>
+                                          <subNodes>
+                                            <li Class="EBSGFramework.ThinkNode_RecordPassage">
+                                            <reportJob>True</reportJob>
+                                            <reportTarget>True</reportTarget>
+                                            </li>
+                                          </subNodes>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+                          </subNodes>
+                        </li>
+                        
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!--===== Player Mechs =====-->
+        <li Class="ThinkNode_ConditionalPlayerMech">
+          <subNodes>
+
+            <!-- Quickjet Autocast setup -->
+            <li Class="ThinkNode_ConditionalHasAbility">
+              <ability>IM_QuickjetJump_Auto_Setup</ability>
+              <subNodes>
+                <li Class="ThinkNode_ConditionalHashIntervalTick">
+                  <interval>30</interval>
+                  <subNodes>
+                    <li Class="JobGiver_AICastAbilityOnSelf">
+                      <ability>IM_QuickjetJump_Auto_Setup</ability>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+
+            <!-- Quickjet Jump -->
+            <li Class="EL_IM.ThinkNode_ConditionalCanDoConstantThinkTreeJobDrafted">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalHashIntervalTick">
+                  <interval>30</interval>
+                  <subNodes>
+                    <li Class="ThinkNode_ConditionalHasHediff">
+                      <hediff>IM_AutocastQuickjet_On</hediff>
+                      <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                          <ability>IM_QuickjetJump</ability>
+                          <subNodes>
+                            <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                              <dangerRadius>7</dangerRadius>
+                              <minCount>1</minCount>
+                              <subNodes>
+                                <li Class="JobGiver_AIJumpEscapeEnemies">
+                                  <ability>IM_QuickjetJump</ability>
+                                </li>
+                              </subNodes>
+                            </li>
+                          </subNodes>
+                        </li>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+  <ThinkTreeDef>
+    <defName>IM_RipperlingConstant</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Despawned</treeDef>
+        </li>
+        <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
+          <subNodes>
+            <li Class="ThinkNode_ConditionalSpawned">
+              <subNodes>
+                <li Class="JobGiver_AIFightEnemies">
+                  <targetAcquireRadius>55</targetAcquireRadius>
+                  <targetKeepRadius>65</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_AITrashColonyClose" />
+                <li Class="JobGiver_AITrashBuildingsDistant" />
+                <li Class="JobGiver_AIGotoNearestHostile" />
+                <li Class="JobGiver_AITrashBuildingsDistant">
+                  <attackAllInert>true</attackAllInert>
+                </li>
+                <li Class="ThinkNode_ConditionalPlayerMech">
+                  <subNodes>
+                    <li Class="JobGiver_WanderColony" />
+                  </subNodes>
+                </li>
+                <li Class="JobGiver_WanderAnywhere" />
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+</Defs>

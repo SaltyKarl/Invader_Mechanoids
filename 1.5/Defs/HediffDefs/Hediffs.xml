@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IW_RipperMechanites</defName>
+    <label>ripper mechanites</label>
+    <description>todo</description>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>0.001</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>3</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>5000</disappearsAfterTicks>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <li Class="EBSGFramework.HediffCompProperties_RemoveAtSeverities">
+        <severity>0.999</severity>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_DamageOnRemoval">
+        <damage>Cut</damage>
+        <amount>15</amount>
+        <minHealthRemaining>1</minHealthRemaining>
+        <severity>0.85</severity>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
+        <pawnKind>IM_Mech_Ripperling</pawnKind>
+        <stage>Newborn</stage>
+        <validSeverity>0.85</validSeverity>
+        <inCreatorFaction>True</inCreatorFaction>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

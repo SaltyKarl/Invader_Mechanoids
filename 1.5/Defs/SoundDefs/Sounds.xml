@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SoundDef>
+    <defName>IM_QuickjetFlight</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Quickjet/QuickjetFlight</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>
+        <pitchRange>1.1~1.3</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_QuickjetLanding</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Quickjet/QuickjetLanding</clipPath>
+          </li>
+        </grains>
+        <volumeRange>15</volumeRange>
+        <pitchRange>0.9~1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>
