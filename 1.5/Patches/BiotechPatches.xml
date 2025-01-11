@@ -89,6 +89,29 @@
                                 </li>
                               </subNodes>
                             </li>
+
+                            <!-- System Merge -->
+                            <li Class="ThinkNode_ConditionalHasAbility">
+                              <ability>IM_SystemMerge</ability>
+                              <subNodes>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                  <dangerRadius>55</dangerRadius>
+                                  <minCount>1</minCount>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
+                                      <ability>IM_SystemMerge</ability>
+                                      <onlyHostiles>False</onlyHostiles>
+                                      <onlyInFaction>True</onlyInFaction>
+                                      <subNodes>
+                                        <li Class="EL_IM.JobGiver_AICastAbilityOnFactionMembers">
+                                          <ability>IM_SystemMerge</ability>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
                         
                           </subNodes>
                         </li>
@@ -103,7 +126,7 @@
             <li Class="ThinkNode_ConditionalPlayerMech">
               <subNodes>
 
-              <!-- Quickjet Autocast setup -->
+              <!-- Quickjet autocast setup -->
               <li Class="ThinkNode_ConditionalHasAbility">
                 <ability>IM_QuickjetJump_Auto_Setup</ability>
                 <subNodes>
@@ -148,13 +171,65 @@
                 </subNodes>
               </li>
 
+              <!-- System Merge autocast setup -->
+              <li Class="ThinkNode_ConditionalHasAbility">
+                <ability>IM_SystemMerge_Auto_Setup</ability>
+                <subNodes>
+                  <li Class="ThinkNode_ConditionalHashIntervalTick">
+                    <interval>30</interval>
+                    <subNodes>
+                      <li Class="JobGiver_AICastAbilityOnSelf">
+                        <ability>IM_SystemMerge_Auto_Setup</ability>
+                      </li>
+                    </subNodes>
+                  </li>
+                </subNodes>
+              </li>
+
+              <!-- System Merge -->
+              <li Class="EL_IM.ThinkNode_ConditionalCanDoConstantThinkTreeJobDrafted">
+                <subNodes>
+                  <li Class="ThinkNode_ConditionalHashIntervalTick">
+                    <interval>30</interval>
+                    <subNodes>
+                      <li Class="ThinkNode_ConditionalHasHediff">
+                        <hediff>IM_AutocastSystemMerge_On</hediff>
+                        <subNodes>
+                          <li Class="ThinkNode_ConditionalHasAbility">
+                            <ability>IM_SystemMerge</ability>
+                            <subNodes>
+                              <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                <dangerRadius>55</dangerRadius>
+                                <minCount>1</minCount>
+                                <subNodes>
+                                  <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
+                                    <ability>IM_SystemMerge</ability>
+                                    <onlyHostiles>False</onlyHostiles>
+                                    <onlyInFaction>True</onlyInFaction>
+                                    <subNodes>
+                                      <li Class="EL_IM.JobGiver_AICastAbilityOnFactionMembers">
+                                        <ability>IM_SystemMerge</ability>
+                                      </li>
+                                    </subNodes>
+                                  </li>
+                                </subNodes>
+                              </li>
+                            </subNodes>
+                          </li>
+                        </subNodes>
+                      </li>
+                    </subNodes>
+                  </li>
+                </subNodes>
+              </li>
+
               </subNodes>
             </li>
 
          </value>
         </li>
 
-        <!-- ThinTree Constant -->
+        <!-- ThinkTree Constant -->
         <li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName = "IM_Mech_Skirmisher"]/race/thinkTreeConstant</xpath>
 					<value>
@@ -171,6 +246,13 @@
         
         <li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName = "IM_Mech_Templar"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_Aide"]/race/thinkTreeConstant</xpath>
 					<value>
             <thinkTreeConstant>MechConstant</thinkTreeConstant>
 					</value>

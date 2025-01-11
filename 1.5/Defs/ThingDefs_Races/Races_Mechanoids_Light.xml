@@ -125,6 +125,7 @@
     </weaponTags>
     <abilities>
       <li>IM_SystemMerge</li>
+      <li>IM_SystemMerge_Auto_Setup</li>
     </abilities>
   </PawnKindDef>
 

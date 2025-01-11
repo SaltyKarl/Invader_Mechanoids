@@ -372,7 +372,7 @@
       <label>system merge</label>
       <violent>false</violent>
       <drawAimPie>false</drawAimPie>
-      <range>23.9</range>
+      <range>24.9</range>
       <warmupTime>1</warmupTime>  
       <requireLineOfSight>true</requireLineOfSight>
       <targetParams>
@@ -391,6 +391,7 @@
       <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
         <disableGizmo>False</disableGizmo>
         <hideGizmo>False</hideGizmo>
+        <noMessage>True</noMessage>
         <targetHasNoneOfHediffs>
           <li>IM_SystemMerge</li>
         </targetHasNoneOfHediffs>
@@ -511,7 +512,7 @@
   <AbilityDef>
     <defName>IM_QuickjetJump_Auto_Setup</defName>
     <label>autocast setup</label>
-    <description>Sets up the autocasts toggles. If you see this, ignore it, it should dissapear shortly.</description>
+    <description>Sets up autocasts toggles. If you see this, ignore it, it should dissapear shortly.</description>
     <iconPath>UI/Abilities/Autocast</iconPath>
     <jobDef>CastAbilityOnThing</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
@@ -668,6 +669,171 @@
         <compClass>CompAbilityEffect_RemoveHediff</compClass>
         <applyToSelf>true</applyToSelf>
         <hediffDef>IM_AutocastQuickjet_On</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- System Merge -->
+  <AbilityDef>
+    <defName>IM_SystemMerge_Auto_Setup</defName>
+    <label>autocast setup</label>
+    <description>Sets up autocasts toggles. If you see this, ignore it, it should dissapear shortly.</description>
+    <iconPath>UI/Abilities/Autocast</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <charges>1</charges>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>True</disableGizmo>
+        <hideGizmo>True</hideGizmo>
+        <casterHasNoneOfHediffs>
+          <li>IM_AutocastSetupDisabler</li>
+        </casterHasNoneOfHediffs>
+      </li>
+      <li Class="EBSGFramework.CompProperties_AbilityGiveMultipleHediffs">
+        <hediffsToGive>
+          <li>
+            <hediffDef>IM_AutocastSetupDisabler</hediffDef>
+          </li>
+          <li>
+            <hediffDef>IM_AutocastSystemMerge_Off</hediffDef>
+          </li>
+        </hediffsToGive>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_AutocastSystemMerge_Off</defName>
+    <label>autocast off</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>IM_AutocastSystemMerge_On</abilityDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <AbilityDef>
+    <defName>IM_AutocastSystemMerge_On</defName>
+    <label>toggle autocast on</label>
+    <description>Enables system merge's autocast.</description>
+    <iconPath>UI/Abilities/SystemMerge_AutoOn</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_AutocastSystemMerge_On</hediffDef>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <applyToSelf>true</applyToSelf>
+        <hediffDef>IM_AutocastSystemMerge_Off</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_AutocastSystemMerge_On</defName>
+    <label>autocast on</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>IM_AutocastSystemMerge_Off</abilityDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <AbilityDef>
+    <defName>IM_AutocastSystemMerge_Off</defName>
+    <label>toggle autocast off</label>
+    <description>Disables system merge's autocast.</description>
+    <iconPath>UI/Abilities/SystemMerge_AutoOff</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_AutocastSystemMerge_Off</hediffDef>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <applyToSelf>true</applyToSelf>
+        <hediffDef>IM_AutocastSystemMerge_On</hediffDef>
       </li>
     </comps>
   </AbilityDef>
