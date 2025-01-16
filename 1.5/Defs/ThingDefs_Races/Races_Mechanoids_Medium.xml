@@ -61,16 +61,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_Skirmisher_Wounded</soundWounded>
+          <soundDeath>Pawn_Skirmisher_Death</soundDeath>
+          <soundCall>Pawn_Skirmisher_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_Skirmisher_Wounded</soundWounded>
+          <soundDeath>Pawn_Skirmisher_Death</soundDeath>
+          <soundCall>Pawn_Skirmisher_Call</soundCall>
         </li>
       </lifeStageAges>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
@@ -122,8 +122,15 @@
     </weaponTags>
     <abilities>
       <li>IM_QuickjetJump</li>
-      <li>IM_QuickjetJump_Auto_Setup</li>
     </abilities>
+    <startingHediffs>
+      <li>
+        <def>IM_AutocastQuickjet_Off</def>
+      </li>
+      <li>
+        <def>IW_Hoverjet</def>
+      </li>
+    </startingHediffs>
   </PawnKindDef>
 
   <!-- Ripper -->
@@ -133,10 +140,10 @@
 		<description>todo</description>
 		<statBases>
 			<MarketValue>1200</MarketValue>
-			<MoveSpeed>4.8</MoveSpeed>
+			<MoveSpeed>4.7</MoveSpeed>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
-			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">2</BandwidthCost>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">3</BandwidthCost>
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">18</ControlTakingTime>
 			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
 			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.33</MechEnergyLossPerHP>
@@ -204,7 +211,7 @@
 		<race>
 			<body>IM_MechanicalChryssalid</body>
 			<mechWeightClass>Medium</mechWeightClass>
-			<baseHealthScale>1.1</baseHealthScale>
+			<baseHealthScale>1.25</baseHealthScale>
 			<intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <baseBodySize>1</baseBodySize>
@@ -237,7 +244,7 @@
     <defName>IM_Mech_Ripper</defName>
     <label>ripper</label>
     <race>IM_Mech_Ripper</race>
-    <combatPower>170</combatPower>
+    <combatPower>180</combatPower>
     <lifeStages>
 	    <li MayRequire="Ludeon.RimWorld.Biotech">
         <bodyGraphicData>

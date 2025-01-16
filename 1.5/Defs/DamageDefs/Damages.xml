@@ -1,12 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <DamageDef>
+    <defName>IW_RipperToxin</defName>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <label>ripper toxin</label>
+    <hasForcefulImpact>false</hasForcefulImpact>
+    <makesBlood>false</makesBlood>
+    <canInterruptJobs>false</canInterruptJobs>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has died of ripper toxin.</deathMessage>
+    <hediff>ChemicalBurn</hediff>
+    <armorCategory>Heat</armorCategory>
+    <defaultDamage>1</defaultDamage>
+    <defaultArmorPenetration>1</defaultArmorPenetration>
+    <canUseDeflectMetalEffect>false</canUseDeflectMetalEffect>
+  </DamageDef>
+  
   <DamageDef ParentName="CutBase">
     <defName>IM_RipperBlade</defName>
     <additionalHediffs>
       <li>
-        <hediff>IW_RipperMechanites</hediff>
-        <severityPerDamageDealt>0.01</severityPerDamageDealt>
+        <hediff>IW_RipperToxin</hediff>
+        <severityPerDamageDealt>0.0125</severityPerDamageDealt>
+        <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
+        <inverseStatScaling>true</inverseStatScaling>
       </li>
     </additionalHediffs>
   </DamageDef>

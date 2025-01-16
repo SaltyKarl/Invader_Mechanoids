@@ -63,16 +63,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_Bombardier_Wounded</soundWounded>
+          <soundDeath>Pawn_Bombardier_Death</soundDeath>
+          <soundCall>Pawn_Bombardier_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_Bombardier_Wounded</soundWounded>
+          <soundDeath>Pawn_Bombardier_Death</soundDeath>
+          <soundCall>Pawn_Bombardier_Call</soundCall>
         </li>
       </lifeStageAges>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
@@ -197,7 +197,7 @@
         <forcedMissRadius>4.5</forcedMissRadius>
         <ai_AvoidFriendlyFireRadius>4</ai_AvoidFriendlyFireRadius>
         <minRange>9.9</minRange>
-        <soundCast>Shot_ChargeBlaster</soundCast>
+        <soundCast>IM_ChargeHoitzerShot</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>14</muzzleFlashScale>
         <defaultCooldownTime>10</defaultCooldownTime>
@@ -214,8 +214,9 @@
     <defName>IM_Bullet_ChargeShell</defName>
     <label>charge shell</label>
     <graphicData>
-      <texPath>Things/Projectile/ShellHighExplosive</texPath>
+      <texPath>Things/Projectile/ChargeShell</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.1</drawSize>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
     <thingClass>Projectile_Explosive</thingClass>

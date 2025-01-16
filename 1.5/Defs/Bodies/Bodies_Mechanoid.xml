@@ -118,12 +118,12 @@
             <li>
               <def>IM_ReinforcedMechanicalArm</def>
               <customLabel>left arm</customLabel>
-              <coverage>0.85</coverage>
+              <coverage>0.8</coverage>
               <parts>
                 <li>
                   <def>MechanicalHand</def>
                   <customLabel>left hand</customLabel>
-                  <coverage>0.2</coverage>
+                  <coverage>0.25</coverage>
                   <height>Bottom</height>
                   <parts>
                     <li>
@@ -173,12 +173,12 @@
             <li>
               <def>IM_ReinforcedMechanicalArm</def>
               <customLabel>right arm</customLabel>
-              <coverage>0.85</coverage>
+              <coverage>0.8</coverage>
               <parts>
                 <li>
                   <def>MechanicalHand</def>
                   <customLabel>right hand</customLabel>
-                  <coverage>0.2</coverage>
+                  <coverage>0.25</coverage>
                   <height>Bottom</height>
                   <parts>
                     <li>
@@ -502,7 +502,7 @@
   <!--======== Floater ========-->
   <BodyPartDef>
     <defName>IM_HoverThorax</defName>
-    <label>hover thorax</label>
+    <label>hover-thorax</label>
     <hitPoints>60</hitPoints>
     <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>

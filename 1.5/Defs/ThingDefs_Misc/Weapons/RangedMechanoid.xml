@@ -96,7 +96,7 @@
         <range>19.9</range>
         <burstShotCount>3</burstShotCount>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-        <soundCast>Shot_ChargeBlaster</soundCast>
+        <soundCast>IM_MiniBlasterShot</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>

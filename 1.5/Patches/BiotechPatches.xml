@@ -15,53 +15,6 @@
           <xpath>Defs/ThinkTreeDef[defName = "MechConstant"]/thinkRoot/subNodes</xpath>
           <value>
 
-            <!--===== Universal =====-->
-            <!-- RageDrive -->
-            <li Class="ThinkNode_ConditionalSpawned">
-              <subNodes>
-                <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
-                  <subNodes>
-                    <li Class="ThinkNode_ConditionalHasAbility">
-                      <ability>IM_RageDrive</ability>
-                      <subNodes>
-                        <li Class="ThinkNode_ConditionalHashIntervalTick">
-                          <interval>45</interval>
-                          <subNodes>
-                            <li Class="JobGiver_AICastAbilityOnSelf">
-                              <ability>IM_RageDrive</ability>
-                            </li>
-                          </subNodes>
-                        </li>
-                      </subNodes>
-                    </li>
-                  </subNodes>
-                </li>
-              </subNodes>
-            </li>
-
-            <!-- ZealDrive -->
-            <li Class="ThinkNode_ConditionalSpawned">
-              <subNodes>
-                <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
-                  <subNodes>
-                    <li Class="ThinkNode_ConditionalHasAbility">
-                      <ability>IM_ZealDrive</ability>
-                      <subNodes>
-                        <li Class="ThinkNode_ConditionalHashIntervalTick">
-                          <interval>45</interval>
-                          <subNodes>
-                            <li Class="JobGiver_AICastAbilityOnSelf">
-                              <ability>IM_ZealDrive</ability>
-                            </li>
-                          </subNodes>
-                        </li>
-                      </subNodes>
-                    </li>
-                  </subNodes>
-                </li>
-              </subNodes>
-            </li>
-
             <!--===== Non-Player Mechs =====-->
             <li Class="ThinkNode_ConditionalPlayerMech">
               <invert>true</invert>
@@ -95,7 +48,7 @@
                               <ability>IM_SystemMerge</ability>
                               <subNodes>
                                 <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
-                                  <dangerRadius>55</dangerRadius>
+                                  <dangerRadius>40</dangerRadius>
                                   <minCount>1</minCount>
                                   <subNodes>
                                     <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
@@ -126,21 +79,6 @@
             <li Class="ThinkNode_ConditionalPlayerMech">
               <subNodes>
 
-              <!-- Quickjet autocast setup -->
-              <li Class="ThinkNode_ConditionalHasAbility">
-                <ability>IM_QuickjetJump_Auto_Setup</ability>
-                <subNodes>
-                  <li Class="ThinkNode_ConditionalHashIntervalTick">
-                    <interval>30</interval>
-                    <subNodes>
-                      <li Class="JobGiver_AICastAbilityOnSelf">
-                        <ability>IM_QuickjetJump_Auto_Setup</ability>
-                      </li>
-                    </subNodes>
-                  </li>
-                </subNodes>
-              </li>
-
               <!-- Quickjet Jump -->
               <li Class="EL_IM.ThinkNode_ConditionalCanDoConstantThinkTreeJobDrafted">
                 <subNodes>
@@ -154,7 +92,7 @@
                             <ability>IM_QuickjetJump</ability>
                             <subNodes>
                               <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
-                                <dangerRadius>7</dangerRadius>
+                                <dangerRadius>6</dangerRadius>
                                 <minCount>1</minCount>
                                 <subNodes>
                                   <li Class="JobGiver_AIJumpEscapeEnemies">
@@ -165,21 +103,6 @@
                             </subNodes>
                           </li>
                         </subNodes>
-                      </li>
-                    </subNodes>
-                  </li>
-                </subNodes>
-              </li>
-
-              <!-- System Merge autocast setup -->
-              <li Class="ThinkNode_ConditionalHasAbility">
-                <ability>IM_SystemMerge_Auto_Setup</ability>
-                <subNodes>
-                  <li Class="ThinkNode_ConditionalHashIntervalTick">
-                    <interval>30</interval>
-                    <subNodes>
-                      <li Class="JobGiver_AICastAbilityOnSelf">
-                        <ability>IM_SystemMerge_Auto_Setup</ability>
                       </li>
                     </subNodes>
                   </li>
@@ -199,7 +122,7 @@
                             <ability>IM_SystemMerge</ability>
                             <subNodes>
                               <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
-                                <dangerRadius>55</dangerRadius>
+                                <dangerRadius>40</dangerRadius>
                                 <minCount>1</minCount>
                                 <subNodes>
                                   <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
@@ -238,25 +161,378 @@
 				</li>
 
         <li Class="PatchOperationReplace">
-					<xpath>Defs/ThingDef[defName = "IM_Mech_Berserker"]/race/thinkTreeConstant</xpath>
-					<value>
-            <thinkTreeConstant>MechConstant</thinkTreeConstant>
-					</value>
-				</li>
-        
-        <li Class="PatchOperationReplace">
-					<xpath>Defs/ThingDef[defName = "IM_Mech_Templar"]/race/thinkTreeConstant</xpath>
-					<value>
-            <thinkTreeConstant>MechConstant</thinkTreeConstant>
-					</value>
-				</li>
-
-        <li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName = "IM_Mech_Aide"]/race/thinkTreeConstant</xpath>
 					<value>
             <thinkTreeConstant>MechConstant</thinkTreeConstant>
 					</value>
 				</li>
+
+        <!-- Gestation and resurrection -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/RecipeDef[defName = "ResurrectLightMech"]/fixedIngredientFilter/thingDefs</xpath>
+          <value>
+            <li>Corpse_IM_Mech_Aide</li>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/RecipeDef[defName = "ResurrectMediumMech"]/fixedIngredientFilter/thingDefs</xpath>
+          <value>
+            <li>Corpse_IM_Mech_Skirmisher</li>
+            <li>Corpse_IM_Mech_Ripper</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/RecipeDef[defName = "ResurrectHeavyMech"]/fixedIngredientFilter/thingDefs</xpath>
+          <value>
+            <li>Corpse_IM_Mech_Templar</li>
+            <li>Corpse_IM_Mech_Berserker</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/RecipeDef[defName = "ResurrectUltraheavyMech"]/fixedIngredientFilter/thingDefs</xpath>
+          <value>
+            <li>Corpse_IM_Mech_Bombardier</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName = "MechGestator"]/recipes</xpath>
+          <value>
+            <li>IM_Aide</li>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName = "LargeMechGestator"]/recipes</xpath>
+          <value>
+            <li>IM_Skirmisher</li>
+            <li>IM_Ripper</li>
+            <li>IM_Templar</li>
+            <li>IM_Berserker</li>
+            <li>IM_Bombardier</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            
+            <!-- Aide -->
+            <RecipeDef ParentName="LightMechanoidRecipe">
+              <defName>IM_Aide</defName>
+              <label>gestate aide</label>
+              <description>Gestate an aide mechanoid.</description>
+              <researchPrerequisite>HighMechtech</researchPrerequisite>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>65</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreHigh</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Aide>1</IM_Mech_Aide>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Aide</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+
+            <!-- Aide -->
+            <RecipeDef ParentName="LightMechanoidRecipe">
+              <defName>IM_Aide</defName>
+              <label>gestate aide</label>
+              <description>Gestate an aide mechanoid.</description>
+              <researchPrerequisite>HighMechtech</researchPrerequisite>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>65</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreHigh</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Aide>1</IM_Mech_Aide>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Aide</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+
+            <!-- Skirmisher -->
+            <RecipeDef ParentName="MediumMechanoidRecipe">
+              <defName>IM_Skirmisher</defName>
+              <label>gestate skirmisher</label>
+              <description>Gestate a skirmisher mechanoid.</description>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>65</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Plasteel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>65</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>ComponentIndustrial</li>
+                    </thingDefs>
+                  </filter>
+                 <count>4</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreRegular</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Skirmisher>1</IM_Mech_Skirmisher>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Skirmisher</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+
+            <!-- Ripper -->
+            <RecipeDef ParentName="MediumMechanoidRecipe">
+              <defName>IM_Ripper</defName>
+              <label>gestate ripper</label>
+              <description>Gestate a ripper mechanoid.</description>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>90</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Plasteel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>80</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>ComponentIndustrial</li>
+                    </thingDefs>
+                  </filter>
+                 <count>4</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreRegular</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Ripper>1</IM_Mech_Ripper>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Ripper</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+
+            <!-- Templar -->
+            <RecipeDef ParentName="HeavyMechanoidRecipe">
+              <defName>IM_Templar</defName>
+              <label>gestate templar</label>
+              <description>Gestate a templar mechanoid.</description>
+              <researchPrerequisite>HighMechtech</researchPrerequisite>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>150</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Plasteel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>150</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>ComponentIndustrial</li>
+                    </thingDefs>
+                  </filter>
+                 <count>6</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreHigh</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Templar>1</IM_Mech_Templar>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Templar</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+
+            <!-- Berserker -->
+            <RecipeDef ParentName="HeavyMechanoidRecipe">
+              <defName>IM_Berserker</defName>
+              <label>gestate berserker</label>
+              <description>Gestate a berserker mechanoid.</description>
+              <researchPrerequisite>HighMechtech</researchPrerequisite>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>150</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Plasteel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>150</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>ComponentIndustrial</li>
+                    </thingDefs>
+                  </filter>
+                 <count>6</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreHigh</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Berserker>1</IM_Mech_Berserker>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Berserker</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+
+            <!-- Bombardier -->
+            <RecipeDef ParentName="HeavyMechanoidRecipe">
+              <defName>IM_Bombardier</defName>
+              <label>gestate bombardier</label>
+              <description>Gestate a bombardier mechanoid.</description>
+              <gestationCycles>10</gestationCycles>
+              <researchPrerequisite>HighMechtech</researchPrerequisite>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>300</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Plasteel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>300</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SignalChip</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>ComponentSpacer</li>
+                    </thingDefs>
+                  </filter>
+                 <count>3</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreHigh</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Berserker>1</IM_Mech_Berserker>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Berserker</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+            
+          </value>
+        </li>
 
 			</operations>
 		</match>

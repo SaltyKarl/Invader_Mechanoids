@@ -1,39 +1,349 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   
+  <!--======= Hoverjet =======-->
   <HediffDef>
     <hediffClass>HediffWithComps</hediffClass>
-    <defName>IW_RipperMechanites</defName>
-    <label>ripper mechanites</label>
-    <description>todo</description>
+    <defName>IW_Hoverjet</defName>
+    <label>hoverjet</label>
+    <description>A built-in hoverjet, allowing to effortlessly glide above traps and even the harshest terrain.</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
     <scenarioCanAdd>false</scenarioCanAdd>
-    <initialSeverity>0.001</initialSeverity>
-    <minSeverity>0.001</minSeverity>
+    <initialSeverity>1</initialSeverity>
+    <defaultInstallPart>IM_HoverThorax</defaultInstallPart>
+    <keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_TerrainCostOverride">
+        <universalCostOverride>0</universalCostOverride>    
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <TrapSpringChance>0</TrapSpringChance>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <!--======= RipperToxin =======-->
+  
+  <!-- Hediff -->
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IW_RipperToxin</defName>
+    <label>ripper toxin</label>
+    <description>Mechanite toxin coursing through the body. Using the victim as an impromptu mech gestator, it dissolves the host body for materials, continously damaging them. Should the gestation finish or the host die near its completion, a freshly formed ripperling will cut its way out of the victim to join the fray.\n\nBeing a toxin, its buildup can be resisted with certain genes and implants.</description>
+    <scenarioCanAdd>false</scenarioCanAdd>
     <maxSeverity>1</maxSeverity>
+    <canApplyDodChanceForCapacityChanges>true</canApplyDodChanceForCapacityChanges>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>3</severityPerDay>
+        <severityPerDay>6</severityPerDay>
       </li>
       <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>5000</disappearsAfterTicks>
+        <disappearsAfterTicks>2500</disappearsAfterTicks>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <li Class="EBSGFramework.HediffCompProperties_DisplaySeverity">
+        <postFactor>100</postFactor>
+        <prependString>Gestation progress : </prependString>
+        <appendString>% complete</appendString>
+        <roundDigits>0</roundDigits>
+      </li>
       <li Class="EBSGFramework.HediffCompProperties_RemoveAtSeverities">
         <severity>0.999</severity>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_DamageOnRemoval">
         <damage>Cut</damage>
-        <amount>15</amount>
+        <amount>25</amount>
         <minHealthRemaining>1</minHealthRemaining>
         <severity>0.85</severity>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
         <pawnKind>IM_Mech_Ripperling</pawnKind>
         <stage>Newborn</stage>
+        <effecter>IM_RipperlingEmerge</effecter>
         <validSeverity>0.85</validSeverity>
         <inCreatorFaction>True</inCreatorFaction>
       </li>
+      <li Class="EBSGFramework.HediffCompProperties_DamageOverTime">
+        <damage>IW_RipperToxin</damage>
+        <tickInterval>120</tickInterval>
+        <damageAmount>1</damageAmount>
+        <armorPenetration>2</armorPenetration>
+        <createFilth>False</createFilth>
+      </li>
     </comps>
   </HediffDef>
+
+  <!-- Effects -->
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>IM_BloodChurnNoise</defName>
+    <graphicData>
+      <texPath>Things/Mote/WaterChurnNoise</texPath>
+      <renderInstanced>true</renderInstanced>
+      <shaderParameters>
+        <_Color2>(0.8, 0, 0, 0.5)</_Color2>
+      </shaderParameters>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.1</fadeInTime>
+    <solidTime>0.6</solidTime>
+    <fadeOutTime>0.3</fadeOutTime>
+  </FleckDef>
+
+  <EffecterDef>
+    <defName>IM_RipperlingEmerge</defName>
+    <maintainTicks>60</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>IM_RipperlingCutOut</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <chancePeriodTicks>5</chancePeriodTicks>
+        <lifespanMaxTicks>15</lifespanMaxTicks>
+        <chancePerTick>0.7</chancePerTick>
+        <fleckDef>BloodSplash</fleckDef>
+        <burstCount>2~3</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>0</positionRadius>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <scale>0.8~1.2</scale>
+        <absoluteAngle>True</absoluteAngle>
+        <rotationRate>0</rotationRate>
+        <rotation>0</rotation>
+        <speed>0</speed>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>IM_BloodChurnNoise</fleckDef>
+        <burstCount>10~12</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>.5</positionRadius>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <scale>0.4~0.6</scale>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <absoluteAngle>false</absoluteAngle>
+        <rotationRate>30~50</rotationRate>
+        <rotation>0</rotation>
+        <speed>-3~3</speed>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <!--======= ZealDrive =======-->
+  
+  <!-- Hediff -->
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_ZealDrive</defName>
+    <label>zeal drive</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0.001</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_SeverityChangePerAttack">
+        <changePerRangedAttack>0.02</changePerRangedAttack>
+        <changePerMeleeAttack>0.2</changePerMeleeAttack>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-8</severityPerDay>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_AttachMote">
+        <moteDef>IM_ZealDriveGlow</moteDef>
+        <color>(0.8, 0, 0)</color>
+        <brightnessBySeverity>true</brightnessBySeverity>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_DisplaySeverity">
+        <postFactor>100</postFactor>
+        <prependString>Intensity : </prependString>
+        <appendString>%</appendString>
+        <roundDigits>0</roundDigits>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>dormant</label>
+        <minSeverity>0.001</minSeverity>
+      </li>
+      <li>
+        <minSeverity>0.15</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.3</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.1</MeleeHitChance>
+          <ShootingAccuracyPawn>1.1</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>0.35</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.25</MeleeHitChance>
+          <ShootingAccuracyPawn>1.25</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>0.6</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.7</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.4</MeleeHitChance>
+          <ShootingAccuracyPawn>1.4</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>0.9</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeHitChance>1.6</MeleeHitChance>
+          <ShootingAccuracyPawn>1.6</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Effects -->
+  <ThingDef ParentName="MoteBase">
+    <defName>IM_ZealDriveGlow</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.8</fadeInTime>
+      <solidTime>0.3</solidTime>
+      <fadeOutTime>0.8</fadeOutTime>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_MoteWithParentRotation</graphicClass>
+      <texPath>Things/Mote/Templar_HeadGlow</texPath>
+      <shaderType>MoteGlowParentRotation</shaderType>
+      <drawSize>(2.2, 2.2)</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <!--======= RageDrive =======-->
+  
+  <!-- Hediff -->
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_RageDrive</defName>
+    <label>rage drive</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0.001</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_SeverityChangeWhenDamaged">
+        <severityChangeFactor>0.0125</severityChangeFactor>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-8</severityPerDay>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_AttachMote">
+        <moteDef>IM_RageDriveGlow</moteDef>
+        <color>(0.8, 0, 0)</color>
+        <brightnessBySeverity>true</brightnessBySeverity>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_DisplaySeverity">
+        <postFactor>100</postFactor>
+        <prependString>Intensity : </prependString>
+        <appendString>%</appendString>
+        <roundDigits>0</roundDigits>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>dormant</label>
+        <minSeverity>0.001</minSeverity>
+      </li>
+      <li>
+        <minSeverity>0.15</minSeverity>
+        <statOffsets>
+          <MoveSpeed>0.6</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeDamageFactor>1.1</MeleeDamageFactor>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>0.35</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeCooldownFactor>0.90</MeleeCooldownFactor>
+          <MeleeDamageFactor>1.25</MeleeDamageFactor>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>0.6</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1.4</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeCooldownFactor>0.80</MeleeCooldownFactor>
+          <MeleeDamageFactor>1.4</MeleeDamageFactor>
+        </statFactors>
+        <mentalStateGivers>
+          <li>
+            <mentalState>BerserkMechanoid</mentalState>
+            <mtbDays>2.5</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+      <li>
+        <minSeverity>0.9</minSeverity>
+        <statOffsets>
+          <MoveSpeed>1.8</MoveSpeed>
+        </statOffsets>
+        <statFactors>
+          <MeleeCooldownFactor>0.7</MeleeCooldownFactor>
+          <MeleeDamageFactor>1.6</MeleeDamageFactor>
+        </statFactors>
+        <mentalStateGivers>
+          <li>
+            <mentalState>BerserkMechanoid</mentalState>
+            <mtbDays>0.7</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Effects -->
+  <ThingDef ParentName="MoteBase">
+    <defName>IM_RageDriveGlow</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.8</fadeInTime>
+      <solidTime>0.3</solidTime>
+      <fadeOutTime>0.8</fadeOutTime>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_MoteWithParentRotation</graphicClass>
+      <texPath>Things/Mote/Berserker_HeadGlow</texPath>
+      <shaderType>MoteGlowParentRotation</shaderType>
+      <drawSize>(2.5, 2.5)</drawSize>
+    </graphicData>
+  </ThingDef>
 
 </Defs>

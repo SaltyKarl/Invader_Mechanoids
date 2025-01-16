@@ -61,16 +61,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_MechLight_Wounded</soundWounded>
+          <soundDeath>Pawn_MechLight_Death</soundDeath>
+          <soundCall>Pawn_MechLight_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_MechLight_Wounded</soundWounded>
+          <soundDeath>Pawn_MechLight_Death</soundDeath>
+          <soundCall>Pawn_MechLight_Call</soundCall>
         </li>
       </lifeStageAges>
       <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
@@ -96,7 +96,7 @@
           <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Aide</maskPath>
           <shaderType>CutoutWithOverlay</shaderType>
           <graphicClass>Graphic_Multi</graphicClass>
-          <drawSize>2</drawSize>
+          <drawSize>2.1</drawSize>
           <shadowData>
               <volume>(0.3, 0.4, 0.3)</volume>
               <offset>(0,0,-0.25)</offset>
@@ -109,7 +109,7 @@
           <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Aide</maskPath>
           <shaderType>CutoutWithOverlay</shaderType>
           <graphicClass>Graphic_Multi</graphicClass>
-          <drawSize>2</drawSize>
+          <drawSize>2.1</drawSize>
           <shadowData>
               <volume>(0.3, 0.4, 0.3)</volume>
               <offset>(0,0,-0.25)</offset>
@@ -125,8 +125,12 @@
     </weaponTags>
     <abilities>
       <li>IM_SystemMerge</li>
-      <li>IM_SystemMerge_Auto_Setup</li>
     </abilities>
+    <startingHediffs>
+      <li>
+        <def>IM_AutocastSystemMerge_Off</def>
+      </li>
+    </startingHediffs>
   </PawnKindDef>
 
   <!-- Ripperling -->
@@ -217,16 +221,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_Ripperling_Wounded</soundWounded>
+          <soundDeath>Pawn_Ripperling_Death</soundDeath>
+          <soundCall>Pawn_Ripperling_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_Ripperling_Wounded</soundWounded>
+          <soundDeath>Pawn_Ripperling_Death</soundDeath>
+          <soundCall>Pawn_Ripperling_Call</soundCall>
         </li>
       </lifeStageAges>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
@@ -246,7 +250,7 @@
       </li>
     </comps>
 		<butcherProducts>
-		    <Steel>10</Steel>
+		    <Steel>5</Steel>
 		</butcherProducts>
   </ThingDef>
 
