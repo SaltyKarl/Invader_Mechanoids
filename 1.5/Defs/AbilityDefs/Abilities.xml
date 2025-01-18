@@ -347,7 +347,7 @@
       </li>
       <li Class="HediffCompProperties_Link">
         <requireLinkOnOtherPawn>false</requireLinkOnOtherPawn>
-        <maxDistance>21</maxDistance>
+        <maxDistance>40</maxDistance>
         <customMote>IM_SystemMergeLink</customMote>
       </li>
     </comps>
@@ -383,6 +383,7 @@
     <comps>
       <li Class="HediffCompProperties_Disappears">
         <disappearsAfterTicks>1800~3600</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
     </comps>
