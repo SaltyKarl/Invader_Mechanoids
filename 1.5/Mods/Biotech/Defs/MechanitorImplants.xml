@@ -149,6 +149,7 @@
     <description>Psychically interlink with a mechanoid's system, boosting its data processing and mobility, while reducing incoming damage by acting as backup for critical subsystems. Unlike a similar connection between mechanoids, system interlink between a mechanoid and a human will not cause adverse effects if ended prematurely.</description>
     <iconPath>UI/Abilities/SystemInterlink</iconPath>
     <charges>2</charges>
+    <cooldownPerCharge>true</cooldownPerCharge>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
 	  <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
 	  <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
@@ -207,6 +208,7 @@
     <description>Psychically interlink with a mechanoid's system, boosting its data processing and mobility, while reducing incoming damage by acting as backup for critical subsystems. Unlike a similar connection between mechanoids, system interlink between a mechanoid and a human will not cause adverse effects if ended prematurely.</description>
     <iconPath>UI/Abilities/SystemInterlink</iconPath>
     <charges>3</charges>
+    <cooldownPerCharge>true</cooldownPerCharge>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
 	  <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
 	  <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
