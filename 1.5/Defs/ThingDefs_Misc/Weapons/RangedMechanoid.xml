@@ -5,7 +5,7 @@
   <ThingDef ParentName="BaseGun">
     <defName>IM_Gun_TripleNeedler</defName>
     <label>triple needler</label>
-    <description>todo</description>
+    <description>An upscaled version of the needle gun sporting three barrels. It fires in three-shot bursts of high velocity, needle-like projectiles over great distances. Compared to its lighter counterparts, it's significantly heavier and less accurate, able to be mounted only on ultra-heavy mechanoids.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/TripleNeedler</texPath>
@@ -62,7 +62,7 @@
   <ThingDef ParentName="BaseGun">
     <defName>IM_Gun_MiniBlaster</defName>
     <label>mini-blaster</label>
-    <description>todo</description>
+    <description>A miniature pulse-charged blaster designed to integrate into the forearm of a light support mechanoid. Intended for self-defense rather than combat, it lacks in stopping power and damage.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/MiniBlaster</texPath>
@@ -134,7 +134,7 @@
   <ThingDef ParentName="BaseGun">
     <defName>IM_Gun_ChargeCleaver</defName>
     <label>charge cleaver</label>
-    <description>todo</description>
+    <description>A pulse-charged blaster designed for medium to short-range combat. The bladed ends of the reinforced structure around the barrel can be used in melee as a heavy slashing weapon.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/ChargeCleaver</texPath>
@@ -199,7 +199,7 @@
   <ThingDef ParentName="BaseGun">
     <defName>IM_Gun_ChargeRepeater</defName>
     <label>charge repeater</label>
-    <description>todo</description>
+    <description>A light pulse-charged blaster designed to be mounted on an agile combat mechanoid. Its lightweight frame makes it fairly accurate and easy to aim, but leaves little room for cooling, preventing firing in prolonged bursts.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/ChargeRepeater</texPath>
@@ -210,12 +210,12 @@
     <relicChance>0</relicChance>
     <statBases>
       <MarketValue>1400</MarketValue>
-      <Mass>3</Mass>
+      <Mass>2</Mass>
       <AccuracyTouch>0.8</AccuracyTouch>
       <AccuracyShort>0.7</AccuracyShort>
-      <AccuracyMedium>0.3</AccuracyMedium>
-      <AccuracyLong>0.25</AccuracyLong>
-      <RangedWeapon_Cooldown>1.55</RangedWeapon_Cooldown>
+      <AccuracyMedium>0.5</AccuracyMedium>
+      <AccuracyLong>0.3</AccuracyLong>
+      <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IM_ChargeRepeater</li>
@@ -229,7 +229,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>IM_Bullet_ChargeRepeater</defaultProjectile>
-        <warmupTime>1.2</warmupTime>
+        <warmupTime>1.5</warmupTime>
         <range>22.9</range>
         <burstShotCount>4</burstShotCount>
         <ticksBetweenBurstShots>9</ticksBetweenBurstShots>

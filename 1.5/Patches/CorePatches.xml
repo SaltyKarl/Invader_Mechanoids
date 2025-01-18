@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+    <value>
+      <li>
+        <!-- Infantry -->
+        <kindDef>Combat</kindDef>
+        <commonality>60</commonality>
+        <options>
+          <Mech_Pikeman>5</Mech_Pikeman>
+          <Mech_Lancer>5</Mech_Lancer>
+          <Mech_Scyther>5</Mech_Scyther>
+          <IM_Mech_Skirmisher>7</IM_Mech_Skirmisher>
+          <IM_Mech_Ripper>7</IM_Mech_Ripper>
+		      <IM_Mech_Aide>12</IM_Mech_Aide>
+		      <Mech_Militor MayRequire="Ludeon.RimWorld.Biotech">12</Mech_Militor>
+          <Mech_Scorcher MayRequire="Ludeon.RimWorld.Biotech">5</Mech_Scorcher>
+		      <Mech_Tesseron MayRequire="Ludeon.RimWorld.Biotech">3</Mech_Tesseron>
+		      <Mech_Legionary MayRequire="Ludeon.RimWorld.Biotech">2</Mech_Legionary>
+        </options>
+      </li>
+      <li>
+        <!-- Heavy Infantry -->
+        <kindDef>Combat</kindDef>
+        <commonality>50</commonality>
+        <options>
+          <Mech_Pikeman>7</Mech_Pikeman>
+          <Mech_Lancer>7</Mech_Lancer>
+          <Mech_Scyther>7</Mech_Scyther>
+          <IM_Mech_Templar>5</IM_Mech_Templar>
+          <IM_Mech_Berserker>5</IM_Mech_Berserker>
+		      <Mech_Tesseron MayRequire="Ludeon.RimWorld.Biotech">3</Mech_Tesseron>
+		      <Mech_Legionary MayRequire="Ludeon.RimWorld.Biotech">2</Mech_Legionary>
+        </options>
+      </li>
+	    <li>
+        <!-- Assault -->
+        <kindDef>Combat</kindDef>
+        <commonality>40</commonality>
+        <options>
+          <IM_Mech_Aide>30</IM_Mech_Aide>
+          <IM_Mech_Skirmisher>25</IM_Mech_Skirmisher>
+          <IM_Mech_Ripper>25</IM_Mech_Ripper>
+          <IM_Mech_Templar>20</IM_Mech_Templar>
+          <IM_Mech_Berserker>20</IM_Mech_Berserker>
+          <IM_Mech_Bombardier>10</IM_Mech_Bombardier>
+          <Mech_CentipedeBlaster>15</Mech_CentipedeBlaster>
+		      <Mech_CentipedeGunner>15</Mech_CentipedeGunner>
+		      <Mech_CentipedeBurner>15</Mech_CentipedeBurner>
+		      <Mech_Centurion MayRequire="Ludeon.RimWorld.Biotech">2</Mech_Centurion>
+        </options>
+      </li>
+      <li>
+        <!-- Aide Only -->
+        <kindDef>Combat</kindDef>
+        <commonality>30</commonality>
+        <options>
+          <IM_Mech_Aide>10</IM_Mech_Aide>
+        </options>
+      </li>	
+      <li>
+        <!-- Allstars -->
+        <kindDef>Combat</kindDef>
+        <commonality>30</commonality>
+        <options>
+          <IM_Mech_Aide>25</IM_Mech_Aide>
+          <IM_Mech_Skirmisher>20</IM_Mech_Skirmisher>
+          <IM_Mech_Ripper>20</IM_Mech_Ripper>
+		      <IM_Mech_Berserker>10</IM_Mech_Berserker>
+          <IM_Mech_Templar>10</IM_Mech_Templar>
+          <IM_Mech_Bombardier>5</IM_Mech_Bombardier>
+        </options>
+      </li>	
+    </value>
+  </Operation> 
+</Patch>

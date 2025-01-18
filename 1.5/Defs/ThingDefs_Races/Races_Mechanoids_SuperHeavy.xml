@@ -5,16 +5,17 @@
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Bombardier</defName>
 		<label>bombardier</label>
-		<description>todo</description>
+		<description>A clunky, ultra-heavy combat mechanoid designed as an artillery platform. Carrying a charge howitzer turret on its back, the bombardier acts as a siegebreaker, raining fire upon enemy emplacements on approach. Its cumbersome frame and unusually thin armor make it vulnerable in close-quarters combat.</description>
 		<statBases>
 			<MarketValue>1600</MarketValue>
 			<MoveSpeed>1.7</MoveSpeed>
 			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+      <PsychicSensitivity>0.75</PsychicSensitivity>
 			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">5</BandwidthCost>
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">30</ControlTakingTime>
 			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
-			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.2</MechEnergyLossPerHP>
+			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.15</MechEnergyLossPerHP>
 			<WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">5</WastepacksPerRecharge>
 		</statBases>
 		<tools>
@@ -58,7 +59,7 @@
 			<baseHealthScale>2.6</baseHealthScale>
 			<intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
-      <baseBodySize>3.7</baseBodySize>
+      <baseBodySize>4</baseBodySize>
 			<lifeStageAges>
         <li>
           <def>MechanoidFullyFormed</def>
@@ -169,6 +170,7 @@
     <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
     <techHediffsMoney>9999~9999</techHediffsMoney>
     <weaponMoney>9999~9999</weaponMoney>
+    <controlGroupPortraitZoom>0.55</controlGroupPortraitZoom>
     <weaponTags>
       <li>IM_TripleNeedler</li>
     </weaponTags>
@@ -177,7 +179,7 @@
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>IM_Gun_ChargeHowitzer</defName>
     <label>charge howitzer</label>
-    <description>todo</description>
+    <description>A relatively short-range rail-assisted artillery gun designed as part of a mechanoid-mounted turret. Due to limited ordnance space, the fired warhead is smaller and less damaging compared to those of a stationary mortar.</description>
     <tradeability>None</tradeability>
     <destroyOnDrop>true</destroyOnDrop>
     <graphicData>
@@ -216,14 +218,14 @@
     <graphicData>
       <texPath>Things/Projectile/ChargeShell</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>1.1</drawSize>
+      <drawSize>0.9</drawSize>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
     <thingClass>Projectile_Explosive</thingClass>
     <projectile>
       <damageDef>Bomb</damageDef>
       <damageAmountBase>30</damageAmountBase>
-      <speed>45</speed>
+      <speed>55</speed>
       <explosionRadius>2.9</explosionRadius>
       <flyOverhead>true</flyOverhead>
       <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>

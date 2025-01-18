@@ -219,38 +219,6 @@
         <li Class="PatchOperationAdd">
           <xpath>Defs</xpath>
           <value>
-            
-            <!-- Aide -->
-            <RecipeDef ParentName="LightMechanoidRecipe">
-              <defName>IM_Aide</defName>
-              <label>gestate aide</label>
-              <description>Gestate an aide mechanoid.</description>
-              <researchPrerequisite>HighMechtech</researchPrerequisite>
-              <ingredients Inherit="False">
-                <li>
-                  <filter>
-                    <thingDefs>
-                      <li>Steel</li>
-                    </thingDefs>
-                  </filter>
-                  <count>65</count>
-                </li>
-                <li>
-                  <filter>
-                    <thingDefs>
-                      <li>SubcoreHigh</li>
-                    </thingDefs>
-                  </filter>
-                 <count>1</count>
-                </li>
-              </ingredients>
-              <products>
-                <IM_Mech_Aide>1</IM_Mech_Aide>
-              </products>
-              <descriptionHyperlinks>
-                <ThingDef>IM_Mech_Aide</ThingDef>
-              </descriptionHyperlinks>
-            </RecipeDef>
 
             <!-- Aide -->
             <RecipeDef ParentName="LightMechanoidRecipe">
@@ -512,7 +480,7 @@
                       <li>ComponentSpacer</li>
                     </thingDefs>
                   </filter>
-                 <count>3</count>
+                 <count>2</count>
                 </li>
                 <li>
                   <filter>
@@ -524,10 +492,10 @@
                 </li>
               </ingredients>
               <products>
-                <IM_Mech_Berserker>1</IM_Mech_Berserker>
+                <IM_Mech_Bombardier>1</IM_Mech_Bombardier>
               </products>
               <descriptionHyperlinks>
-                <ThingDef>IM_Mech_Berserker</ThingDef>
+                <ThingDef>IM_Mech_Bombardier</ThingDef>
               </descriptionHyperlinks>
             </RecipeDef>
             

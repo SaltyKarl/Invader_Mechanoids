@@ -5,12 +5,14 @@
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Aide</defName>
 		<label>aide</label>
-		<description>todo</description>
+		<description>A small combat support mechanoid armed with a mini-blaster sidearm. Fragile and diminutive, aides are unsuited for frontline combat, designed to instead support more capable combat units from the backline. Their pattern’s sophisticated subcore allows them to merge systems with another mechanoid, enhancing their processing power, and increasing their resilience by acting as a backup for critical subsystems. However, should the merge end prematurely by aide's death, any unit it was connected to will suffer from severe system disruption, reducing their capacity to process data for a while.</description>
+    <uiIconScale>1.8</uiIconScale>
 		<statBases>
 			<MarketValue>800</MarketValue>
 			<MoveSpeed>3.8</MoveSpeed>
 			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+      <PsychicSensitivity>0.75</PsychicSensitivity>
 			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">1</BandwidthCost>
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">18</ControlTakingTime>
 			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
@@ -79,7 +81,7 @@
       <thinkTreeConstant>IM_InvaderConstant</thinkTreeConstant>
 		</race>
 		<butcherProducts>
-		    <Steel>10</Steel>
+		  <Steel>10</Steel>
 		</butcherProducts>
   </ThingDef>
 
@@ -88,7 +90,6 @@
     <label>aide</label>
     <race>IM_Mech_Aide</race>
     <combatPower>55</combatPower>
-    <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
     <lifeStages>
 	    <li MayRequire="Ludeon.RimWorld.Biotech">
         <bodyGraphicData>
@@ -120,6 +121,7 @@
     <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
     <techHediffsMoney>9999~9999</techHediffsMoney>
     <weaponMoney>9999~9999</weaponMoney>
+    <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
     <weaponTags>
       <li>IM_MiniBlaster</li>
     </weaponTags>
@@ -131,13 +133,16 @@
         <def>IM_AutocastSystemMerge_Off</def>
       </li>
     </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
   </PawnKindDef>
 
   <!-- Ripperling -->
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Ripperling</defName>
 		<label>ripperling</label>
-		<description>todo</description>
+		<description>A small, insectile combat mechanoid usually gestated within a victim affected by mechanite toxin. The ripperling is an expendable close-quarters unit with limited battery life, designed to overwhelm in swarms.</description>
 		<statBases>
 			<MarketValue>800</MarketValue>
 			<MoveSpeed>4.5</MoveSpeed>

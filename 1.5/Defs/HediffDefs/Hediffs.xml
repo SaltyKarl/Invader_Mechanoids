@@ -6,7 +6,7 @@
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IW_Hoverjet</defName>
     <label>hoverjet</label>
-    <description>A built-in hoverjet, allowing to effortlessly glide above traps and even the harshest terrain.</description>
+    <description>Built-in hoverjet, allowing to effortlessly glide above traps and even the harshest terrain.</description>
     <isBad>false</isBad>
     <everCurableByItem>false</everCurableByItem>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -34,10 +34,9 @@
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IW_RipperToxin</defName>
     <label>ripper toxin</label>
-    <description>Mechanite toxin coursing through the body. Using the victim as an impromptu mech gestator, it dissolves the host body for materials, continously damaging them. Should the gestation finish or the host die near its completion, a freshly formed ripperling will cut its way out of the victim to join the fray.\n\nBeing a toxin, its buildup can be resisted with certain genes and implants.</description>
+    <description>Mechanite toxin coursing through the body. Using the victim as an impromptu mech gestator, it dissolves the host for materials, continously damaging them. Should the gestation finish or the victim die near its completion, a freshly formed ripperling will cut its way out of the host to join the fray.\n\nBeing a toxin, its buildup can be resisted with certain genes and implants.</description>
     <scenarioCanAdd>false</scenarioCanAdd>
     <maxSeverity>1</maxSeverity>
-    <canApplyDodChanceForCapacityChanges>true</canApplyDodChanceForCapacityChanges>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>6</severityPerDay>
@@ -59,13 +58,13 @@
         <damage>Cut</damage>
         <amount>25</amount>
         <minHealthRemaining>1</minHealthRemaining>
-        <severity>0.85</severity>
+        <severity>0.8</severity>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
         <pawnKind>IM_Mech_Ripperling</pawnKind>
         <stage>Newborn</stage>
         <effecter>IM_RipperlingEmerge</effecter>
-        <validSeverity>0.85</validSeverity>
+        <validSeverity>0.8</validSeverity>
         <inCreatorFaction>True</inCreatorFaction>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_DamageOverTime">
@@ -143,20 +142,22 @@
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IM_ZealDrive</defName>
     <label>zeal drive</label>
-    <description>todo</description>
+    <description>Specialized programming adjusting aim by extrapolating target movement based on recent combat data. Growing in intensity with every shot and melee attack, it gradually increases melee and ranged accuracy.</description>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
     <everCurableByItem>false</everCurableByItem>
     <initialSeverity>0.001</initialSeverity>
     <minSeverity>0.001</minSeverity>
     <maxSeverity>1</maxSeverity>
+    <defaultInstallPart>ArtificialBrain</defaultInstallPart>
+    <keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
     <comps>
       <li Class="EBSGFramework.HediffCompProperties_SeverityChangePerAttack">
         <changePerRangedAttack>0.02</changePerRangedAttack>
         <changePerMeleeAttack>0.2</changePerMeleeAttack>
       </li>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-8</severityPerDay>
+        <severityPerDay>-6</severityPerDay>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_AttachMote">
         <moteDef>IM_ZealDriveGlow</moteDef>
@@ -177,42 +178,30 @@
       </li>
       <li>
         <minSeverity>0.15</minSeverity>
-        <statOffsets>
-          <MoveSpeed>0.3</MoveSpeed>
-        </statOffsets>
         <statFactors>
-          <MeleeHitChance>1.1</MeleeHitChance>
-          <ShootingAccuracyPawn>1.1</ShootingAccuracyPawn>
+          <MeleeHitChance>1.2</MeleeHitChance>
+          <ShootingAccuracyPawn>1.2</ShootingAccuracyPawn>
         </statFactors>
       </li>
       <li>
         <minSeverity>0.35</minSeverity>
-        <statOffsets>
-          <MoveSpeed>0.5</MoveSpeed>
-        </statOffsets>
-        <statFactors>
-          <MeleeHitChance>1.25</MeleeHitChance>
-          <ShootingAccuracyPawn>1.25</ShootingAccuracyPawn>
-        </statFactors>
-      </li>
-      <li>
-        <minSeverity>0.6</minSeverity>
-        <statOffsets>
-          <MoveSpeed>0.7</MoveSpeed>
-        </statOffsets>
         <statFactors>
           <MeleeHitChance>1.4</MeleeHitChance>
           <ShootingAccuracyPawn>1.4</ShootingAccuracyPawn>
         </statFactors>
       </li>
       <li>
-        <minSeverity>0.9</minSeverity>
-        <statOffsets>
-          <MoveSpeed>1</MoveSpeed>
-        </statOffsets>
+        <minSeverity>0.6</minSeverity>
         <statFactors>
           <MeleeHitChance>1.6</MeleeHitChance>
           <ShootingAccuracyPawn>1.6</ShootingAccuracyPawn>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>0.9</minSeverity>
+        <statFactors>
+          <MeleeHitChance>1.8</MeleeHitChance>
+          <ShootingAccuracyPawn>1.8</ShootingAccuracyPawn>
         </statFactors>
       </li>
     </stages>
@@ -243,13 +232,15 @@
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IM_RageDrive</defName>
     <label>rage drive</label>
-    <description>todo</description>
+    <description>Specialized programming overdriving mechanoid subsystems in response to danger. Growing in intensity proportionally to suffered damage, it gradually increases movement speed, melee damage and melee attack speed.\n\nProne to overstressing the system during high actity levels, potentially causing berserk-inducing malfunctions.</description>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
     <everCurableByItem>false</everCurableByItem>
     <initialSeverity>0.001</initialSeverity>
     <minSeverity>0.001</minSeverity>
     <maxSeverity>1</maxSeverity>
+    <defaultInstallPart>ArtificialBrain</defaultInstallPart>
+    <keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
     <comps>
       <li Class="EBSGFramework.HediffCompProperties_SeverityChangeWhenDamaged">
         <severityChangeFactor>0.0125</severityChangeFactor>
@@ -305,7 +296,7 @@
         <mentalStateGivers>
           <li>
             <mentalState>BerserkMechanoid</mentalState>
-            <mtbDays>2.5</mtbDays>
+            <mtbDays>1.2</mtbDays>
           </li>
         </mentalStateGivers>
       </li>
@@ -321,7 +312,7 @@
         <mentalStateGivers>
           <li>
             <mentalState>BerserkMechanoid</mentalState>
-            <mtbDays>0.7</mtbDays>
+            <mtbDays>0.4</mtbDays>
           </li>
         </mentalStateGivers>
       </li>

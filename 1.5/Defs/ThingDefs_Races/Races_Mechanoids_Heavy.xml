@@ -5,11 +5,11 @@
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Templar</defName>
 		<label>templar</label>
-		<description>todo</description>
+		<description>A heavy infantry mechanoid designed to excel in both close-quarters and ranged combat. The templar's Zeal Drive continuously improves its combat performance the longer it remains on the field of battle. Its heavy armor and armaments guarantee staying power during prolonged engagements.</description>
 		<statBases>
 			<MarketValue>1400</MarketValue>
 			<MoveSpeed>2.3</MoveSpeed>
-			<ArmorRating_Blunt>0.37</ArmorRating_Blunt>
+			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.75</ArmorRating_Sharp>
 			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">4</BandwidthCost>
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">24</ControlTakingTime>
@@ -76,6 +76,23 @@
       <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <detritusLeavings>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>0</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>3</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>1</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+      </detritusLeavings>
 		</race>
 		<butcherProducts>
 		  <Steel>20</Steel>
@@ -126,13 +143,16 @@
         <severity>0.001</severity>
       </li>
     </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
   </PawnKindDef>
 
   <!-- Berserker -->
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Berserker</defName>
 		<label>berserker</label>
-		<description>todo</description>
+		<description>A heavy combat mechanoid specialised in short-range combat. The berserker’s imposing frame is designed to draw enemy fire on approach, with every received hit enhancing its speed and combat prowess. The Rage Drive's improvements do not come without risk - at high intensity levels, it can overload critical subsystems, causing berserk-inducing malfunctions.</description>
 		<statBases>
 			<MarketValue>1400</MarketValue>
 			<MoveSpeed>3.2</MoveSpeed>
@@ -194,7 +214,7 @@
 		<race>
 			<body>IM_MechanicalMuton</body>
 			<mechWeightClass>Heavy</mechWeightClass>
-			<baseHealthScale>2.6</baseHealthScale>
+			<baseHealthScale>3</baseHealthScale>
 			<intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <baseBodySize>2</baseBodySize>
@@ -217,6 +237,23 @@
       <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <detritusLeavings>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>0</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>3</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>1</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+      </detritusLeavings>
 		</race>
 		<butcherProducts>
 		  <Steel>20</Steel>
@@ -258,6 +295,7 @@
     <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
     <techHediffsMoney>9999~9999</techHediffsMoney>
     <weaponMoney>0~0</weaponMoney>
+    <controlGroupPortraitZoom>0.9</controlGroupPortraitZoom>
     <defendPointRadius>0</defendPointRadius>
     <weaponTags>
     </weaponTags>
@@ -267,6 +305,9 @@
         <severity>0.001</severity>
       </li>
     </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
   </PawnKindDef>
 
 </Defs>

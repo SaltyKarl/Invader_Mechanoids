@@ -5,7 +5,8 @@
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Skirmisher</defName>
 		<label>skirmisher</label>
-		<description>todo</description>
+		<description>An agile combat mechanoid with a bizarre frame resembling a floating human torso. Relying on a built-in hoverjet instead of legs for locomotion, the skirmisher levitates above ground, safe from traps and unhindered by terrain difficulties. When in danger, it can quickly reposition to a safe distance with a quick burst from its jets.</description>
+    <uiIconScale>1.4</uiIconScale>
 		<statBases>
 			<MarketValue>1200</MarketValue>
 			<MoveSpeed>4.7</MoveSpeed>
@@ -77,9 +78,26 @@
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
       <thinkTreeConstant>IM_InvaderConstant</thinkTreeConstant>
+      <detritusLeavings>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>16</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>11</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>1</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+      </detritusLeavings>
 		</race>
 		<butcherProducts>
-		    <Steel>15</Steel>
+		  <Steel>15</Steel>
 		</butcherProducts>
   </ThingDef>
 
@@ -87,7 +105,7 @@
     <defName>IM_Mech_Skirmisher</defName>
     <label>skirmisher</label>
     <race>IM_Mech_Skirmisher</race>
-    <combatPower>175</combatPower>
+    <combatPower>155</combatPower>
     <lifeStages>
 	    <li MayRequire="Ludeon.RimWorld.Biotech">
         <bodyGraphicData>
@@ -117,6 +135,7 @@
     <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
     <techHediffsMoney>9999~9999</techHediffsMoney>
     <weaponMoney>9999~9999</weaponMoney>
+    <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
     <weaponTags>
       <li>IM_ChargeRepeater</li>
     </weaponTags>
@@ -131,13 +150,17 @@
         <def>IW_Hoverjet</def>
       </li>
     </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
   </PawnKindDef>
 
   <!-- Ripper -->
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Ripper</defName>
 		<label>ripper</label>
-		<description>todo</description>
+		<description>A fast, insectile combat mechanoid designed to wreak havoc in close quarters. The ripper's bladed forelimbs hide injector needles, dosing its target with mechanite-derived toxin with every slash. The toxin, beyond slowly dissolving the victim, uses their body as a mech gestator - creating mechanoid reinforcements on-site at the expense of its unfortunate foes.</description>
+    <uiIconScale>1.3</uiIconScale>
 		<statBases>
 			<MarketValue>1200</MarketValue>
 			<MoveSpeed>4.7</MoveSpeed>
@@ -234,9 +257,26 @@
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <detritusLeavings>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>16</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>11</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>1</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+      </detritusLeavings>
 		</race>
 		<butcherProducts>
-		    <Steel>15</Steel>
+		  <Steel>15</Steel>
 		</butcherProducts>
   </ThingDef>
 
@@ -244,7 +284,7 @@
     <defName>IM_Mech_Ripper</defName>
     <label>ripper</label>
     <race>IM_Mech_Ripper</race>
-    <combatPower>180</combatPower>
+    <combatPower>150</combatPower>
     <lifeStages>
 	    <li MayRequire="Ludeon.RimWorld.Biotech">
         <bodyGraphicData>
@@ -274,6 +314,7 @@
     <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
     <techHediffsMoney>9999~9999</techHediffsMoney>
     <weaponMoney>0~0</weaponMoney>
+    <controlGroupPortraitZoom>1.2</controlGroupPortraitZoom>
     <defendPointRadius>0</defendPointRadius>
     <weaponTags>
     </weaponTags>

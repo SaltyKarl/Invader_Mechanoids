@@ -22,7 +22,7 @@
     <additionalHediffs>
       <li>
         <hediff>IW_RipperToxin</hediff>
-        <severityPerDamageDealt>0.0125</severityPerDamageDealt>
+        <severityPerDamageDealt>0.02</severityPerDamageDealt>
         <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
         <inverseStatScaling>true</inverseStatScaling>
       </li>

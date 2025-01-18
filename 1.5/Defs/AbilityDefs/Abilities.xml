@@ -89,7 +89,7 @@
   <AbilityDef>
     <defName>IM_QuickjetJump</defName>
     <label>quickjet jump</label>
-    <description>todo</description>
+    <description>Instantly jump to a distant location with a burst from a built-in jet engine.</description>
     <iconPath>UI/Abilities/QuickjetJump</iconPath>
     <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
@@ -241,7 +241,7 @@
   <AbilityDef>
     <defName>IM_SystemMerge</defName>
     <label>system merge</label>
-    <description>todo</description>
+    <description>Connect and merge systems with another mechanoid, boosting its data processing and mobility, while reducing incoming damage by acting as backup for critical subsystems. Should the connection end prematurely by broadcaster's death, the receiver will suffer from severe system disruption.</description>
     <iconPath>UI/Abilities/SystemMerge</iconPath>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
 	  <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
@@ -299,7 +299,7 @@
     <hediffClass>HediffWithTarget</hediffClass>
     <defName>IM_SystemMerge</defName>
     <label>system merge</label>
-    <description>todo</description>
+    <description>An ongoing system merge with another mechanoid. Boosts data processing and mobility while it's active, along with reducing incoming damage by acting as backup for critical subsystems. Premature severing of the connection by the death of the broadcaster will result in severe system disruption.</description>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
     <everCurableByItem>false</everCurableByItem>
@@ -351,7 +351,7 @@
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IM_SystemDisruption</defName>
     <label>system disruption</label>
-    <description>todo</description>
+    <description>System disruption resulting from premature end of a merge with another mechanoid. Reduces data processing for its duration, along with possibly causing aimless wandering as the system struggles to regain coherence.</description>
     <isBad>false</isBad>
     <scenarioCanAdd>false</scenarioCanAdd>
     <initialSeverity>1</initialSeverity>
