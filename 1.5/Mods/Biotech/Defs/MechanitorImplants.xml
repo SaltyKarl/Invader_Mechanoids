@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--======= SystemInterlink =======-->
+  
+  <!-- Implant -->
+  <ThingDef ParentName="MechanitorImplantCraftableBase">
+    <defName>IM_SystemInterlink</defName>
+    <label>system interlink</label>
+    <description>A mechlink upgrade which allows the mechanitor to connect with a mechanoid to boost its performance and reduce incoming damage. The user psychically links with their target, using their own brain as a backup for critical subsystems.\n\nThis implant can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to boost its range, reduce cooldown and increase the number of charges.</description>
+    <costList>
+      <SubcoreHigh>1</SubcoreHigh>
+	    <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxInstallCount>3</MaxInstallCount>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>HighMechtech</researchPrerequisite>
+    </recipeMaker>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>CompUsableImplant</compClass>
+        <useJob>UseItem</useJob>
+        <useLabel>Implant system interlink</useLabel>
+        <userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+      </li>
+      <li Class="CompProperties_UseEffectInstallImplant">
+        <hediffDef>IM_SystemInterlinkImplant</hediffDef>
+        <bodyPart>Brain</bodyPart>
+        <canUpgrade>true</canUpgrade>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>IM_SystemInterlinkImplant</defName>
+    <hediffClass>Hediff_Level</hediffClass>
+    <descriptionHyperlinks><ThingDef>IM_SystemInterlink</ThingDef></descriptionHyperlinks>
+    <label>system interlink</label>
+    <description>A mechlink upgrade which allows the mechanitor to connect with a mechanoid to boost its performance and reduce incoming damage. The user psychically links with their target, using their own brain as a backup for critical subsystems.\n\nThis implant can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to boost its range, reduce cooldown and increase the number of charges.</description>
+    <descriptionShort>An implant which allows the mechanitor to connect with a mechanoid to boost its performance and reduce incoming damage. This can be installed up to 3 times.</descriptionShort>
+    <defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <priceImpact>true</priceImpact>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0</minSeverity>
+    <maxSeverity>3</maxSeverity>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+    <levelIsQuantity>true</levelIsQuantity>
+    <duplicationAllowed>false</duplicationAllowed>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_GiveAbilityAtSeverity">
+        <abilitiesAtSeverities>
+          <li>
+            <abilityDef>IM_SystemInterlink_1</abilityDef>
+            <minSeverity>0.1</minSeverity>
+            <maxSeverity>1</maxSeverity> 
+          </li>
+          <li>
+            <abilityDef>IM_SystemInterlink_2</abilityDef>
+            <minSeverity>1.1</minSeverity>
+            <maxSeverity>2</maxSeverity>
+          </li>
+          <li>
+            <abilityDef>IM_SystemInterlink_3</abilityDef>
+            <minSeverity>2.1</minSeverity>
+            <maxSeverity>3</maxSeverity>
+          </li>
+        </abilitiesAtSeverities>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Ability -->
+
+  <!-- Lvl 1 -->
+  <AbilityDef>
+    <defName>IM_SystemInterlink_1</defName>
+    <label>system interlink</label>
+    <description>Psychically interlink with a mechanoid's system, boosting its data processing and mobility, while reducing incoming damage by acting as backup for critical subsystems. Unlike a similar connection between mechanoids, system interlink between a mechanoid and a human will not cause adverse effects if ended prematurely.</description>
+    <iconPath>UI/Abilities/SystemInterlink</iconPath>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+	  <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+	  <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>168</Ability_Duration>
+    </statBases>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+	  <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <label>system interlink</label>
+      <warmupEffecter>IM_MergeSpark_Giver</warmupEffecter>
+      <violent>false</violent>
+      <drawAimPie>true</drawAimPie>
+      <range>11.9</range>
+      <warmupTime>0.65</warmupTime>  
+      <requireLineOfSight>true</requireLineOfSight>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetCorpses>false</canTargetCorpses>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetMutants>false</canTargetMutants>
+        <neverTargetIncapacitated>true</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>False</disableGizmo>
+        <hideGizmo>False</hideGizmo>
+        <targetHasNoneOfHediffs>
+          <li>IM_SystemMerge</li>
+          <li>IM_SystemDisruption</li>
+          <li>IM_SystemInterlink</li>
+        </targetHasNoneOfHediffs>
+      </li>
+      <li Class="EBSGFramework.CompProperties_CreateLinkedHediff">
+        <targetHediffOnBrain>True</targetHediffOnBrain>
+        <hediffOnTarget>IM_SystemInterlink</hediffOnTarget>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>IM_MergeSpark_Receiver</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Lvl 2 -->
+  <AbilityDef>
+    <defName>IM_SystemInterlink_2</defName>
+    <label>system interlink</label>
+    <description>Psychically interlink with a mechanoid's system, boosting its data processing and mobility, while reducing incoming damage by acting as backup for critical subsystems. Unlike a similar connection between mechanoids, system interlink between a mechanoid and a human will not cause adverse effects if ended prematurely.</description>
+    <iconPath>UI/Abilities/SystemInterlink</iconPath>
+    <charges>2</charges>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+	  <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+	  <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>168</Ability_Duration>
+    </statBases>
+    <cooldownTicksRange>40000</cooldownTicksRange>
+	  <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <label>system interlink</label>
+      <warmupEffecter>IM_MergeSpark_Giver</warmupEffecter>
+      <violent>false</violent>
+      <drawAimPie>true</drawAimPie>
+      <range>23.9</range>
+      <warmupTime>0.65</warmupTime>  
+      <requireLineOfSight>true</requireLineOfSight>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetCorpses>false</canTargetCorpses>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetMutants>false</canTargetMutants>
+        <neverTargetIncapacitated>true</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>False</disableGizmo>
+        <hideGizmo>False</hideGizmo>
+        <targetHasNoneOfHediffs>
+          <li>IM_SystemMerge</li>
+          <li>IM_SystemDisruption</li>
+          <li>IM_SystemInterlink</li>
+        </targetHasNoneOfHediffs>
+      </li>
+      <li Class="EBSGFramework.CompProperties_CreateLinkedHediff">
+        <targetHediffOnBrain>True</targetHediffOnBrain>
+        <hediffOnTarget>IM_SystemInterlink</hediffOnTarget>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>IM_MergeSpark_Receiver</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Lvl 3 -->
+  <AbilityDef>
+    <defName>IM_SystemInterlink_3</defName>
+    <label>system interlink</label>
+    <description>Psychically interlink with a mechanoid's system, boosting its data processing and mobility, while reducing incoming damage by acting as backup for critical subsystems. Unlike a similar connection between mechanoids, system interlink between a mechanoid and a human will not cause adverse effects if ended prematurely.</description>
+    <iconPath>UI/Abilities/SystemInterlink</iconPath>
+    <charges>3</charges>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+	  <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+	  <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>168</Ability_Duration>
+    </statBases>
+    <cooldownTicksRange>20000</cooldownTicksRange>
+	  <targetRequired>true</targetRequired>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <label>system interlink</label>
+      <warmupEffecter>IM_MergeSpark_Giver</warmupEffecter>
+      <violent>false</violent>
+      <drawAimPie>true</drawAimPie>
+      <range>39.9</range>
+      <warmupTime>0.65</warmupTime>  
+      <requireLineOfSight>true</requireLineOfSight>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetCorpses>false</canTargetCorpses>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetMutants>false</canTargetMutants>
+        <neverTargetIncapacitated>true</neverTargetIncapacitated>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+        <disableGizmo>False</disableGizmo>
+        <hideGizmo>False</hideGizmo>
+        <targetHasNoneOfHediffs>
+          <li>IM_SystemMerge</li>
+          <li>IM_SystemDisruption</li>
+          <li>IM_SystemInterlink</li>
+        </targetHasNoneOfHediffs>
+      </li>
+      <li Class="EBSGFramework.CompProperties_CreateLinkedHediff">
+        <targetHediffOnBrain>True</targetHediffOnBrain>
+        <hediffOnTarget>IM_SystemInterlink</hediffOnTarget>
+      </li>
+      <li Class="CompProperties_AbilityFleckOnTarget">
+        <fleckDef>IM_MergeSpark_Receiver</fleckDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithTarget</hediffClass>
+    <defName>IM_SystemInterlink</defName>
+    <label>system interlink</label>
+    <description>A psychic interlinking of a mechanoid system with a mechanitor's psyche. Boosts data processing and mobility while it's active, along with reducing incoming damage by acting as backup for critical subsystems. Unlike a similar connection between mechanoids, system interlink between a mechanoid and a human will not cause adverse effects if ended prematurely.</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>10000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+      <li Class="EBSGFramework.HediffCompProperties_AttachMote">
+        <moteDef>IM_SystemMergeGlow</moteDef>
+        <scaleMoteWithSize>True</scaleMoteWithSize>
+      </li>
+      <li Class="HediffCompProperties_Link">
+        <requireLinkOnOtherPawn>false</requireLinkOnOtherPawn>
+        <maxDistance>40</maxDistance>
+        <customMote>IM_SystemMergeLink</customMote>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+        <statFactors>
+          <IncomingDamageFactor>0.85</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

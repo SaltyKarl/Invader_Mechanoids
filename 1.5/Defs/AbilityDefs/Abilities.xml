@@ -300,6 +300,7 @@
         <targetHasNoneOfHediffs>
           <li>IM_SystemMerge</li>
           <li>IM_SystemDisruption</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">IM_SystemInterlink</li>
         </targetHasNoneOfHediffs>
       </li>
       <li Class="EBSGFramework.CompProperties_CreateLinkedHediff">
@@ -436,7 +437,7 @@
     <iconPath>UI/Abilities/QuickjetJump_AutoOn</iconPath>
     <jobDef>CastAbilityOnThing</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
-    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
     <cooldownTicksRange>60</cooldownTicksRange>
@@ -496,7 +497,7 @@
     <iconPath>UI/Abilities/QuickjetJump_AutoOff</iconPath>
     <jobDef>CastAbilityOnThing</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
-    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
     <cooldownTicksRange>60</cooldownTicksRange>
@@ -557,7 +558,7 @@
     <iconPath>UI/Abilities/SystemMerge_AutoOn</iconPath>
     <jobDef>CastAbilityOnThing</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
-    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
     <cooldownTicksRange>60</cooldownTicksRange>
@@ -617,7 +618,7 @@
     <iconPath>UI/Abilities/SystemMerge_AutoOff</iconPath>
     <jobDef>CastAbilityOnThing</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
-    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
     <cooldownTicksRange>60</cooldownTicksRange>

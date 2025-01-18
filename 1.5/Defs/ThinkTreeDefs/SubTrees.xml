@@ -41,17 +41,23 @@
                         <li Class="ThinkNode_ConditionalHasAbility">
                           <ability>IM_SystemMerge</ability>
                           <subNodes>
-                            <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
-                              <dangerRadius>40</dangerRadius>
-                              <minCount>1</minCount>
+                            <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                              <ability>IM_SystemMerge</ability>
+                              <minTicksAgo>900</minTicksAgo>
                               <subNodes>
-                                <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
-                                  <ability>IM_SystemMerge</ability>
-                                  <onlyHostiles>False</onlyHostiles>
-                                  <onlyInFaction>True</onlyInFaction>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                  <dangerRadius>40</dangerRadius>
+                                  <minCount>1</minCount>
                                   <subNodes>
-                                    <li Class="EL_IM.JobGiver_AICastAbilityOnFactionMembers">
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                       <ability>IM_SystemMerge</ability>
+                                      <onlyHostiles>False</onlyHostiles>
+                                      <onlyInFaction>True</onlyInFaction>
+                                      <subNodes>
+                                        <li Class="EL_IM.JobGiver_AICastAbilityOnFactionMembers">
+                                          <ability>IM_SystemMerge</ability>
+                                        </li>
+                                      </subNodes>
                                     </li>
                                   </subNodes>
                                 </li>
@@ -115,17 +121,23 @@
                         <li Class="ThinkNode_ConditionalHasAbility">
                           <ability>IM_SystemMerge</ability>
                           <subNodes>
-                            <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
-                              <dangerRadius>40</dangerRadius>
-                              <minCount>1</minCount>
+                            <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                              <ability>IM_SystemMerge</ability>
+                              <minTicksAgo>900</minTicksAgo>
                               <subNodes>
-                                <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
-                                  <ability>IM_SystemMerge</ability>
-                                  <onlyHostiles>False</onlyHostiles>
-                                  <onlyInFaction>True</onlyInFaction>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                  <dangerRadius>40</dangerRadius>
+                                  <minCount>1</minCount>
                                   <subNodes>
-                                    <li Class="EL_IM.JobGiver_AICastAbilityOnFactionMembers">
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                       <ability>IM_SystemMerge</ability>
+                                      <onlyHostiles>False</onlyHostiles>
+                                      <onlyInFaction>True</onlyInFaction>
+                                      <subNodes>
+                                        <li Class="EL_IM.JobGiver_AICastAbilityOnFactionMembers">
+                                          <ability>IM_SystemMerge</ability>
+                                        </li>
+                                      </subNodes>
                                     </li>
                                   </subNodes>
                                 </li>
