@@ -159,7 +159,7 @@
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-6</severityPerDay>
       </li>
-      <li Class="EBSGFramework.HediffCompProperties_AttachMote">
+      <li MayRequire="Ludeon.RimWorld.Biotech" Class="EBSGFramework.HediffCompProperties_AttachMote"> <!-- Necessary due to MoteGlowParentRotation being exclusive to Biotech -->
         <moteDef>IM_ZealDriveGlow</moteDef>
         <color>(0.8, 0, 0)</color>
         <brightnessBySeverity>true</brightnessBySeverity>
@@ -208,7 +208,7 @@
   </HediffDef>
 
   <!-- Effects -->
-  <ThingDef ParentName="MoteBase">
+  <ThingDef MayRequire="Ludeon.RimWorld.Biotech" ParentName="MoteBase">
     <defName>IM_ZealDriveGlow</defName>
     <thingClass>MoteAttached</thingClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
@@ -248,7 +248,7 @@
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-8</severityPerDay>
       </li>
-      <li Class="EBSGFramework.HediffCompProperties_AttachMote">
+      <li MayRequire="Ludeon.RimWorld.Biotech" Class="EBSGFramework.HediffCompProperties_AttachMote"> <!-- Necessary due to MoteGlowParentRotation being exclusive to Biotech -->
         <moteDef>IM_RageDriveGlow</moteDef>
         <color>(0.8, 0, 0)</color>
         <brightnessBySeverity>true</brightnessBySeverity>
@@ -320,7 +320,7 @@
   </HediffDef>
 
   <!-- Effects -->
-  <ThingDef ParentName="MoteBase">
+  <ThingDef MayRequire="Ludeon.RimWorld.Biotech" ParentName="MoteBase">
     <defName>IM_RageDriveGlow</defName>
     <thingClass>MoteAttached</thingClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>

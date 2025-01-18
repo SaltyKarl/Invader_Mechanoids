@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>	
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Better Mechanoid Loot (continued)</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+	            
+				<!-- light mechanoids -->
+	            <li Class="PatchOperationReplace">
+		            <xpath>Defs/ThingDef[defName="IM_Mech_Aide"]/butcherProducts</xpath>
+		            <value>
+			            <butcherProducts>
+			                <Steel>15</Steel>
+			            </butcherProducts>
+		            </value>
+	            </li>
+
+	            <!-- medium mechanoids --> 
+	            <li Class="PatchOperationReplace">
+		            <xpath>Defs/ThingDef[defName="IM_Mech_Skirmisher"]/butcherProducts</xpath>
+		            <value>
+			            <butcherProducts>
+			                <Steel>25</Steel>
+			                <Plasteel>10</Plasteel>
+			                <Gold>5</Gold>
+			            </butcherProducts>
+		            </value>
+	            </li>
+
+	            <li Class="PatchOperationReplace">
+		            <xpath>Defs/ThingDef[defName="IM_Mech_Ripper"]/butcherProducts</xpath>
+		            <value>
+			            <butcherProducts>
+			                <Steel>25</Steel>
+			                <Plasteel>10</Plasteel>
+			                <Gold>5</Gold>
+			            </butcherProducts>
+		            </value>
+	            </li>
+	
+	            <!-- heavy mechanoids --> 
+	            <li Class="PatchOperationReplace">
+		            <xpath>Defs/ThingDef[defName="IM_Mech_Templar"]/butcherProducts</xpath>
+		            <value>
+			            <butcherProducts>
+			                <Steel>50</Steel>
+			                <Plasteel>20</Plasteel>
+			                <Gold>15</Gold>
+			                <ComponentIndustrial>1</ComponentIndustrial>
+			            </butcherProducts>
+		            </value>
+	            </li>
+
+	            <li Class="PatchOperationReplace">
+		            <xpath>Defs/ThingDef[defName="IM_Mech_Berserker"]/butcherProducts</xpath>
+		            <value>
+			            <butcherProducts>
+			                <Steel>50</Steel>
+			                <Plasteel>20</Plasteel>
+			                <Gold>15</Gold>
+			                <ComponentIndustrial>1</ComponentIndustrial>
+			            </butcherProducts>
+		            </value>
+	            </li>
+	
+	            <!-- superheavy mechanoids --> 
+	            <li Class="PatchOperationReplace">
+		            <xpath>Defs/ThingDef[defName="IM_Mech_Bombardier"]/butcherProducts</xpath>
+		            <value>
+			            <butcherProducts>
+			                <Steel>100</Steel>
+			                <Plasteel>40</Plasteel>
+			                <Gold>25</Gold>
+			                <ComponentIndustrial>5</ComponentIndustrial>
+			            </butcherProducts>
+		            </value>
+	            </li>
+
+	        </operations>
+		</match>
+	</Operation>
+</Patch>

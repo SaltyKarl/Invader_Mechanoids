@@ -121,7 +121,7 @@
   <!--======= SystemMerge =======-->
   
   <!-- VFX -->
-  <ThingDef ParentName="MoteBase">
+  <ThingDef MayRequire="Ludeon.RimWorld.Biotech" ParentName="MoteBase">
     <defName>IM_MergeGlowAide</defName>
     <thingClass>MoteAttached</thingClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
@@ -152,7 +152,7 @@
         <disappearsAfterTicks>10000</disappearsAfterTicks>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
-      <li Class="EBSGFramework.HediffCompProperties_AttachMote">
+      <li MayRequire="Ludeon.RimWorld.Biotech" Class="EBSGFramework.HediffCompProperties_AttachMote"> <!-- Necessary due to MoteGlowParentRotation being exclusive to Biotech -->
         <moteDef>IM_MergeGlowAide</moteDef>
       </li>
     </comps>
