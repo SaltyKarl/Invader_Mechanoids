@@ -43,7 +43,7 @@
                           <subNodes>
                             <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                               <ability>IM_SystemMerge</ability>
-                              <minTicksAgo>900</minTicksAgo>
+                              <minTicksAgo>600</minTicksAgo>
                               <subNodes>
                                 <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                   <dangerRadius>40</dangerRadius>
@@ -123,7 +123,7 @@
                           <subNodes>
                             <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                               <ability>IM_SystemMerge</ability>
-                              <minTicksAgo>900</minTicksAgo>
+                              <minTicksAgo>600</minTicksAgo>
                               <subNodes>
                                 <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                   <dangerRadius>40</dangerRadius>

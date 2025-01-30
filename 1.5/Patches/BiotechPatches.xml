@@ -32,7 +32,7 @@
                               <ability>IM_QuickjetJump</ability>
                               <subNodes>
                                 <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
-                                  <dangerRadius>7</dangerRadius>
+                                  <dangerRadius>6</dangerRadius>
                                   <minCount>1</minCount>
                                   <subNodes>
                                     <li Class="JobGiver_AIJumpEscapeEnemies">
@@ -49,7 +49,7 @@
                               <subNodes>
                                 <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                                   <ability>IM_SystemMerge</ability>
-                                  <minTicksAgo>900</minTicksAgo>
+                                  <minTicksAgo>600</minTicksAgo>
                                   <subNodes>
                                     <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                       <dangerRadius>40</dangerRadius>
@@ -129,7 +129,7 @@
                             <subNodes>
                               <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                                 <ability>IM_SystemMerge</ability>
-                                <minTicksAgo>900</minTicksAgo>
+                                <minTicksAgo>600</minTicksAgo>
                                 <subNodes>
                                   <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                     <dangerRadius>40</dangerRadius>
@@ -276,7 +276,7 @@
                       <li>Steel</li>
                     </thingDefs>
                   </filter>
-                  <count>65</count>
+                  <count>85</count>
                 </li>
                 <li>
                   <filter>
@@ -284,7 +284,7 @@
                       <li>Plasteel</li>
                     </thingDefs>
                   </filter>
-                  <count>65</count>
+                  <count>35</count>
                 </li>
                 <li>
                   <filter>
@@ -323,7 +323,7 @@
                       <li>Steel</li>
                     </thingDefs>
                   </filter>
-                  <count>90</count>
+                  <count>110</count>
                 </li>
                 <li>
                   <filter>
@@ -331,7 +331,7 @@
                       <li>Plasteel</li>
                     </thingDefs>
                   </filter>
-                  <count>80</count>
+                  <count>55</count>
                 </li>
                 <li>
                   <filter>
@@ -371,7 +371,7 @@
                       <li>Steel</li>
                     </thingDefs>
                   </filter>
-                  <count>150</count>
+                  <count>220</count>
                 </li>
                 <li>
                   <filter>
@@ -379,7 +379,7 @@
                       <li>Plasteel</li>
                     </thingDefs>
                   </filter>
-                  <count>150</count>
+                  <count>120</count>
                 </li>
                 <li>
                   <filter>
@@ -419,7 +419,7 @@
                       <li>Steel</li>
                     </thingDefs>
                   </filter>
-                  <count>150</count>
+                  <count>220</count>
                 </li>
                 <li>
                   <filter>
@@ -427,7 +427,7 @@
                       <li>Plasteel</li>
                     </thingDefs>
                   </filter>
-                  <count>150</count>
+                  <count>120</count>
                 </li>
                 <li>
                   <filter>

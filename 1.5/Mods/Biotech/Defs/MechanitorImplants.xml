@@ -7,7 +7,7 @@
   <ThingDef ParentName="MechanitorImplantCraftableBase">
     <defName>IM_SystemInterlink</defName>
     <label>system interlink</label>
-    <description>A mechlink upgrade which allows the mechanitor to connect with a mechanoid to boost its performance and reduce incoming damage. The user psychically links with their target, using their own brain as a backup for critical subsystems.\n\nThis implant can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to boost its range, reduce cooldown and increase the number of charges.</description>
+    <description>A mechlink upgrade which allows the mechanitor to interface with a mechanoid to boost its performance and reduce incoming damage. The user psychically links with their target, using their own brain as a backup for critical subsystems.\n\nThis implant can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to boost its range, reduce cooldown and increase the number of ability charges.</description>
     <costList>
       <SubcoreHigh>1</SubcoreHigh>
 	    <ComponentSpacer>2</ComponentSpacer>
@@ -38,8 +38,8 @@
     <hediffClass>Hediff_Level</hediffClass>
     <descriptionHyperlinks><ThingDef>IM_SystemInterlink</ThingDef></descriptionHyperlinks>
     <label>system interlink</label>
-    <description>A mechlink upgrade which allows the mechanitor to connect with a mechanoid to boost its performance and reduce incoming damage. The user psychically links with their target, using their own brain as a backup for critical subsystems.\n\nThis implant can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to boost its range, reduce cooldown and increase the number of charges.</description>
-    <descriptionShort>An implant which allows the mechanitor to connect with a mechanoid to boost its performance and reduce incoming damage. This can be installed up to 3 times.</descriptionShort>
+    <description>A mechlink upgrade which allows the mechanitor to interface with a mechanoid to boost its performance and reduce incoming damage. The user psychically links with their target, using their own brain as a backup for critical subsystems.\n\nThis implant can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to boost its range, reduce cooldown and increase the number of charges.</description>
+    <descriptionShort>An implant which allows the mechanitor to interface with a mechanoid to boost its performance and reduce incoming damage. This can be installed up to 3 times.</descriptionShort>
     <defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
     <isBad>false</isBad>
     <priceImpact>true</priceImpact>
@@ -104,10 +104,10 @@
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <label>system interlink</label>
-      <warmupEffecter>IM_MergeSpark_Giver</warmupEffecter>
+      <warmupEffecter>IM_InterlinkSpark_Giver</warmupEffecter>
       <violent>false</violent>
       <drawAimPie>true</drawAimPie>
-      <range>11.9</range>
+      <range>7.9</range>
       <warmupTime>0.65</warmupTime>  
       <requireLineOfSight>true</requireLineOfSight>
       <targetParams>
@@ -158,15 +158,15 @@
     <statBases>
       <Ability_Duration>168</Ability_Duration>
     </statBases>
-    <cooldownTicksRange>40000</cooldownTicksRange>
+    <cooldownTicksRange>45000</cooldownTicksRange>
 	  <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <label>system interlink</label>
-      <warmupEffecter>IM_MergeSpark_Giver</warmupEffecter>
+      <warmupEffecter>IM_InterlinkSpark_Giver</warmupEffecter>
       <violent>false</violent>
       <drawAimPie>true</drawAimPie>
-      <range>23.9</range>
+      <range>15.9</range>
       <warmupTime>0.65</warmupTime>  
       <requireLineOfSight>true</requireLineOfSight>
       <targetParams>
@@ -217,15 +217,15 @@
     <statBases>
       <Ability_Duration>168</Ability_Duration>
     </statBases>
-    <cooldownTicksRange>20000</cooldownTicksRange>
+    <cooldownTicksRange>30000</cooldownTicksRange>
 	  <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
       <label>system interlink</label>
-      <warmupEffecter>IM_MergeSpark_Giver</warmupEffecter>
+      <warmupEffecter>IM_InterlinkSpark_Giver</warmupEffecter>
       <violent>false</violent>
       <drawAimPie>true</drawAimPie>
-      <range>39.9</range>
+      <range>23.9</range>
       <warmupTime>0.65</warmupTime>  
       <requireLineOfSight>true</requireLineOfSight>
       <targetParams>
@@ -305,5 +305,23 @@
       </li>
     </stages>
   </HediffDef>
+
+  <EffecterDef>
+    <defName>IM_InterlinkSpark_Giver</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>IM_SystemMergeTuning</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>IM_MergeSpark_Giver</moteDef>
+        <burstCount>1</burstCount>
+        <scale>1.5~1.7</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <attachToSpawnThing>true</attachToSpawnThing>
+      </li>
+    </children>
+  </EffecterDef>
 
 </Defs>

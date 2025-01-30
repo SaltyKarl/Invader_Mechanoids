@@ -297,7 +297,7 @@
         <mentalStateGivers>
           <li>
             <mentalState>BerserkMechanoid</mentalState>
-            <mtbDays>1.2</mtbDays>
+            <mtbDays>2.1</mtbDays>
           </li>
         </mentalStateGivers>
       </li>
@@ -313,7 +313,7 @@
         <mentalStateGivers>
           <li>
             <mentalState>BerserkMechanoid</mentalState>
-            <mtbDays>0.4</mtbDays>
+            <mtbDays>0.7</mtbDays>
           </li>
         </mentalStateGivers>
       </li>

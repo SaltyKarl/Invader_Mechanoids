@@ -5,7 +5,7 @@
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Skirmisher</defName>
 		<label>skirmisher</label>
-		<description>An agile combat mechanoid with a bizarre frame resembling a floating human torso. Relying on a built-in hoverjet instead of legs for locomotion, the skirmisher levitates above ground, safe from traps and unhindered by terrain difficulties. When in danger, it can quickly reposition to a safe distance with a quick burst from its jets.</description>
+		<description>An agile combat mechanoid with a bizarre frame resembling a floating human torso. Relying on a built-in hoverjet instead of legs for locomotion, the skirmisher levitates above ground, safe from traps and unhindered by terrain difficulties. When in danger, it can quickly reposition to a safe distance with a burst from its jets.</description>
     <uiIconScale>1.4</uiIconScale>
 		<statBases>
 			<MarketValue>1200</MarketValue>
@@ -159,14 +159,14 @@
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Ripper</defName>
 		<label>ripper</label>
-		<description>A fast, insectile combat mechanoid designed to wreak havoc in close quarters. The ripper's bladed forelimbs hide injector needles, dosing its target with mechanite-derived toxin with every slash. The toxin, beyond slowly dissolving the victim, uses their body as a mech gestator - creating mechanoid reinforcements on-site at the expense of its unfortunate foes.</description>
+		<description>A fast, insectile combat mechanoid designed to wreak havoc in close quarters. The ripper's bladed forelegs hide injector needles, dosing its target with mechanite-derived toxin with every slash. The toxin, beyond slowly dissolving the victim, uses their body as a mech gestator - creating mechanoid reinforcements on-site at the expense of its unfortunate foes.</description>
     <uiIconScale>1.3</uiIconScale>
 		<statBases>
 			<MarketValue>1200</MarketValue>
 			<MoveSpeed>4.7</MoveSpeed>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
-			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">3</BandwidthCost>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">2</BandwidthCost>
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">18</ControlTakingTime>
 			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
 			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.33</MechEnergyLossPerHP>
@@ -180,7 +180,7 @@
           <li>IM_RipperBlade</li>
         </capacities>
         <power>22</power>
-        <cooldownTime>2.2</cooldownTime>
+        <cooldownTime>2</cooldownTime>
         <linkedBodyPartsGroup>FrontLeftLeg</linkedBodyPartsGroup>
         <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
       </li>
@@ -191,7 +191,7 @@
           <li>IM_RipperBlade</li>
         </capacities>
         <power>22</power>
-        <cooldownTime>2.2</cooldownTime>
+        <cooldownTime>2</cooldownTime>
         <linkedBodyPartsGroup>FrontRightLeg</linkedBodyPartsGroup>
         <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
       </li>
@@ -234,7 +234,7 @@
 		<race>
 			<body>IM_MechanicalChryssalid</body>
 			<mechWeightClass>Medium</mechWeightClass>
-			<baseHealthScale>1.25</baseHealthScale>
+			<baseHealthScale>1.07</baseHealthScale>
 			<intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <baseBodySize>1</baseBodySize>
