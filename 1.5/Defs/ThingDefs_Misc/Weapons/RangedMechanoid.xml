@@ -62,7 +62,7 @@
   <ThingDef ParentName="BaseGun">
     <defName>IM_Gun_MiniBlaster</defName>
     <label>mini-blaster</label>
-    <description>A miniature pulse-charged blaster designed to integrate into the forearm of a light support mechanoid. Intended for self-defense rather than combat, it lacks in stopping power and damage.</description>
+    <description>A miniature pulse-charged blaster designed to integrate into the forearm of a light support mechanoid. Intended for self-defense rather than frontline combat, it lacks in stopping power and damage.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/MiniBlaster</texPath>

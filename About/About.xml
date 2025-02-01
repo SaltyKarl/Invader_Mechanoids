@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Invader Mechanoids</name>
+	<name>Mechanoid Invaders</name>
 	<author>Elseud, Alite</author>
 	<supportedVersions>
 	<li>1.5</li>
     </supportedVersions>
     <packageId>EL.InvMech</packageId>
-    <description>todo</description>
+    <description>Adds new combat mechanoids inspired by many of the aliens from the XCOM game series. Each mech comes with an unique mechanic, from ai-usable buffing abilities to toxins hijacking the host body to create more mechanoids.</description>
 	<modDependencies>
 		<li>
 			<packageId>EBSG.Framework</packageId>
