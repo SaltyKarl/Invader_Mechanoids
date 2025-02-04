@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+  <!--======= Raids =======-->
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
     <value>
@@ -74,5 +75,64 @@
         </options>
       </li>	
     </value>
+  </Operation>
+
+  <!--======= Infiltrators =======-->
+  <Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnKindDef[@Name = "MercenaryBase"]/startingHediffs</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnKindDef[@Name = "MercenaryBase"]</xpath>
+			<value>
+				<startingHediffs />
+			</value>
+		</nomatch>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/PawnKindDef[@Name = "MercenaryBase"]/startingHediffs</xpath>
+    <value>
+      <li>
+        <def>IW_Infiltrator</def>
+        <chance>0.075</chance>
+      </li>
+    </value>
   </Operation> 
+
+  <Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnKindDef[@Name = "PirateBase"]/startingHediffs</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnKindDef[@Name = "PirateBase"]</xpath>
+			<value>
+				<startingHediffs />
+			</value>
+		</nomatch>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/PawnKindDef[@Name = "PirateBase"]/startingHediffs</xpath>
+    <value>
+      <li>
+        <def>IW_Infiltrator</def>
+        <chance>0.075</chance>
+      </li>
+    </value>
+  </Operation> 
+
+  <Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnKindDef[@Name = "TribalBase"]/startingHediffs</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnKindDef[@Name = "TribalBase"]</xpath>
+			<value>
+				<startingHediffs />
+			</value>
+		</nomatch>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/PawnKindDef[@Name = "TribalBase"]/startingHediffs</xpath>
+    <value>
+      <li>
+        <def>IW_Infiltrator</def>
+        <chance>0.045</chance>
+      </li>
+    </value>
+  </Operation> 
+
 </Patch>

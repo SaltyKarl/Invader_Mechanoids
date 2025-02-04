@@ -338,4 +338,48 @@
     </graphicData>
   </ThingDef>
 
+  <!--======= Infiltrator =======-->
+  
+  <!-- Hediff -->
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IW_Infiltrator</defName>
+    <label>undercover infiltrator</label>
+    <description>todo</description>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_DestroyOnDeath" />
+      <li Class="HediffCompProperties_SurgeryInspectable">
+        <surgicalDetectionDesc>{PAWN_nameDef} is not human - {PAWN_pronoun} is a mechanoid infiltrator hiding behind a bio-mimetic disguise. Deal with {PAWN_objective} however you can before {PAWN_pronoun} discovers {PAWN_pronoun} has been found and sheds {PAWN_objective} disguise to attack your colony!</surgicalDetectionDesc>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000~300000</disappearsAfterTicks>
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_ReactOnDamage">
+        <damageDefIncoming>EMP</damageDefIncoming>
+        <createHediff>BrainShock</createHediff>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
+        <pawnKind>IM_Mech_Infiltrator</pawnKind>
+        <inCreatorFaction>false</inCreatorFaction>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+        <makeImmuneTo>
+          <li>GutWorms</li>
+        </makeImmuneTo>
+        <hungerRateFactor>0.3</hungerRateFactor>
+        <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Effects -->
+
 </Defs>

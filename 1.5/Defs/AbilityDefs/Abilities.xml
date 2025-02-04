@@ -406,6 +406,69 @@
     </stages>
   </HediffDef>
 
+  <!--======= Vanish =======-->
+
+  <!-- Ability -->
+  <AbilityDef>
+    <defName>IM_Vanish</defName>
+    <label>vanish</label>
+    <description>todo</description>
+    <iconPath>UI/Abilities/Vanish</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <cooldownTicksRange>300000</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <statBases>
+      <Ability_Duration>12</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>2</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_Vanish</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_Vanish</defName>
+    <label>vanishing</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>720</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <li Class="HediffCompProperties_Invisibility">
+        <visibleToPlayer>false</visibleToPlayer>
+        <fadeDurationTicks>60</fadeDurationTicks>
+        <recoverFromDisruptedTicks>120</recoverFromDisruptedTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
   <!--======= Autocasts =======-->
   
   <!-- Quickjet -->

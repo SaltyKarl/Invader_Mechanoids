@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>	
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Mechanoids</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+	      <li Class="PatchOperationAdd">
+		      <xpath>Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+		      <value>
+			      <li Class="VFEMech.PawnGroupMakerMech">
+              <!-- Light Infantry -->
+              <kindDef>Combat</kindDef>
+              <commonality>60</commonality>
+              <maximumPresence>9600</maximumPresence>
+              <options>
+                <VFE_Mech_Lancer>10</VFE_Mech_Lancer>
+					      <VFE_Mech_Scyther>10</VFE_Mech_Scyther>
+					      <VFE_Mech_Inquisitor>5</VFE_Mech_Inquisitor>
+					      <VFE_Mech_Knight>10</VFE_Mech_Knight>
+              </options>
+            </li>
+		      </value>
+	      </li>
+
+	    </operations>
+		</match>
+	</Operation>
+</Patch>

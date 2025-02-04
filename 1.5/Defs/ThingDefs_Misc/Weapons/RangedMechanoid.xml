@@ -184,7 +184,7 @@
         <cooldownTime>2</cooldownTime>
       </li>
       <li>
-        <label>cleaver edge</label>
+        <label>edge</label>
         <capacities>
           <li>Cut</li>
         </capacities>
@@ -264,6 +264,88 @@
       <damageDef>Bullet</damageDef>
       <damageAmountBase>9</damageAmountBase>
       <speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Stinger Gun -->
+  <ThingDef ParentName="BaseGun">
+    <defName>IM_Gun_StingerGun</defName>
+    <label>stinger gun</label>
+    <description>todo</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/StingerGun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <equippedDistanceOffset>-0.15</equippedDistanceOffset>
+    <tradeability>None</tradeability>
+    <destroyOnDrop>true</destroyOnDrop>
+    <relicChance>0</relicChance>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.80</AccuracyLong>
+      <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>IM_StingerGun</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>IM_Bullet_StingerShot</defaultProjectile>
+        <warmupTime>0.8</warmupTime>
+        <range>21.9</range>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>IM_StingerGunShot</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>poison blade</label>
+        <capacities>
+          <li>IM_PoisonBlade</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>IM_Bullet_StingerShot</defName>
+    <label>stinger shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/StingerShot</texPath>
+      <drawSize>1.1</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>IM_StingerShot</damageDef>
+      <damageAmountBase>5</damageAmountBase>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <speed>90</speed>
     </projectile>
   </ThingDef>
   
