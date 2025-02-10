@@ -340,46 +340,415 @@
 
   <!--======= Infiltrator =======-->
   
-  <!-- Hediff -->
+  <!--== Hediff ==-->
+  
+  <!-- Main Hediff -->
   <HediffDef>
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IW_Infiltrator</defName>
     <label>undercover infiltrator</label>
-    <description>todo</description>
+    <description>This "person" is in truth a mechanoid hiding behind a human facade. It will bide its time until either its disguise gets too damaged, or it judges the moment right to reveal itself.\n\nEven disguised like this, it should remain vulnurable to EMP shocks - perhaps you can use this against it.</description>
     <everCurableByItem>false</everCurableByItem>
     <scenarioCanAdd>false</scenarioCanAdd>
     <maxSeverity>1</maxSeverity>
     <comps>
-      <li Class="EBSGFramework.HediffCompProperties_DestroyOnDeath" />
+      <li Class="EBSGFramework.HediffCompProperties_DestroyOnDeath"/>
       <li Class="HediffCompProperties_SurgeryInspectable">
-        <surgicalDetectionDesc>{PAWN_nameDef} is not human - {PAWN_pronoun} is a mechanoid infiltrator hiding behind a bio-mimetic disguise. Deal with {PAWN_objective} however you can before {PAWN_pronoun} discovers {PAWN_pronoun} has been found and sheds {PAWN_objective} disguise to attack your colony!</surgicalDetectionDesc>
+        <surgicalDetectionDesc>{PAWN_nameDef} is not human - {PAWN_pronoun} is a mechanoid infiltrator hiding behind a bio-mimetic disguise. Deal with {PAWN_objective} however you can before {PAWN_pronoun} discovers {PAWN_pronoun} has been found out and sheds {PAWN_objective} disguise to attack your colony!</surgicalDetectionDesc>
       </li>
       <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>60000~300000</disappearsAfterTicks>
+        <disappearsAfterTicks>90000~420000</disappearsAfterTicks>
         <showRemainingTime>false</showRemainingTime>
       </li>
       <li Class="HediffCompProperties_ReactOnDamage">
         <damageDefIncoming>EMP</damageDefIncoming>
-        <createHediff>BrainShock</createHediff>
+        <createHediff>IM_InfiltratorBrainShock</createHediff>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
         <pawnKind>IM_Mech_Infiltrator</pawnKind>
         <inCreatorFaction>false</inCreatorFaction>
+        <hediffOnPawns>IM_Unmasked</hediffOnPawns>
+        <effecter>IM_DisguiseDisintegration</effecter>
+        <spawnEffecter>IM_InfiltratorReveal</spawnEffecter>
+        <attachEffecterToPawn>true</attachEffecterToPawn>
+        <activation>OnDeathOnly</activation>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <li Class="EBSGFramework.HediffCompProperties_PreventDeathNotifications"/>
+      <li Class="EBSGFramework.HediffCompProperties_HediffsOnRemoval">
+        <hediffsToGive>
+          <li>
+            <hediffDef>IM_ShedDisguise</hediffDef>
+          </li>
+        </hediffsToGive>
+      </li>
+      <li Class="HediffCompProperties_RemoveIfOtherHediff">
+        <hediffs>
+          <li>IM_DeactivatedInfiltrator</li>
+        </hediffs>
+      </li>
+      <li Class="HediffCompProperties_Effecter">
+        <stateEffecter>IM_RadioWaves</stateEffecter>
+      </li>
     </comps>
     <stages>
       <li>
         <becomeVisible>false</becomeVisible>
         <makeImmuneTo>
+          <li>Flu</li>
+          <li>Malaria</li>
+          <li>SleepingSickness</li>
+          <li>Plague</li>
+          <li>WoundInfection</li>
+          <li>LungRot</li>
           <li>GutWorms</li>
+          <li>MuscleParasites</li>
+          <li>OrganDecay</li>
         </makeImmuneTo>
-        <hungerRateFactor>0.3</hungerRateFactor>
+        <hungerRateFactor>0.1</hungerRateFactor>
         <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+        <opinionOfOthersFactor>0</opinionOfOthersFactor>
       </li>
     </stages>
   </HediffDef>
 
-  <!-- Effects -->
+  <!-- Infiltrator Hediffs -->
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_ShedDisguise</defName>
+    <label>shed disguise</label>
+    <description>You shouldn't be able to read this.</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <lethalSeverity>1</lethalSeverity>
+    <tendable>false</tendable>
+    <comps>
+      <li Class="HediffCompProperties_Discoverable">
+        <sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
+        <discoverLetterLabel>Infiltrator Revealed</discoverLetterLabel>
+        <discoverLetterText>{PAWN_nameDef} has revealed {PAWN_objective}self to be a mechanoid infiltrator - intent to destroy your colony from within! It will try to destroy your base and hunt down any colonist it can find.</discoverLetterText>
+        <letterType>ThreatSmall</letterType>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
+        <pawnKind>IM_Mech_Infiltrator</pawnKind>
+        <inCreatorFaction>false</inCreatorFaction>
+        <hediffOnPawns>IM_Unmasked</hediffOnPawns>
+        <effecter>IM_DisguiseDisintegration</effecter>
+        <spawnEffecter>IM_InfiltratorReveal</spawnEffecter>
+        <attachEffecterToPawn>true</attachEffecterToPawn>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_DestroyOnDeath"/>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+      <li Class="EBSGFramework.HediffCompProperties_PreventDeathNotifications"/>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_Unmasked</defName>
+    <label>unmasked</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/> <!-- Should prevent weird thinktree interactions post-resurrection (e.g. via Apocriton) -->
+      <li Class="EL_IM.HediffCompProperties_GiveHediffReactiveCloak">
+        <hediffDef>IM_ReactiveCloak</hediffDef>
+        <skipIfAlreadyExists>true</skipIfAlreadyExists>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_ReactiveCloak</defName>
+    <label>reactive cloak</label>
+    <description>todo</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>135</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <li Class="HediffCompProperties_Invisibility">
+        <visibleToPlayer>true</visibleToPlayer>
+        <fadeDurationTicks>15</fadeDurationTicks>
+        <recoverFromDisruptedTicks>90</recoverFromDisruptedTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- Impostor Hediffs -->
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_InfiltratorBrainShock</defName>
+    <label>brain shock?</label>
+    <labelNoun>a brain shock?</labelNoun>
+    <description>After-effects of an electrical shock to the brain. This is generally cause by feedback from brain implants hit by EMP pulses. With full-body spasms and limbs bending at unnatural angles, this one's symptoms seem unusually severe. Perhaps a medical examination is in order.</description>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-8</severityPerDay>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_HediffsOnRemoval">
+        <hediffsToGive>
+          <li>
+            <hediffDef>IM_DeactivatedInfiltrator</hediffDef>
+          </li>
+        </hediffsToGive>
+        <validSeverity>0.02</validSeverity>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <RecipeDef>
+    <defName>IM_DeactivateInfiltrator</defName>
+    <uiIconPath>UI/Icons/DeactivateInfiltrator</uiIconPath>
+    <effectWorking>Repair</effectWorking>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>24</workSkillLearnFactor>
+    <label>deactivate infiltrator</label>
+    <description>Deactivate an infiltrator.</description>
+    <jobString>Deactivating infiltrator.</jobString>
+    <workAmount>850</workAmount>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <isViolation>false</isViolation>
+    <targetsBodyPart>false</targetsBodyPart>
+    <removesHediff>IM_InfiltratorBrainShock</removesHediff>
+    <successfullyRemovedHediffMessage>{0} has successfully deatcivated an infiltrator masquerading as {1}.</successfullyRemovedHediffMessage>
+    <skillRequirements>
+      <Crafting>3</Crafting>
+    </skillRequirements>
+  </RecipeDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_DeactivatedInfiltrator</defName>
+    <label>deactivated infiltrator</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <lethalSeverity>1</lethalSeverity>
+    <tendable>false</tendable>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
+        <pawnKind>IM_Mech_Infiltrator</pawnKind>
+        <inCreatorFaction>false</inCreatorFaction>
+        <hediffOnPawns>IM_KillInfiltrator</hediffOnPawns>
+        <effecter>IM_DisguiseDisintegration</effecter>
+        <spawnEffecter>IM_InfiltratorReveal</spawnEffecter>
+        <attachEffecterToPawn>true</attachEffecterToPawn>
+      </li>
+      <li Class="EBSGFramework.HediffCompProperties_DestroyOnDeath">
+        <extraDeathSound>Pawn_Infiltrator_Death</extraDeathSound>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+      <li Class="EBSGFramework.HediffCompProperties_PreventDeathNotifications"/>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_KillInfiltrator</defName>
+    <label>kill infiltrator</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <lethalSeverity>1</lethalSeverity>
+    <tendable>false</tendable>
+    <comps>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!--== Effects ==-->
+  
+  <!-- Infiltrator Reveal -->
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>IM_AcidSplash</defName>
+    <graphicData>
+      <texPath>Things/Mote/ToxicDamage</texPath>
+      <renderInstanced>true</renderInstanced>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0.1</fadeInTime>
+    <solidTime>0.2</solidTime>
+    <fadeOutTime>0.3</fadeOutTime>
+  </FleckDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>IM_RevealFlash</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.01</fadeInTime>
+      <solidTime>0</solidTime>
+      <fadeOutTime>0.03</fadeOutTime>
+    </mote>
+    <graphicData>
+      <texPath>Things/Mote/BrightFlash</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <color>(1, 0, 0, 1)</color>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>IM_DisguiseDisintegration</defName>
+    <maintainTicks>60</maintainTicks>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>IM_DisguiseDisintegration</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>IM_RevealFlash</moteDef>
+        <burstCount>1</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <attachToSpawnThing>true</attachToSpawnThing>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>IM_AcidSplash</fleckDef>
+        <burstCount>10~12</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>.5</positionRadius>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <color>(0.1,0.8,0.26,1)</color>
+        <scale>0.6~0.8</scale>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <absoluteAngle>false</absoluteAngle>
+        <rotationRate>30~50</rotationRate>
+        <rotation>0</rotation>
+        <speed>-3~3</speed>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>IM_BloodChurnNoise</fleckDef>
+        <burstCount>10~12</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>.5</positionRadius>
+        <positionOffset>(0, 0, 0)</positionOffset>
+        <scale>0.4~0.6</scale>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+        <absoluteAngle>false</absoluteAngle>
+        <rotationRate>30~50</rotationRate>
+        <rotation>0</rotation>
+        <speed>-3~3</speed>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>IM_RevealGlow</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.1</fadeInTime>
+      <solidTime>0</solidTime>
+      <fadeOutTime>0.85</fadeOutTime>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_PawnBodySilhouette</graphicClass>
+      <color>(0.8, 0, 0, 1)</color>
+      <shaderType>MoteGlow</shaderType>
+      <texPath>Things/Mote/Transparent</texPath>
+    </graphicData>
+  </ThingDef>
+  
+  <EffecterDef>
+    <defName>IM_InfiltratorReveal</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>IM_RevealGlow</moteDef>
+        <burstCount>1</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <attachToSpawnThing>true</attachToSpawnThing>
+      </li>
+    </children>
+  </EffecterDef>
+  
+  <!-- Impostor Effects -->
+  <FleckDef ParentName="FleckBase_Thrown">
+    <defName>IM_RadioWaves</defName>
+    <growthRate>1</growthRate>
+    <useAttachLink>true</useAttachLink>
+    <graphicData>
+      <texPath>Things/Mote/RadioWaves</texPath>
+      <shaderType>Mote</shaderType>
+      <graphicClass>Graphic_Fleck</graphicClass>
+      <renderInstanced>false</renderInstanced>
+      <color>(1, 1, 1, 1)</color>
+      <drawSize>(1, 1)</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>0</fadeInTime>
+    <solidTime>0.1</solidTime>
+    <fadeOutTime>0.2</fadeOutTime>
+  </FleckDef>
+
+  <EffecterDef>
+    <defName>IM_RadioWaves</defName>
+    <offsetMode>Free</offsetMode>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>IM_RadioWaves</fleckDef>
+        <chancePerTick>0.0005</chancePerTick>
+        <burstCount>1</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <positionRadius>0</positionRadius>
+        <scale>1</scale>
+        <positionOffset>(0, 0, 0.55)</positionOffset>
+        <rotation>-2~2</rotation>
+        <rotationRate>0</rotationRate>
+        <absoluteAngle>True</absoluteAngle>
+        <fleckUsesAngleForVelocity>false</fleckUsesAngleForVelocity>
+        <speed>0</speed>
+      </li>
+    </children>
+  </EffecterDef>
 
 </Defs>

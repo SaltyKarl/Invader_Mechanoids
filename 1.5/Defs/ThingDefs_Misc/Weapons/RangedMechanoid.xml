@@ -271,7 +271,7 @@
   <ThingDef ParentName="BaseGun">
     <defName>IM_Gun_StingerGun</defName>
     <label>stinger gun</label>
-    <description>todo</description>
+    <description>A covert mechanoid weapon used primarily for assassination of organic targets. Delivers a highly toxic payload through either small, needle-like projectiles or twin poison blades on the sides of the barrel.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/StingerGun</texPath>
@@ -303,7 +303,7 @@
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>IM_Bullet_StingerShot</defaultProjectile>
         <warmupTime>0.8</warmupTime>
-        <range>21.9</range>
+        <range>22.9</range>
         <burstShotCount>1</burstShotCount>
         <soundCast>IM_StingerGunShot</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>

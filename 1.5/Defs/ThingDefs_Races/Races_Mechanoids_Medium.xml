@@ -62,16 +62,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Skirmisher_Wounded</soundWounded>
-          <soundDeath>Pawn_Skirmisher_Death</soundDeath>
-          <soundCall>Pawn_Skirmisher_Call</soundCall>
+          <soundWounded>IM_Pawn_Skirmisher_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Skirmisher_Death</soundDeath>
+          <soundCall>IM_Pawn_Skirmisher_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_Skirmisher_Wounded</soundWounded>
-          <soundDeath>Pawn_Skirmisher_Death</soundDeath>
-          <soundCall>Pawn_Skirmisher_Call</soundCall>
+          <soundWounded>IM_Pawn_Skirmisher_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Skirmisher_Death</soundDeath>
+          <soundCall>IM_Pawn_Skirmisher_Call</soundCall>
         </li>
       </lifeStageAges>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
@@ -234,7 +234,7 @@
 		<race>
 			<body>IM_MechanicalChryssalid</body>
 			<mechWeightClass>Medium</mechWeightClass>
-			<baseHealthScale>1.07</baseHealthScale>
+			<baseHealthScale>1.21</baseHealthScale>
 			<intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <baseBodySize>1</baseBodySize>
@@ -324,7 +324,8 @@
   <ThingDef ParentName="BaseMechanoidWalker">
     <defName>IM_Mech_Infiltrator</defName>
     <label>infiltrator</label>
-    <description>todo</description>
+    <description>A tall, spindly assassin mechanoid. The infiltrator's flexible carapace and telescopic limbs let it assume any stature it desires - and when covered in a biomimetic disguise, convincingly imitate human likeness. Employed by mechanitors and rogue swarms as covert operatives, infiltrators use their advanced optical cloaking to scout enemy positions, gather intel, and assassinate high-value targets using toxin-coated concealed weapons. Additionally, the disguise serves as a layer of ablative armor - under most circumstances, destroying it will not damage the mechanoid hidden within.\n\nEven when hiding behind a human facade, the infiltrator is still a mechanoid by nature - it remains vulnerable to EMP, and being an unfeeling machine, is unable to form relationships. When disguised, it will periodically relay data to its overseer, which can be intercepted by a savvy colony to find it out.</description>
+    <uiIconScale>1.4</uiIconScale>
     <tools>
       <li>
         <label>left fist</label>
@@ -365,9 +366,31 @@
         <workerClass>DeathActionWorker_ToxCloud</workerClass>
       </deathAction>
       <body>Lancer</body>
-      <baseHealthScale>0.75</baseHealthScale>
+      <baseHealthScale>0.65</baseHealthScale>
       <baseBodySize>1.4</baseBodySize>
+      <thinkTreeConstant>IM_InvaderConstant</thinkTreeConstant>
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>IM_Pawn_Infiltrator_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Infiltrator_Death</soundDeath>
+          <soundCall>IM_Pawn_Infiltrator_Call</soundCall>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Biotech">
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>IM_Pawn_Infiltrator_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Infiltrator_Death</soundDeath>
+          <soundCall>IM_Pawn_Infiltrator_Call</soundCall>
+        </li>
+      </lifeStageAges>
       <detritusLeavings>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>16</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
         <li>
           <def>ChunkMechanoidSlag</def>
           <texOverrideIndex>11</texOverrideIndex>
@@ -375,21 +398,18 @@
         </li>
         <li>
           <def>ChunkMechanoidSlag</def>
-          <texOverrideIndex>12</texOverrideIndex>
+          <texOverrideIndex>1</texOverrideIndex>
           <spawnChance>0.1</spawnChance>
         </li>
       </detritusLeavings>
     </race>
-    <statBases>
-      <BandwidthCost MayRequire="Ludeon.RimWorld.Biotech">3</BandwidthCost>
-    </statBases>
   </ThingDef>
 
   <PawnKindDef ParentName="BaseMechanoidKind">
     <defName>IM_Mech_Infiltrator</defName>
     <label>infiltrator</label>
     <race>IM_Mech_Infiltrator</race>
-    <combatPower>160</combatPower>
+    <combatPower>150</combatPower>
     <lifeStages>
       <li MayRequire="Ludeon.RimWorld.Biotech">
         <bodyGraphicData>
@@ -423,7 +443,7 @@
     <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
     <techHediffsMoney>9999~9999</techHediffsMoney>
     <abilities>
-      <li>IM_Vanish</li>
+      <li>IM_Conceal</li>
     </abilities>
   </PawnKindDef>
 

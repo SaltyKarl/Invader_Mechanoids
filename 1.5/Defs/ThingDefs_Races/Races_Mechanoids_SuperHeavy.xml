@@ -6,7 +6,8 @@
 		<defName>IM_Mech_Bombardier</defName>
 		<label>bombardier</label>
 		<description>A clunky, ultra-heavy combat mechanoid designed as an artillery platform. Carrying a charge howitzer turret on its back, the bombardier acts as a siegebreaker, raining fire upon enemy emplacements on approach. Its cumbersome frame and unusually thin armor make it vulnerable in close-quarters combat.</description>
-		<statBases>
+		<uiIconScale>1.2</uiIconScale>
+    <statBases>
 			<MarketValue>1600</MarketValue>
 			<MoveSpeed>1.7</MoveSpeed>
 			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
@@ -64,16 +65,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Bombardier_Wounded</soundWounded>
-          <soundDeath>Pawn_Bombardier_Death</soundDeath>
-          <soundCall>Pawn_Bombardier_Call</soundCall>
+          <soundWounded>IM_Pawn_Bombardier_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Bombardier_Death</soundDeath>
+          <soundCall>IM_Pawn_Bombardier_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_Bombardier_Wounded</soundWounded>
-          <soundDeath>Pawn_Bombardier_Death</soundDeath>
-          <soundCall>Pawn_Bombardier_Call</soundCall>
+          <soundWounded>IM_Pawn_Bombardier_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Bombardier_Death</soundDeath>
+          <soundCall>IM_Pawn_Bombardier_Call</soundCall>
         </li>
       </lifeStageAges>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>

@@ -63,16 +63,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_MechLight_Wounded</soundWounded>
-          <soundDeath>Pawn_MechLight_Death</soundDeath>
-          <soundCall>Pawn_MechLight_Call</soundCall>
+          <soundWounded>IM_Pawn_Aide_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Aide_Death</soundDeath>
+          <soundCall>IM_Pawn_Aide_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_MechLight_Wounded</soundWounded>
-          <soundDeath>Pawn_MechLight_Death</soundDeath>
-          <soundCall>Pawn_MechLight_Call</soundCall>
+          <soundWounded>IM_Pawn_Aide_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Aide_Death</soundDeath>
+          <soundCall>IM_Pawn_Aide_Call</soundCall>
         </li>
       </lifeStageAges>
       <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
@@ -226,16 +226,16 @@
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Ripperling_Wounded</soundWounded>
-          <soundDeath>Pawn_Ripperling_Death</soundDeath>
-          <soundCall>Pawn_Ripperling_Call</soundCall>
+          <soundWounded>IM_Pawn_Ripperling_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Ripperling_Death</soundDeath>
+          <soundCall>IM_Pawn_Ripperling_Call</soundCall>
         </li>
         <li MayRequire="Ludeon.RimWorld.Biotech">
           <def>MechanoidFullyFormed</def>
           <minAge>100</minAge>
-          <soundWounded>Pawn_Ripperling_Wounded</soundWounded>
-          <soundDeath>Pawn_Ripperling_Death</soundDeath>
-          <soundCall>Pawn_Ripperling_Call</soundCall>
+          <soundWounded>IM_Pawn_Ripperling_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Ripperling_Death</soundDeath>
+          <soundCall>IM_Pawn_Ripperling_Call</soundCall>
         </li>
       </lifeStageAges>
 			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>

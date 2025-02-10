@@ -17,6 +17,8 @@
               <subNodes>
                 <li Class="ThinkNode_ConditionalSpawned">
                   <subNodes>
+                    
+                    <!--== General Ability AI ==-->
                     <li Class="ThinkNode_ConditionalHashIntervalTick">
                       <interval>45</interval>
                       <subNodes>
@@ -43,7 +45,7 @@
                           <subNodes>
                             <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                               <ability>IM_SystemMerge</ability>
-                              <minTicksAgo>600</minTicksAgo>
+                              <minTicksAgo>300</minTicksAgo>
                               <subNodes>
                                 <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                   <dangerRadius>40</dangerRadius>
@@ -65,9 +67,127 @@
                             </li>
                           </subNodes>
                         </li>
-                        
+
+                        <!-- Conceal -->
+                        <li Class="ThinkNode_ConditionalHasHediff">
+                          <hediff>IM_Unmasked</hediff>
+                          <invert>true</invert>
+                          <subNodes>
+                            <li Class="ThinkNode_ConditionalHasAbility">
+                              <ability>IM_Conceal</ability>
+                              <subNodes>
+                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                  <ability>IM_Conceal</ability>
+                                  <minTicksAgo>240</minTicksAgo>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                      <dangerRadius>13</dangerRadius>
+                                      <minCount>3</minCount>
+                                      <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                          <ability>IM_Conceal</ability>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+                            <!-- Reposition when invisible -->
+                            <li Class="EBSGFramework.ThinkNode_ConditionalHasAnyOfHediff">
+                              <hediffs>
+                                <li>IM_Concealed</li>
+                                <li>IM_ReactiveCloak</li>
+                              </hediffs>
+                              <subNodes>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                  <dangerRadius>13</dangerRadius>
+                                  <minCount>3</minCount>
+                                  <subNodes>
+                                    <li Class="JobGiver_FleeForDistance">
+                                      <enemyDistToFleeRange>0~12.9</enemyDistToFleeRange>
+                                      <fleeDistRange>13.9~21.9</fleeDistRange>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+                          </subNodes>
+                        </li>
+
                       </subNodes>
                     </li>
+
+                    <!--== Unmasked Infiltrator ==-->
+                    <li Class="ThinkNode_ConditionalHasHediff">
+                      <hediff>IM_Unmasked</hediff>
+                      <subNodes>
+
+                        <!-- Reposition when invisible - inserted separately for unmasked infiltrators to make them listen -->
+                        <li Class="EBSGFramework.ThinkNode_ConditionalHasAnyOfHediff">
+                          <hediffs>
+                            <li>IM_Concealed</li>
+                            <li>IM_ReactiveCloak</li>
+                          </hediffs>
+                          <subNodes>
+                            <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                              <dangerRadius>13</dangerRadius>
+                              <minCount>3</minCount>
+                              <subNodes>
+                                <li Class="JobGiver_FleeForDistance">
+                                  <enemyDistToFleeRange>0~12.9</enemyDistToFleeRange>
+                                  <fleeDistRange>13.9~21.9</fleeDistRange>
+                                </li>
+                              </subNodes>
+                            </li>
+                          </subNodes>
+                        </li>
+
+                        <!-- Try to Conceal if surrounded, if not/can't, attack -->
+                        <li Class="EBSGFramework.ThinkNode_ConditionalHasAnyOfHediff">
+                          <hediffs>
+                            <li>IM_Concealed</li>
+                            <li>IM_ReactiveCloak</li>
+                          </hediffs>
+                          <invert>true</invert>
+                          <subNodes>
+                            <li Class="ThinkNode_ConditionalHasAbility">
+                              <ability>IM_Conceal</ability>
+                              <subNodes>
+                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                  <ability>IM_Conceal</ability>
+                                  <minTicksAgo>240</minTicksAgo>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                      <dangerRadius>13</dangerRadius>
+                                      <minCount>3</minCount>
+                                      <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                          <ability>IM_Conceal</ability>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+                            <li Class="JobGiver_AIFightEnemies">
+                              <targetAcquireRadius>65</targetAcquireRadius>
+                              <targetKeepRadius>72</targetKeepRadius>
+                            </li>
+                            <li Class="JobGiver_AITrashColonyClose" />
+                            <li Class="JobGiver_AITrashBuildingsDistant" />
+                            <li Class="JobGiver_AIGotoNearestHostile" />
+                            <li Class="JobGiver_AITrashBuildingsDistant">
+                              <attackAllInert>true</attackAllInert>
+                            </li>
+                            <li Class="JobGiver_WanderAnywhere" />
+                          </subNodes>
+                        </li>
+
+                      </subNodes>
+                    </li>
+                  
                   </subNodes>
                 </li>
               </subNodes>
@@ -123,7 +243,7 @@
                           <subNodes>
                             <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                               <ability>IM_SystemMerge</ability>
-                              <minTicksAgo>600</minTicksAgo>
+                              <minTicksAgo>300</minTicksAgo>
                               <subNodes>
                                 <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                   <dangerRadius>40</dangerRadius>

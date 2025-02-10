@@ -406,17 +406,58 @@
     </stages>
   </HediffDef>
 
-  <!--======= Vanish =======-->
+  <!--======= Conceal =======-->
 
+  <!-- VFX -->
+  <ThingDef ParentName="MoteBase">
+    <defName>IM_ConcealGlow</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>2.5</fadeInTime>
+      <solidTime>0.005</solidTime>
+      <fadeOutTime>0.1</fadeOutTime>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_PawnBodySilhouette</graphicClass>
+      <color>(171, 235, 255, 155)</color>
+      <shaderType>MoteGlowDistorted</shaderType>
+      <texPath>Things/Mote/PsycastDistortionMask</texPath>
+      <shaderParameters>
+        <_DistortionTex>/Other/Ripples</_DistortionTex>
+        <_distortionIntensity>0.05</_distortionIntensity>
+        <_DistortionScale>0.7</_DistortionScale>
+        <_distortionScrollSpeed>(0.07, 0.07, 0.0)</_distortionScrollSpeed>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>IM_Conceal</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+        <soundDef>IM_Conceal</soundDef>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>IM_ConcealGlow</moteDef>
+        <burstCount>1</burstCount>
+        <spawnLocType>OnSource</spawnLocType>
+        <attachToSpawnThing>true</attachToSpawnThing>
+      </li>
+    </children>
+  </EffecterDef>
+  
   <!-- Ability -->
   <AbilityDef>
-    <defName>IM_Vanish</defName>
-    <label>vanish</label>
+    <defName>IM_Conceal</defName>
+    <label>conceal</label>
     <description>todo</description>
-    <iconPath>UI/Abilities/Vanish</iconPath>
+    <iconPath>UI/Abilities/Conceal</iconPath>
     <jobDef>CastAbilityOnThing</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
-    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
     <stunTargetWhileCasting>false</stunTargetWhileCasting>
     <cooldownTicksRange>300000</cooldownTicksRange>
@@ -430,7 +471,8 @@
       <verbClass>Verb_CastAbility</verbClass>
       <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
       <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
-      <warmupTime>2</warmupTime>
+      <warmupEffecter>IM_Conceal</warmupEffecter>
+      <warmupTime>2.65</warmupTime>
       <range>-1</range>
       <drawAimPie>false</drawAimPie>    
       <requireLineOfSight>False</requireLineOfSight>
@@ -441,16 +483,16 @@
     <comps>
       <li Class="CompProperties_AbilityGiveHediff">
         <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>IM_Vanish</hediffDef>
+        <hediffDef>IM_Concealed</hediffDef>
       </li>
     </comps>
   </AbilityDef>
 
   <HediffDef>
     <hediffClass>HediffWithComps</hediffClass>
-    <defName>IM_Vanish</defName>
-    <label>vanishing</label>
-    <description>todo</description>
+    <defName>IM_Concealed</defName>
+    <label>concealed</label>
+    <description>An active optical cloak, rendering this mechanoid invisible for the duration.</description>
     <isBad>false</isBad>
     <everCurableByItem>false</everCurableByItem>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -464,7 +506,7 @@
       <li Class="HediffCompProperties_Invisibility">
         <visibleToPlayer>false</visibleToPlayer>
         <fadeDurationTicks>60</fadeDurationTicks>
-        <recoverFromDisruptedTicks>120</recoverFromDisruptedTicks>
+        <recoverFromDisruptedTicks>90</recoverFromDisruptedTicks>
       </li>
     </comps>
   </HediffDef>

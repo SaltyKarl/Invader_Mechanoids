@@ -55,7 +55,7 @@
     <additionalHediffs>
       <li>
         <hediff>ToxicBuildup</hediff>
-        <severityPerDamageDealt>0.0125</severityPerDamageDealt>
+        <severityPerDamageDealt>0.0175</severityPerDamageDealt>
         <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
         <inverseStatScaling>true</inverseStatScaling>
         <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
@@ -69,7 +69,7 @@
     <additionalHediffs>
       <li>
         <hediff>ToxicBuildup</hediff>
-        <severityPerDamageDealt>0.0055</severityPerDamageDealt>
+        <severityPerDamageDealt>0.0075</severityPerDamageDealt>
         <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
         <inverseStatScaling>true</inverseStatScaling>
         <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
