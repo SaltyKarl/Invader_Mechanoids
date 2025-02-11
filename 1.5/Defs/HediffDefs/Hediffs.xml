@@ -347,7 +347,7 @@
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IW_Infiltrator</defName>
     <label>undercover infiltrator</label>
-    <description>This "person" is in truth a mechanoid hiding behind a human facade. It will bide its time until either its disguise gets too damaged, or it judges the moment right to reveal itself.\n\nEven disguised like this, it should remain vulnurable to EMP shocks - perhaps you can use this against it.</description>
+    <description>This "person" is in truth a mechanoid hiding behind a facade. It will bide its time until either its disguise gets too damaged, or it judges the moment right to reveal itself.\n\nEven when disguised like this, it should remain vulnurable to EMP shocks - perhaps you can use this against it.</description>
     <everCurableByItem>false</everCurableByItem>
     <scenarioCanAdd>false</scenarioCanAdd>
     <maxSeverity>1</maxSeverity>
@@ -428,7 +428,7 @@
       <li Class="HediffCompProperties_Discoverable">
         <sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
         <discoverLetterLabel>Infiltrator Revealed</discoverLetterLabel>
-        <discoverLetterText>{PAWN_nameDef} has revealed {PAWN_objective}self to be a mechanoid infiltrator - intent to destroy your colony from within! It will try to destroy your base and hunt down any colonist it can find.</discoverLetterText>
+        <discoverLetterText>{PAWN_nameDef} has revealed {PAWN_objective}self to be a mechanoid infiltrator - intent on destroying your colony from within! It will try to destroy your base and hunt down any colonist it can find.</discoverLetterText>
         <letterType>ThreatSmall</letterType>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_SpawnPawnKindOnRemoval">
@@ -472,7 +472,7 @@
     <hediffClass>HediffWithComps</hediffClass>
     <defName>IM_ReactiveCloak</defName>
     <label>reactive cloak</label>
-    <description>todo</description>
+    <description>A short-lived optical cloak activated in response to an infiltrator shedding its biomimetic disguise.</description>
     <isBad>false</isBad>
     <everCurableByItem>false</everCurableByItem>
     <scenarioCanAdd>false</scenarioCanAdd>
@@ -497,7 +497,7 @@
     <defName>IM_InfiltratorBrainShock</defName>
     <label>brain shock?</label>
     <labelNoun>a brain shock?</labelNoun>
-    <description>After-effects of an electrical shock to the brain. This is generally cause by feedback from brain implants hit by EMP pulses. With full-body spasms and limbs bending at unnatural angles, this one's symptoms seem unusually severe. Perhaps a medical examination is in order.</description>
+    <description>After-effects of an electrical shock to the brain. This is generally caused by feedback from brain implants hit by EMP pulses. With full-body spasms and limbs bending at unnatural angles, this one's symptoms seem unusually severe. Perhaps a medical examination is in order.</description>
     <initialSeverity>1</initialSeverity>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
