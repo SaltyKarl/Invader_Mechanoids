@@ -453,7 +453,7 @@
   <AbilityDef>
     <defName>IM_Conceal</defName>
     <label>conceal</label>
-    <description>todo</description>
+    <description>Activate a built-in optical cloak, turning invisible for a short time.</description>
     <iconPath>UI/Abilities/Conceal</iconPath>
     <jobDef>CastAbilityOnThing</jobDef>
     <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
