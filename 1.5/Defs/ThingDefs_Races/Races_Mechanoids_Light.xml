@@ -89,7 +89,7 @@
     <defName>IM_Mech_Aide</defName>
     <label>aide</label>
     <race>IM_Mech_Aide</race>
-    <combatPower>55</combatPower>
+    <combatPower>60</combatPower>
     <lifeStages>
 	    <li MayRequire="Ludeon.RimWorld.Biotech">
         <bodyGraphicData>
