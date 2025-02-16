@@ -54,14 +54,6 @@
         </options>
       </li>
       <li>
-        <!-- Aide Only -->
-        <kindDef>Combat</kindDef>
-        <commonality>30</commonality>
-        <options>
-          <IM_Mech_Aide>10</IM_Mech_Aide>
-        </options>
-      </li>	
-      <li>
         <!-- Allstars -->
         <kindDef>Combat</kindDef>
         <commonality>30</commonality>
