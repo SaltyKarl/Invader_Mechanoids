@@ -532,6 +532,40 @@
     </graphicData>
   </ThingDef>
 
+  <ThingDef ParentName="MoteBase">
+    <defName>IM_GrappleTangle</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0</fadeInTime>
+      <fadeOutTime>0.1</fadeOutTime>
+      <solidTime>999999</solidTime>
+      <needsMaintenance>true</needsMaintenance>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_Mote</graphicClass>
+      <shaderType>Mote</shaderType>
+      <texPath>Things/Mote/GrappleTangle</texPath>
+      <drawSize>(1.1, 1.1)</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <EffecterDef>
+    <defName>IM_GrappleTangle</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <moteDef>IM_GrappleTangle</moteDef>
+        <burstCount>1</burstCount>
+        <spawnLocType>OnTarget</spawnLocType>
+        <attachToSpawnThing>true</attachToSpawnThing>
+        <absoluteAngle>True</absoluteAngle>
+        <rotationRate>0</rotationRate>
+        <rotation>0</rotation>
+      </li>
+    </children>
+  </EffecterDef>
+
   <!-- Ability -->
   <AbilityDef>
     <defName>IM_GrapplePull</defName>
@@ -543,7 +577,7 @@
     <hostile>false</hostile>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <statBases>
-      <Ability_Duration>2</Ability_Duration>
+      <Ability_Duration>1</Ability_Duration>
     </statBases>
     <cooldownTicksRange>30000</cooldownTicksRange>
 	  <targetRequired>true</targetRequired>
@@ -567,6 +601,9 @@
       </targetParams>
     </verbProperties>
     <comps>
+      <li Class = "CompProperties_AbilityEffectWithDuration">
+        <compClass>CompAbilityEffect_Stun</compClass>
+      </li>
       <li Class="EBSGFramework.CompProperties_CreateLinkedHediff">
         <targetHediffOnBrain>false</targetHediffOnBrain>
         <hediffOnTarget>IM_GrappleLine</hediffOnTarget>
@@ -598,6 +635,9 @@
     <initialSeverity>1</initialSeverity>
     <maxSeverity>1</maxSeverity>
     <comps>
+      <li Class="HediffCompProperties_Effecter">
+        <stateEffecter>IM_GrappleTangle</stateEffecter>
+      </li>
       <li Class="HediffCompProperties_Disappears">
         <disappearsAfterTicks>120</disappearsAfterTicks>
       </li>
@@ -697,7 +737,9 @@
       <li Class="EBSGFramework.CompProperties_AbilityInterruptOnDamaged" />
       <li Class="EBSGFramework.CompProperties_AbilityDamageOverTime">
         <damage>Stun</damage>
-        <damageAmount>2.2</damageAmount>
+        <tickInterval>60</tickInterval>
+        <initialTick>60</initialTick>
+        <damageAmount>2</damageAmount>
       </li>
       <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
         <disableGizmo>False</disableGizmo>

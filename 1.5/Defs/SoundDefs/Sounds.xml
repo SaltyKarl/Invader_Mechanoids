@@ -219,7 +219,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>IM_StingerGunShot</defName>
+    <defName>IM_StingerShot</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>
     <subSounds>
@@ -231,24 +231,6 @@
         </grains>
         <volumeRange>15~25</volumeRange>
         <pitchRange>2.75~2.85</pitchRange>
-        <sustainLoop>False</sustainLoop>
-      </li>
-    </subSounds>
-  </SoundDef>
-
-  <SoundDef>
-    <defName>IM_StingerRifleShot</defName>
-    <context>MapOnly</context>
-    <maxSimultaneous>1</maxSimultaneous>
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Weapon/Autocannon</clipFolderPath>
-          </li>
-        </grains>
-        <volumeRange>20~30</volumeRange>
-        <pitchRange>2.15~2.25</pitchRange>
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>

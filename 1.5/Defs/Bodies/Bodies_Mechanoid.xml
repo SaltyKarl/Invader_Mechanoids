@@ -1357,7 +1357,7 @@
         <li>
           <def>IM_MechanicalSnakeTail</def>
           <customLabel>tail</customLabel>
-          <coverage>0.44</coverage>
+          <coverage>0.32</coverage>
           <height>Bottom</height>
         </li>
         <li>

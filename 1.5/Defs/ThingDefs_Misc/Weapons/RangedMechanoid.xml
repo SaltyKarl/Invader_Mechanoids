@@ -305,7 +305,7 @@
         <warmupTime>0.8</warmupTime>
         <range>22.9</range>
         <burstShotCount>1</burstShotCount>
-        <soundCast>IM_StingerGunShot</soundCast>
+        <soundCast>IM_StingerShot</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -388,7 +388,7 @@
         <range>30.9</range>
         <burstShotCount>3</burstShotCount>
         <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-        <soundCast>IM_StingerRifleShot</soundCast>
+        <soundCast>IM_StingerShot</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -411,7 +411,7 @@
     <label>large stinger</label>
     <graphicData>
       <texPath>Things/Projectile/StingerShot</texPath>
-      <drawSize>1.5</drawSize>
+      <drawSize>1.6</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>

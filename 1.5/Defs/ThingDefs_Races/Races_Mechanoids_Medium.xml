@@ -326,6 +326,9 @@
     <label>infiltrator</label>
     <description>A tall, spindly assassin mechanoid. The infiltrator's flexible carapace and telescopic limbs let it assume any stature it desires - and when covered in a biomimetic disguise, convincingly imitate human likeness. Employed by mechanitors and rogue swarms as covert operatives, infiltrators use their advanced optical cloaking to scout enemy positions, gather intel, and assassinate high-value targets using toxin-coated concealed weapons. Additionally, the disguise serves as a layer of ablative armor - under most circumstances, destroying it will not damage the mechanoid hidden within.\n\nEven when hiding behind a human facade, the infiltrator is still a mechanoid by nature - it remains vulnerable to EMP, and being an unfeeling machine, is unable to form relationships. When disguised, it will periodically relay data to its overseer, which can be intercepted by a savvy colony to find it out.</description>
     <uiIconScale>1.4</uiIconScale>
+    <statBases>
+      <BandwidthCost MayRequire="Ludeon.RimWorld.Biotech">2</BandwidthCost>
+    </statBases>
     <tools>
       <li>
         <label>left fist</label>
@@ -385,7 +388,7 @@
           <soundCall>IM_Pawn_Infiltrator_Call</soundCall>
         </li>
       </lifeStageAges>
-      <detritusLeavings Inherit="False">
+      <detritusLeavings>
         <li>
           <def>ChunkMechanoidSlag</def>
           <texOverrideIndex>16</texOverrideIndex>
@@ -452,7 +455,10 @@
     <defName>IM_Mech_Constrictor</defName>
     <label>constrictor</label>
     <description>todo</description>
-    <uiIconScale>1.4</uiIconScale>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <BandwidthCost MayRequire="Ludeon.RimWorld.Biotech">3</BandwidthCost>
+    </statBases>
     <tools>
       <li>
         <label>left fist</label>
@@ -509,7 +515,7 @@
           <soundCall>IM_Pawn_Constrictor_Call</soundCall>
         </li>
       </lifeStageAges>
-      <detritusLeavings Inherit="False">
+      <detritusLeavings>
         <li>
           <def>ChunkMechanoidSlag</def>
           <texOverrideIndex>16</texOverrideIndex>
