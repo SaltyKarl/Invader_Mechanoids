@@ -571,7 +571,7 @@
         <attachEffecterToPawn>true</attachEffecterToPawn>
       </li>
       <li Class="EBSGFramework.HediffCompProperties_DestroyOnDeath">
-        <extraDeathSound>Pawn_Infiltrator_Death</extraDeathSound>
+        <extraDeathSound>IM_Pawn_Infiltrator_Death</extraDeathSound>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
       <li Class="EBSGFramework.HediffCompProperties_PreventDeathNotifications"/>
