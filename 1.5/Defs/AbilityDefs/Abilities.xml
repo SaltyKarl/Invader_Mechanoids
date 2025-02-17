@@ -727,7 +727,6 @@
       <li Class="EBSGFramework.CompProperties_AbilityInterruptOnDamaged" />
       <li Class="EBSGFramework.CompProperties_AbilityDamageOverTime">
         <damage>IM_ConstrictCrush</damage>
-        <tickInterval>60</tickInterval>
         <initialTick>60</initialTick>
         <damageAmount>4</damageAmount>
         <createFilth>false</createFilth>
