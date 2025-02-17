@@ -698,7 +698,7 @@
     <label>crushing bind</label>
     <description>todo</description>
     <iconPath>UI/Abilities/CrushingBind</iconPath>
-    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <stunTargetWhileCasting>true</stunTargetWhileCasting>
     <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
     <warmupSound>IM_ConstrictChoke</warmupSound>
@@ -706,9 +706,6 @@
     <jobDef>CastAbilityOnThingMelee</jobDef>
     <hostile>true</hostile>
     <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
-    <statBases>
-      <Ability_Duration>0.1</Ability_Duration>
-    </statBases>
     <cooldownTicksRange>60000</cooldownTicksRange>
     <verbProperties>
       <verbClass>Verb_CastAbilityTouch</verbClass>
@@ -727,19 +724,22 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "CompProperties_AbilityEffectWithDuration">
-        <compClass>CompAbilityEffect_Stun</compClass>
-      </li>
-      <li Class="CompProperties_AbilityGiveHediff">
-        <compClass>CompAbilityEffect_GiveHediff</compClass>
-        <hediffDef>IM_ConstrictCrush</hediffDef>
-      </li>
       <li Class="EBSGFramework.CompProperties_AbilityInterruptOnDamaged" />
       <li Class="EBSGFramework.CompProperties_AbilityDamageOverTime">
-        <damage>Stun</damage>
+        <damage>IM_ConstrictCrush</damage>
         <tickInterval>60</tickInterval>
         <initialTick>60</initialTick>
-        <damageAmount>2</damageAmount>
+        <damageAmount>4</damageAmount>
+        <createFilth>false</createFilth>
+        <bodyParts>
+          <li>Torso</li>
+          <li>Shell</li>
+          <li>Body</li>
+          <li>MechanicalThorax</li>
+          <li>MechanicalThoraxCanManipulate</li>
+          <li>IM_ReinforcedMechanicalThorax</li>
+          <li>IM_HoverThorax</li>
+        </bodyParts>
       </li>
       <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
         <disableGizmo>False</disableGizmo>
@@ -755,40 +755,6 @@
       </li>
     </comps>
   </AbilityDef>
-
-  <HediffDef>
-    <hediffClass>HediffWithComps</hediffClass>
-    <defName>IM_ConstrictCrush</defName>
-    <label>constrict crush</label>
-    <description>You shouldn't be able to read this outside devmode.</description>
-    <isBad>false</isBad>
-    <scenarioCanAdd>false</scenarioCanAdd>
-    <everCurableByItem>false</everCurableByItem>
-    <initialSeverity>1</initialSeverity>
-    <maxSeverity>1</maxSeverity>
-    <comps>
-      <li Class="HediffCompProperties_Disappears" />
-      <li Class="EBSGFramework.HediffCompProperties_DamageOnRemoval">
-        <damage>IM_ConstrictCrush</damage>
-        <amount>30</amount>
-        <createFilth>false</createFilth>
-        <bodyParts>
-          <li>Torso</li>
-          <li>Shell</li>
-          <li>Body</li>
-          <li>MechanicalThorax</li>
-          <li>MechanicalThoraxCanManipulate</li>
-          <li>IM_ReinforcedMechanicalThorax</li>
-          <li>IM_HoverThorax</li>
-        </bodyParts>
-      </li>
-    </comps>
-    <stages>
-      <li>
-        <becomeVisible>false</becomeVisible>
-      </li>
-    </stages>
-  </HediffDef>
 
   <DamageDef ParentName="BluntBase">
     <defName>IM_ConstrictCrush</defName>
