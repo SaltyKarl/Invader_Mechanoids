@@ -269,30 +269,33 @@
       <li>
         <minSeverity>0.15</minSeverity>
         <statOffsets>
-          <MoveSpeed>0.6</MoveSpeed>
+          <MoveSpeed>0.7</MoveSpeed>
         </statOffsets>
         <statFactors>
           <MeleeDamageFactor>1.1</MeleeDamageFactor>
+          <StaggerDurationFactor>0.75</StaggerDurationFactor>
         </statFactors>
       </li>
       <li>
         <minSeverity>0.35</minSeverity>
         <statOffsets>
-          <MoveSpeed>1</MoveSpeed>
+          <MoveSpeed>1.2</MoveSpeed>
         </statOffsets>
         <statFactors>
           <MeleeCooldownFactor>0.90</MeleeCooldownFactor>
           <MeleeDamageFactor>1.25</MeleeDamageFactor>
+          <StaggerDurationFactor>0.5</StaggerDurationFactor>
         </statFactors>
       </li>
       <li>
         <minSeverity>0.6</minSeverity>
         <statOffsets>
-          <MoveSpeed>1.4</MoveSpeed>
+          <MoveSpeed>1.6</MoveSpeed>
         </statOffsets>
         <statFactors>
           <MeleeCooldownFactor>0.80</MeleeCooldownFactor>
           <MeleeDamageFactor>1.4</MeleeDamageFactor>
+          <StaggerDurationFactor>0.25</StaggerDurationFactor>
         </statFactors>
         <mentalStateGivers>
           <li>
@@ -304,11 +307,12 @@
       <li>
         <minSeverity>0.9</minSeverity>
         <statOffsets>
-          <MoveSpeed>1.8</MoveSpeed>
+          <MoveSpeed>2</MoveSpeed>
         </statOffsets>
         <statFactors>
           <MeleeCooldownFactor>0.7</MeleeCooldownFactor>
           <MeleeDamageFactor>1.6</MeleeDamageFactor>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
         </statFactors>
         <mentalStateGivers>
           <li>

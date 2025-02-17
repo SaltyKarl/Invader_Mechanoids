@@ -385,7 +385,7 @@
           <soundCall>IM_Pawn_Infiltrator_Call</soundCall>
         </li>
       </lifeStageAges>
-      <detritusLeavings>
+      <detritusLeavings Inherit="False">
         <li>
           <def>ChunkMechanoidSlag</def>
           <texOverrideIndex>16</texOverrideIndex>
@@ -444,6 +444,131 @@
     <techHediffsMoney>9999~9999</techHediffsMoney>
     <abilities>
       <li>IM_Conceal</li>
+    </abilities>
+  </PawnKindDef>
+
+  <!-- Constrictor -->
+  <ThingDef ParentName="BaseMechanoidWalker">
+    <defName>IM_Mech_Constrictor</defName>
+    <label>constrictor</label>
+    <description>todo</description>
+    <uiIconScale>1.4</uiIconScale>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>right fist</label>
+        <labelNoLocation>fist</labelNoLocation>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <body>IM_MechanicalViper</body>
+      <baseHealthScale>1.12</baseHealthScale>
+      <baseBodySize>1.5</baseBodySize>
+      <thinkTreeConstant>IM_InvaderConstant</thinkTreeConstant>
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>IM_Pawn_Constrictor_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Constrictor_Death</soundDeath>
+          <soundCall>IM_Pawn_Constrictor_Call</soundCall>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Biotech">
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>IM_Pawn_Constrictor_Wounded</soundWounded>
+          <soundDeath>IM_Pawn_Constrictor_Death</soundDeath>
+          <soundCall>IM_Pawn_Constrictor_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <detritusLeavings Inherit="False">
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>16</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>11</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>1</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+      </detritusLeavings>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>IM_Mech_Constrictor</defName>
+    <label>constrictor</label>
+    <race>IM_Mech_Constrictor</race>
+    <combatPower>185</combatPower>
+    <lifeStages>
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Constrictor/ConstrictorClean</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Constrictor</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.2</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Constrictor/Constrictor</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Constrictor</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.2</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags>
+      <li>IM_StingerRifle</li>
+    </weaponTags>
+    <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+    <abilities>
+      <li>IM_GrapplePull</li>
+      <li>IM_CrushingBind</li>
     </abilities>
   </PawnKindDef>
 

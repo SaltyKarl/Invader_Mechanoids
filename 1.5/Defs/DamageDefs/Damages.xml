@@ -48,10 +48,10 @@
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
   </ManeuverDef>
 
-  <!-- Stinger -->
+  <!-- Stinger Gun -->
   <DamageDef ParentName="Bullet">
-    <defName>IM_StingerShot</defName>
-    <label>stinger shot</label>
+    <defName>IM_StingerGunShot</defName>
+    <label>stinger gun bullet</label>
     <additionalHediffs>
       <li>
         <hediff>ToxicBuildup</hediff>
@@ -94,5 +94,21 @@
     <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
     <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
   </ManeuverDef>
+
+  <!-- Stinger Rifle -->
+  <DamageDef ParentName="Bullet">
+    <defName>IM_StingerRifleShot</defName>
+    <label>stinger rifle bullet</label>
+    <additionalHediffs>
+      <li>
+        <hediff>ToxicBuildup</hediff>
+        <severityPerDamageDealt>0.0045</severityPerDamageDealt>
+        <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
+        <inverseStatScaling>true</inverseStatScaling>
+        <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
+      </li>
+    </additionalHediffs>
+    <impactSoundType>Bullet</impactSoundType>
+  </DamageDef>
   
 </Defs>

@@ -301,7 +301,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>IM_Bullet_StingerShot</defaultProjectile>
+        <defaultProjectile>IM_Bullet_StingerSmall</defaultProjectile>
         <warmupTime>0.8</warmupTime>
         <range>22.9</range>
         <burstShotCount>1</burstShotCount>
@@ -333,8 +333,8 @@
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">
-    <defName>IM_Bullet_StingerShot</defName>
-    <label>stinger shot</label>
+    <defName>IM_Bullet_StingerSmall</defName>
+    <label>small stinger</label>
     <graphicData>
       <texPath>Things/Projectile/StingerShot</texPath>
       <drawSize>1.1</drawSize>
@@ -342,10 +342,83 @@
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
     <projectile>
-      <damageDef>IM_StingerShot</damageDef>
-      <damageAmountBase>5</damageAmountBase>
+      <damageDef>IM_StingerGunShot</damageDef>
+      <damageAmountBase>7</damageAmountBase>
       <armorPenetrationBase>0.35</armorPenetrationBase>
       <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Stinger Rifle -->
+  <ThingDef ParentName="BaseGun">
+    <defName>IM_Gun_StingerRifle</defName>
+    <label>stinger rifle</label>
+    <description>todo</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/StingerRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <equippedDistanceOffset>-0.2</equippedDistanceOffset>
+    <tradeability>None</tradeability>
+    <destroyOnDrop>true</destroyOnDrop>
+    <relicChance>0</relicChance>
+    <statBases>
+      <MarketValue>1400</MarketValue>
+      <Mass>3.5</Mass>
+      <AccuracyTouch>0.60</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>IM_StingerRifle</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+      <li>LongShots</li>
+    </weaponClasses>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>IM_Bullet_StingerLarge</defaultProjectile>
+        <warmupTime>1</warmupTime>
+        <range>30.9</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <soundCast>IM_StingerRifleShot</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>IM_Bullet_StingerLarge</defName>
+    <label>large stinger</label>
+    <graphicData>
+      <texPath>Things/Projectile/StingerShot</texPath>
+      <drawSize>1.5</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>IM_StingerRifleShot</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <speed>75</speed>
     </projectile>
   </ThingDef>
   

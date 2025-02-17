@@ -197,7 +197,8 @@
         <verbClass>Verb_Shoot</verbClass>
         <defaultProjectile>IM_Bullet_ChargeShell</defaultProjectile>
         <range>54.9</range>
-        <forcedMissRadius>4.5</forcedMissRadius>
+        <forcedMissRadius>3</forcedMissRadius>
+        <forcedMissRadiusClassicMortars>4.5</forcedMissRadiusClassicMortars>
         <ai_AvoidFriendlyFireRadius>4</ai_AvoidFriendlyFireRadius>
         <minRange>9.9</minRange>
         <soundCast>IM_ChargeHoitzerShot</soundCast>

@@ -216,7 +216,7 @@
 		<race>
 			<body>IM_MechanicalMuton</body>
 			<mechWeightClass>Heavy</mechWeightClass>
-			<baseHealthScale>3</baseHealthScale>
+			<baseHealthScale>3.6</baseHealthScale>
 			<intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <baseBodySize>2.4</baseBodySize>

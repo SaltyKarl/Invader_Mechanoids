@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Misc SFX -->
+  <!--======= Misc SFX =======-->
+
+  <!-- Abilities -->
   <SoundDef>
     <defName>IM_QuickjetFlight</defName>  
     <context>MapOnly</context>  
@@ -71,6 +73,116 @@
   </SoundDef>
 
   <SoundDef>
+    <defName>IM_DisguiseDisintegration</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/DisguiseDisintegration</clipPath>
+          </li>
+        </grains>
+        <volumeRange>45~55</volumeRange>
+        <pitchRange>1.02~1.12</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Conceal</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Conceal</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25~35</volumeRange>
+        <pitchRange>0.92~0.97</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_GrappleCast</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Grapple/GrappleCast</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>
+        <pitchRange>0.97~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_GrappleReel</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Grapple/GrappleReel</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>15</volumeRange>
+        <pitchRange>0.92~0.97</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_ConstrictGrab</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Constrict/ConstrictGrab</clipPath>
+          </li>
+        </grains>
+        <volumeRange>6</volumeRange>
+        <pitchRange>0.91~1.04</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>IM_ConstrictChoke</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <maxVoices>1</maxVoices>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainStartSound>IM_ConstrictGrab</sustainStartSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Constrict/ConstrictChoke</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20</volumeRange>
+        <pitchRange>0.91~1.04</pitchRange>
+        <distRange>10~50</distRange>
+        <sustainLoop>False</sustainLoop>
+        <sustainIntervalRange>0.05~0.1</sustainIntervalRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- Guns -->
+  <SoundDef>
     <defName>IM_ChargeHoitzerShot</defName>  
     <context>MapOnly</context>  
 	  <maxSimultaneous>1</maxSimultaneous> 	
@@ -118,45 +230,31 @@
           </li>
         </grains>
         <volumeRange>15~25</volumeRange>
-        <pitchRange>2.65~2.75</pitchRange>
+        <pitchRange>2.75~2.85</pitchRange>
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>
   </SoundDef>
 
   <SoundDef>
-    <defName>IM_DisguiseDisintegration</defName>
+    <defName>IM_StingerRifleShot</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Clip">
-            <clipPath>Things/DisguiseDisintegration</clipPath>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Autocannon</clipFolderPath>
           </li>
         </grains>
-        <volumeRange>45~55</volumeRange>
-        <pitchRange>1.02~1.12</pitchRange>
+        <volumeRange>20~30</volumeRange>
+        <pitchRange>2.15~2.25</pitchRange>
+        <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
-    <defName>IM_Conceal</defName>
-    <context>MapOnly</context>
-    <maxSimultaneous>1</maxSimultaneous>
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Clip">
-            <clipPath>Things/Conceal</clipPath>
-          </li>
-        </grains>
-        <volumeRange>25~35</volumeRange>
-        <pitchRange>0.92~0.97</pitchRange>
-      </li>
-    </subSounds>
-  </SoundDef>
+  <!--======= Mechanoid Calls =======-->
 
   <!-- Templar Sounds -->
   <SoundDef>
@@ -531,6 +629,60 @@
         </grains>      
         <volumeRange>20</volumeRange>      
         <pitchRange>1.12~1.25</pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- Constrictor Sounds -->
+  <SoundDef>
+    <defName>IM_Pawn_Constrictor_Wounded</defName>  
+    <context>MapOnly</context>  
+    <maxVoices>1</maxVoices>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechHurt</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>0.9~1</pitchRange>      
+        <repeatMode>NeverTwice</repeatMode>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Pawn_Constrictor_Death</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechDeath</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>0.9~1</pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Pawn_Constrictor_Call</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechCall</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>0.9~1</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>

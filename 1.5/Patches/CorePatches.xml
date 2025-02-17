@@ -52,7 +52,7 @@
 		      <Mech_CentipedeBurner>15</Mech_CentipedeBurner>
 		      <Mech_Centurion MayRequire="Ludeon.RimWorld.Biotech">2</Mech_Centurion>
         </options>
-      </li>
+      </li>	
       <li>
         <!-- Allstars -->
         <kindDef>Combat</kindDef>
