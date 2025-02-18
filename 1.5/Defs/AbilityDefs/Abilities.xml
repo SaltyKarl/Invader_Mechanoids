@@ -576,14 +576,16 @@
     <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
     <hostile>false</hostile>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <waitForJobEnd>true</waitForJobEnd>
     <statBases>
-      <Ability_Duration>1</Ability_Duration>
+      <Ability_Duration>2</Ability_Duration>
     </statBases>
     <cooldownTicksRange>30000</cooldownTicksRange>
 	  <targetRequired>true</targetRequired>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
-      <range>22</range>
+      <range>21.9</range>
+      <minRange>4.9</minRange>
       <warmupTime>1.2</warmupTime>
       <requireLineOfSight>true</requireLineOfSight>
       <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
@@ -601,12 +603,9 @@
       </targetParams>
     </verbProperties>
     <comps>
-      <li Class = "CompProperties_AbilityEffectWithDuration">
-        <compClass>CompAbilityEffect_Stun</compClass>
-      </li>
       <li Class="EBSGFramework.CompProperties_CreateLinkedHediff">
-        <targetHediffOnBrain>false</targetHediffOnBrain>
         <hediffOnTarget>IM_GrappleLine</hediffOnTarget>
+        <hediffOnCaster>IM_GrappllingImmobilization</hediffOnCaster> <!-- added so AI vipers do not wander off after pulling in a target -->
       </li>
       <li Class="EBSGFramework.CompProperties_AbilityPushTarget">
         <range>22</range>
@@ -623,6 +622,32 @@
       </li>
     </comps>
   </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithTarget</hediffClass>
+    <defName>IM_GrappllingImmobilization</defName>
+    <label>grappling immobilization</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>120</disappearsAfterTicks>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+        <statOffsets>
+          <MoveSpeed>-4.69</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
 
   <HediffDef>
     <hediffClass>HediffWithTarget</hediffClass>
@@ -672,7 +697,7 @@
       <graphicClass>Graphic_Mote</graphicClass>
       <shaderType>Mote</shaderType>
       <texPath>Things/Mote/ConstrictBind</texPath>
-      <drawSize>(1.1, 1.1)</drawSize>
+      <drawSize>(1, 1)</drawSize>
     </graphicData>
   </ThingDef>
 
@@ -706,11 +731,12 @@
     <jobDef>CastAbilityOnThingMelee</jobDef>
     <hostile>true</hostile>
     <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+    <writeCombatLog>true</writeCombatLog>
     <cooldownTicksRange>60000</cooldownTicksRange>
     <verbProperties>
       <verbClass>Verb_CastAbilityTouch</verbClass>
       <drawAimPie>false</drawAimPie>
-      <range>-1</range>
+      <range>1.9</range>
       <warmupTime>8</warmupTime>
       <targetParams>
         <canTargetPawns>true</canTargetPawns>
@@ -727,8 +753,9 @@
       <li Class="EBSGFramework.CompProperties_AbilityInterruptOnDamaged" />
       <li Class="EBSGFramework.CompProperties_AbilityDamageOverTime">
         <damage>IM_ConstrictCrush</damage>
+        <damageAmount>5</damageAmount>
+        <armorPenetration>0.2</armorPenetration>
         <initialTick>60</initialTick>
-        <damageAmount>4</damageAmount>
         <createFilth>false</createFilth>
         <bodyParts>
           <li>Torso</li>
@@ -1008,6 +1035,127 @@
         <compClass>CompAbilityEffect_RemoveHediff</compClass>
         <applyToSelf>true</applyToSelf>
         <hediffDef>IM_AutocastSystemMerge_On</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- Crushing Bind -->
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_AutocastCrushingBind_Off</defName>
+    <label>autocast off</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>IM_AutocastCrushingBind_On</abilityDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <AbilityDef>
+    <defName>IM_AutocastCrushingBind_On</defName>
+    <label>toggle autocast on</label>
+    <description>Enables crushing bind's autocast.</description>
+    <iconPath>UI/Abilities/CrushingBind_AutoOn</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_AutocastCrushingBind_On</hediffDef>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <applyToSelf>true</applyToSelf>
+        <hediffDef>IM_AutocastCrushingBind_Off</hediffDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>IM_AutocastCrushingBind_On</defName>
+    <label>autocast on</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>IM_AutocastCrushingBind_Off</abilityDef>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <AbilityDef>
+    <defName>IM_AutocastCrushingBind_Off</defName>
+    <label>toggle autocast off</label>
+    <description>Disables crushing bind's autocast.</description>
+    <iconPath>UI/Abilities/CrushingBind_AutoOff</iconPath>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <stunTargetWhileCasting>false</stunTargetWhileCasting>
+    <cooldownTicksRange>60</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>0</warmupTime>
+      <range>-1</range>
+      <drawAimPie>false</drawAimPie>    
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>IM_AutocastCrushingBind_Off</hediffDef>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <applyToSelf>true</applyToSelf>
+        <hediffDef>IM_AutocastCrushingBind_On</hediffDef>
       </li>
     </comps>
   </AbilityDef>

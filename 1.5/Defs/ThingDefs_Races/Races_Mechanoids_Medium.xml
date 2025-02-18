@@ -576,6 +576,14 @@
       <li>IM_GrapplePull</li>
       <li>IM_CrushingBind</li>
     </abilities>
+    <startingHediffs>
+      <li>
+        <def>IM_AutocastCrushingBind_Off</def>
+      </li>
+    </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
   </PawnKindDef>
 
 </Defs>
