@@ -234,7 +234,7 @@
 		<race>
 			<body>IM_MechanicalChryssalid</body>
 			<mechWeightClass>Medium</mechWeightClass>
-			<baseHealthScale>1.07</baseHealthScale>
+			<baseHealthScale>1.21</baseHealthScale>
 			<intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <baseBodySize>1</baseBodySize>
