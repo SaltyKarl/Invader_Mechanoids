@@ -6,6 +6,7 @@
 		<li>1.5</li>
 		<li>Common</li>
 		<li IfModActive="Ludeon.RimWorld.Biotech">1.5/Mods/Biotech</li>
+		<li IfModActive="CETeam.CombatExtended">1.5/Mods/CE</li>
 	</v1.5>
 
 </loadFolders>

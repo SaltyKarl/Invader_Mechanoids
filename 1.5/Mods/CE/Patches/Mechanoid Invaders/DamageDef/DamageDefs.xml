@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- ========== Ripper Toxin ========== -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/DamageDef[defName="IW_RipperToxin"]</xpath>
+		<value>
+			<li Class="CombatExtended.DamageDefExtensionCE">
+				<isAmbientDamage>true</isAmbientDamage>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>
