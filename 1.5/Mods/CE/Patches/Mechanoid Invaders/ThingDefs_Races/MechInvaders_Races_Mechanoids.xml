@@ -364,7 +364,7 @@
 		</value>
 	</Operation>
 
-	<!-- Ripperling -->
+	<!-- Ripper -->
 	<Operation Class="PatchOperationAddModExtension">
 		<xpath>Defs/ThingDef[defName="IM_Mech_Ripper"]</xpath>
 		<value>

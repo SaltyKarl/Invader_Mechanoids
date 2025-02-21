@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Aide -->
+  <ThingDef ParentName="VFE_Mechanoid">
+		<defName>IM_Mech_VFEMAide</defName>
+		<label>aide</label>
+		<description>A small combat support mechanoid armed with a mini-blaster sidearm. Fragile and diminutive, aides are unsuited for the frontline, designed to instead support more capable combat units from the backline. Their pattern’s sophisticated subcore allows them to merge systems with another mechanoid, enhancing their processing power, and increasing their resilience by acting as a backup for critical subsystems. However, should the merge end prematurely by aide's death, any unit it was connected to will suffer from severe system disruption, reducing their capacity to process data for a while.</description>
+    <uiIconScale>1.8</uiIconScale>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<MoveSpeed>3.8</MoveSpeed>
+			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+      <PsychicSensitivity>0.75</PsychicSensitivity>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">1</BandwidthCost>
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">18</ControlTakingTime>
+			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.66</MechEnergyLossPerHP>
+			<WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">5</WastepacksPerRecharge>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<body>IM_MechanicalSectoid</body>
+			<mechWeightClass>Light</mechWeightClass>
+			<baseHealthScale>0.5</baseHealthScale>
+			<intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <baseBodySize>0.6</baseBodySize>
+			<lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_MechLight_Wounded</soundWounded>
+          <soundDeath>Pawn_MechLight_Death</soundDeath>
+          <soundCall>Pawn_MechLight_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <thinkTreeConstant>IM_InvaderConstant</thinkTreeConstant>
+		</race>
+		<butcherProducts>
+		  <Steel>10</Steel>
+		</butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="VFE_MechanoidKind">
+    <defName>IM_Mech_VFEMAide</defName>
+    <label>aide</label>
+    <race>IM_Mech_VFEMAide</race>
+    <combatPower>55</combatPower>
+    <lifeStages>
+	    <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Aide/AideClean</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Aide</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.1</drawSize>
+          <shadowData>
+              <volume>(0.3, 0.4, 0.3)</volume>
+              <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+    <weaponMoney>9999~9999</weaponMoney>
+    <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
+    <weaponTags>
+      <li>IM_MiniBlaster</li>
+    </weaponTags>
+    <abilities>
+      <li>IM_SystemMerge</li>
+    </abilities>
+    <startingHediffs>
+      <li>
+        <def>IM_AutocastSystemMerge_Off</def>
+      </li>
+    </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
+  </PawnKindDef>
+
+  <!-- Skirmisher -->
+  <ThingDef ParentName="VFE_Mechanoid">
+		<defName>IM_Mech_VFEMSkirmisher</defName>
+		<label>skirmisher</label>
+		<description>An agile combat mechanoid with a bizarre frame resembling a floating human torso. Relying on a built-in hoverjet instead of legs for locomotion, the skirmisher levitates above ground, safe from traps and unhindered by terrain difficulties. When in danger, it can quickly reposition to a safe distance with a burst from its jets.</description>
+    <uiIconScale>1.4</uiIconScale>
+		<statBases>
+			<MarketValue>1200</MarketValue>
+			<MoveSpeed>4.7</MoveSpeed>
+			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">2</BandwidthCost>
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">18</ControlTakingTime>
+			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.33</MechEnergyLossPerHP>
+			<WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">5</WastepacksPerRecharge>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<body>IM_MechanicalFloater</body>
+			<mechWeightClass>Medium</mechWeightClass>
+			<baseHealthScale>0.85</baseHealthScale>
+			<intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <baseBodySize>0.9</baseBodySize>
+			<lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Skirmisher_Wounded</soundWounded>
+          <soundDeath>Pawn_Skirmisher_Death</soundDeath>
+          <soundCall>Pawn_Skirmisher_Call</soundCall>
+        </li>
+      </lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <thinkTreeConstant>IM_InvaderConstant</thinkTreeConstant>
+      <detritusLeavings>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>16</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>11</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>1</texOverrideIndex>
+          <spawnChance>0.1</spawnChance>
+        </li>
+      </detritusLeavings>
+		</race>
+		<butcherProducts>
+		  <Steel>15</Steel>
+		</butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="VFE_MechanoidKind">
+    <defName>IM_Mech_VFEMSkirmisher</defName>
+    <label>skirmisher</label>
+    <race>IM_Mech_VFEMSkirmisher</race>
+    <combatPower>155</combatPower>
+    <lifeStages>
+	    <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Skirmisher/SkirmisherClean</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Skirmisher</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+    <weaponMoney>9999~9999</weaponMoney>
+    <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
+    <weaponTags>
+      <li>IM_ChargeRepeater</li>
+    </weaponTags>
+    <abilities>
+      <li>IM_QuickjetJump</li>
+    </abilities>
+    <startingHediffs>
+      <li>
+        <def>IM_AutocastQuickjet_Off</def>
+      </li>
+      <li>
+        <def>IW_Hoverjet</def>
+      </li>
+    </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
+  </PawnKindDef>
+  
+  <!-- Templar -->
+  <ThingDef ParentName="VFE_Mechanoid">
+		<defName>IM_Mech_VFEMTemplar</defName>
+		<label>templar</label>
+		<description>A heavy infantry mechanoid designed to excel in both close-quarters and ranged combat. The templar's Zeal Drive continuously improves its combat performance the longer it remains on the field of battle. Its heavy armor and armaments guarantee staying power during prolonged engagements.</description>
+		<statBases>
+			<MarketValue>1400</MarketValue>
+			<MoveSpeed>2.3</MoveSpeed>
+			<ArmorRating_Blunt>0.37</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">4</BandwidthCost>
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">24</ControlTakingTime>
+			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+			<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.2</MechEnergyLossPerHP>
+			<WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">5</WastepacksPerRecharge>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<body>IM_MechanicalMuton</body>
+			<mechWeightClass>Heavy</mechWeightClass>
+			<baseHealthScale>1.8</baseHealthScale>
+			<intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <baseBodySize>2</baseBodySize>
+			<lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Templar_Wounded</soundWounded>
+          <soundDeath>Pawn_Templar_Death</soundDeath>
+          <soundCall>Pawn_Templar_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <detritusLeavings>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>0</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>3</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+        <li>
+          <def>ChunkMechanoidSlag</def>
+          <texOverrideIndex>1</texOverrideIndex>
+          <spawnChance>0.5</spawnChance>
+        </li>
+      </detritusLeavings>
+		</race>
+		<butcherProducts>
+		  <Steel>20</Steel>
+      <Plasteel>10</Plasteel>
+		</butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="VFE_MechanoidKind">
+    <defName>IM_Mech_VFEMTemplar</defName>
+    <label>templar</label>
+    <race>IM_Mech_VFEMTemplar</race>
+    <combatPower>210</combatPower>
+    <lifeStages>
+	    <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Templar/TemplarClean</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Templar</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.2</drawSize>
+          <shadowData>
+            <volume>(0.6, 0.8, 0.6)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <techHediffsChance MayRequire="Ludeon.RimWorld.Biotech">1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags>
+      <li>IM_ChargeCleaver</li>
+    </weaponTags>
+    <startingHediffs>
+      <li>
+        <def>IM_ZealDrive</def>
+        <severity>0.001</severity>
+      </li>
+    </startingHediffs>
+    <modExtensions>
+      <li Class="EBSGFramework.ForceStartingHediffsExtension" />
+    </modExtensions>
+  </PawnKindDef>
+
+</Defs>

@@ -38,7 +38,7 @@
 					<armorPenetrationBlunt>2.4</armorPenetrationBlunt>
 				</li>
 				<li Class="CombatExtended.ToolCE">
-					<label>cleaver edge</label>
+					<label>edge</label>
 					<capacities>
 						<li>Cut</li>
 					</capacities>
@@ -215,7 +215,7 @@
 		</weaponTags>
 	</Operation>
 
-	<!-- ========== Charge Blaster Turret ========== -->
+	<!-- ========== Charge Howitzer Turret ========== -->
 
 	<Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
 		<defName>IM_Gun_ChargeHowitzer</defName>

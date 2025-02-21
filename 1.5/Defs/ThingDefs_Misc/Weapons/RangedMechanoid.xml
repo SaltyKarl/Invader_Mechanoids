@@ -184,7 +184,7 @@
         <cooldownTime>2</cooldownTime>
       </li>
       <li>
-        <label>cleaver edge</label>
+        <label>edge</label>
         <capacities>
           <li>Cut</li>
         </capacities>
