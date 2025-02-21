@@ -81,7 +81,7 @@
 		<AmmoUser>
 			<magazineSize>60</magazineSize>
 			<reloadTime>6</reloadTime>
-			<ammoSet>AmmoSet_5x50mmCaseless_HV</ammoSet>
+			<ammoSet>AmmoSet_5x50mmCaseless_LV</ammoSet>
 		</AmmoUser>
 		<FireModes>
 			<aimedBurstShotCount>3</aimedBurstShotCount>
@@ -239,10 +239,10 @@
 			<muzzleFlashScale>39</muzzleFlashScale>
 			<circularError>1</circularError>
 			<indirectFirePenalty>0.25</indirectFirePenalty>
-			<defaultCooldownTime>10</defaultCooldownTime>
+			<defaultCooldownTime>8</defaultCooldownTime>
 			<linkedBodyPartsGroup>BulbTurret</linkedBodyPartsGroup>
 			<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
-			<ticksBetweenBurstShots>600</ticksBetweenBurstShots>
+			<ticksBetweenBurstShots>480</ticksBetweenBurstShots>
 		</Properties>
 	</Operation>
 
