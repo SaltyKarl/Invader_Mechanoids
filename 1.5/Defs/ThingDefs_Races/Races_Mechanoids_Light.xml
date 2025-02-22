@@ -5,7 +5,7 @@
   <ThingDef ParentName="BaseMechanoid">
 		<defName>IM_Mech_Aide</defName>
 		<label>aide</label>
-		<description>A small combat support mechanoid armed with a mini-blaster sidearm. Fragile and diminutive, aides are unsuited for the frontline, designed to instead support more capable combat units from the backline. Their pattern’s sophisticated subcore allows them to merge systems with another mechanoid, enhancing their processing power, and increasing their resilience by acting as a backup for critical subsystems. However, should the merge end prematurely by aide's death, any unit it was connected to will suffer from severe system disruption, reducing their capacity to process data for a while.</description>
+		<description>A small combat support mechanoid armed with a mini-blaster sidearm. Fragile and diminutive, aides are unsuited for the frontline, designed to instead support more capable combat units from the back. Their pattern's sophisticated subcore allows them to merge systems with another mechanoid, enhancing their processing power, and increasing their resilience by acting as a backup for critical subsystems. However, should the merge end prematurely by aide's death, any unit it was connected to will suffer from severe system disruption, reducing their capacity to process data for a while.</description>
     <uiIconScale>1.8</uiIconScale>
 		<statBases>
 			<MarketValue>800</MarketValue>

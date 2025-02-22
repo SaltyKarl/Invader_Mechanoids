@@ -14,9 +14,9 @@
           <VFE_Mech_Lancer>10</VFE_Mech_Lancer>
           <VFE_Mech_Scyther>10</VFE_Mech_Scyther>
           <VFE_Mech_Pikeman>5</VFE_Mech_Pikeman>
-          <IM_Mech_VFEMAide>15</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
           <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
-          <IM_Mech_VFEMTemplar>5</IM_Mech_VFEMTemplar>
+          <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
         </options>
       </li>
 
@@ -28,9 +28,9 @@
         <options>
           <VFE_Mech_Knight>10</VFE_Mech_Knight>
           <VFE_Mech_Inquisitor>5</VFE_Mech_Inquisitor>
-          <IM_Mech_VFEMAide>15</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
           <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
-          <IM_Mech_VFEMTemplar>5</IM_Mech_VFEMTemplar>
+          <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
         </options>
       </li>
 
@@ -47,7 +47,7 @@
 					<VFE_Mech_Inquisitor>10</VFE_Mech_Inquisitor>
 					<VFE_Mech_Knight>10</VFE_Mech_Knight>
 					<VFE_Mech_Termite>5</VFE_Mech_Termite>
-          <IM_Mech_VFEMAide>20</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
           <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
           <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
 				</options>
@@ -62,12 +62,40 @@
 					<VFE_Mech_Lancer>10</VFE_Mech_Lancer>
 					<VFE_Mech_Scyther>10</VFE_Mech_Scyther>
 					<VFE_Mech_Pikeman>5</VFE_Mech_Pikeman>
-          <IM_Mech_VFEMAide>15</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
           <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
           <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
 				</options>
 			</li>
 
     </value>
-  </Operation> 
+  </Operation>
+
+  <Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+    <match Class="PatchOperationSequence">
+			<success>Normal</success>
+			<operations>
+
+        <!-- ThinkTree Constant -->
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_VFEMSkirmisher"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_VFEMAide"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+  </Operation>
+
 </Patch>
