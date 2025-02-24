@@ -9,7 +9,6 @@
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>VFEM/WeaponsRanged/AdvancedMiniBlaster</texPath>
-      <drawSize>1.05</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>None</tradeability>
@@ -130,7 +129,7 @@
     <description>todo</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
-      <texPath>Things/Item/Equipment/WeaponRanged/ChargeRepeater</texPath>
+      <texPath>VFEM/WeaponsRanged/AdvancedChargeRepeater</texPath>
       <drawSize>1.05</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
