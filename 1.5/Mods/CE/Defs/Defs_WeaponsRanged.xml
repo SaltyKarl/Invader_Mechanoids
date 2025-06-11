@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<!-- ==================== Charge Howitzer ==================== -->
+	<ThingDef ParentName="BaseGun">
+		<defName>IMCE_ChargeHowitzer</defName>
+		<label>charge howitzer</label>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/ChargeHowitzer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<tradeability>None</tradeability>
+		<destroyOnDrop>true</destroyOnDrop>
+		<relicChance>0</relicChance>
+		<description>A relatively short-range rail-assisted artillery gun designed as part of a mechanoid-mounted turret. Due to limited ordnance space, the fired warhead is smaller and less damaging compared to those of a stationary mortar.</description>
+		<statBases>
+			<MarketValue>1400</MarketValue>
+			<Mass>24</Mass>
+			<Bulk>30.00</Bulk>
+			<RangedWeapon_Cooldown>2.59</RangedWeapon_Cooldown>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>1</ShotSpread>
+			<SwayFactor>2</SwayFactor>
+		</statBases>
+		<weaponTags>
+			<li>NoSwitch</li>
+			<li>IM_GunCECH</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<hasStandardCommand>true</hasStandardCommand>
+				<requireLineOfSight>false</requireLineOfSight>
+				<defaultProjectile>IM_Bullet_ChargeShell_CE</defaultProjectile>
+				<warmupTime>6</warmupTime>
+				<minRange>30</minRange>
+				<range>500</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>IM_ChargeHoitzerShot</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<indirectFirePenalty>0.3</indirectFirePenalty>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>5</cooldownTime>
+				<armorPenetrationBlunt>5</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Charges">
+				<chargeSpeeds>
+					<li>30</li>
+					<li>50</li>
+					<li>70</li>
+					<li>90</li>
+				</chargeSpeeds>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<AmmoGenPerMagOverride>3</AmmoGenPerMagOverride>
+				<reloadTime>2</reloadTime>
+				<ammoSet>AmmoSet_80x256mmFuel_CH</ammoSet>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>IMCE_TripleNeedler</defName>
+		<label>triple needler turret</label>
+		<description>An upscaled version of the needle gun sporting three barrels. It fires in three-shot bursts of high velocity, needle-like projectiles over great distances. Compared to its lighter counterparts, it's significantly heavier and less accurate, able to be mounted only on ultra-heavy mechanoids.</description>
+		<tradeability>None</tradeability>
+		<destroyOnDrop>true</destroyOnDrop>
+		<techLevel>Spacer</techLevel>
+		<relicChance>0</relicChance>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/TripleNeedler</texPath>
+			<drawSize>1.5</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>12</Mass>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread><!-- Manually adjusted from 0.08 due to accuracy concerns. -->
+			<SwayFactor>0.56</SwayFactor>
+			<Bulk>20.00</Bulk>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_5x50mmCaseless_Sabot_TN</defaultProjectile>
+				<range>65</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Shot_NeedleGun</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<defaultCooldownTime>4.5</defaultCooldownTime>
+				<linkedBodyPartsGroup>IM_TurretHardpoint</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<ticksBetweenBurstShots>150</ticksBetweenBurstShots>
+			</li>
+		</verbs>
+	</ThingDef>
+</Defs>

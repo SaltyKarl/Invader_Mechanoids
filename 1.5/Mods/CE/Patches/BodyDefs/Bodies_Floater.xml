@@ -129,7 +129,7 @@
 		</match>
 	</Operation>
 
-<Operation Class="PatchOperationConditional">
+	<Operation Class="PatchOperationConditional">
 		<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/groups</xpath>
 		<nomatch Class="PatchOperationAdd">
 			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]</xpath>
@@ -166,9 +166,9 @@
 	</Operation>
 
 	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]parts/li[def="MechanicalHand"]/groups</xpath>
+		<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]/parts/li[def="MechanicalHand"]/groups</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]parts/li[def="MechanicalHand"]</xpath>
+			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]/parts/li[def="MechanicalHand"]</xpath>
 			<value>
 				<groups>
 					<li>CoveredByNaturalArmor</li>
@@ -176,7 +176,7 @@
 			</value>
 		</nomatch>
 		<match Class="PatchOperationAdd">
-			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]parts/li[def="MechanicalHand"]/groups</xpath>
+			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]/parts/li[def="MechanicalHand"]/groups</xpath>
 			<value>
 				<li>CoveredByNaturalArmor</li>
 			</value>
@@ -184,9 +184,9 @@
 	</Operation>
 
 	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]parts/li[def="MechanicalHand"]parts/li[def="MechanicalFinger"]/groups</xpath>
+		<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]/parts/li[def="MechanicalHand"]/parts/li[def="MechanicalFinger"]/groups</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]parts/li[def="MechanicalHand"]parts/li[def="MechanicalFinger"]</xpath>
+			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]/parts/li[def="MechanicalHand"]/parts/li[def="MechanicalFinger"]</xpath>
 			<value>
 				<groups>
 					<li>CoveredByNaturalArmor</li>
@@ -194,7 +194,7 @@
 			</value>
 		</nomatch>
 		<match Class="PatchOperationAdd">
-			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]parts/li[def="MechanicalHand"]parts/li[def="MechanicalFinger"]/groups</xpath>
+			<xpath>Defs/BodyDef[defName="IM_MechanicalFloater"]/corePart/parts/li[def="MechanicalShoulder"]/parts/li[def="MechanicalArm"]/parts/li[def="MechanicalHand"]/parts/li[def="MechanicalFinger"]/groups</xpath>
 			<value>
 				<li>CoveredByNaturalArmor</li>
 			</value>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Mechanoids</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!--Skirmisher-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/PawnKindDef[defName="IM_Mech_VFEMSkirmisher" or defName="IM_Mech_VFEMAdvancedSkirmisher"]</xpath>
+					<value>
+						<li Class="CombatExtended.LoadoutPropertiesExtension">
+							<primaryMagazineCount>
+								<min>2</min>
+								<max>4</max>
+							</primaryMagazineCount>
+						</li>
+					</value>
+				</li>
+
+				<!--Aide-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/PawnKindDef[defName="IM_Mech_VFEMAide" or defName="IM_Mech_VFEMAdvancedAide"]</xpath>
+					<value>
+						<li Class="CombatExtended.LoadoutPropertiesExtension">
+							<primaryMagazineCount>
+								<min>3</min>
+								<max>5</max>
+							</primaryMagazineCount>
+						</li>
+					</value>
+				</li>
+
+				<!--Templar-->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/PawnKindDef[defName="IM_Mech_VFEMTemplar" or defName="IM_Mech_VFEMAdvancedTemplar"]</xpath>
+					<value>
+						<li Class="CombatExtended.LoadoutPropertiesExtension">
+							<primaryMagazineCount>
+								<min>3</min>
+								<max>5</max>
+							</primaryMagazineCount>
+						</li>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>

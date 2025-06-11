@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[
+			defName="IM_Mech_Aide" or
+			defName="IM_Mech_Infiltrator" or
+			defName="IM_Mech_Ripperling" or
+			defName="IM_Mech_Skirmisher" or
+			defName="IM_Mech_Ripper" or
+			defName="IM_Mech_Templar" or
+			defName="IM_Mech_Berserker" or
+			defName="IM_Mech_Bombardier" or
+			defName="IM_Mech_Constrictor"
+			]</xpath>
+		<value>
+			<li Class="CombatExtended.PartialArmorExt">
+				<stats>
+					<li>
+						<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+						<parts>
+							<li>SightSensor</li>
+							<li>HearingSensor</li>
+							<li>SmellSensor</li>
+						</parts>
+					</li>
+					<li>
+						<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+						<parts>
+							<li>SightSensor</li>
+							<li>HearingSensor</li>
+							<li>SmellSensor</li>
+						</parts>
+					</li>
+				</stats>
+			</li>
+		</value>
+	</Operation>
+
 	<!--Aide-->
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="IM_Mech_Aide"]/statBases/ArmorRating_Blunt</xpath>
@@ -106,6 +142,202 @@
 				<RepairValue>200</RepairValue>
 				<CanOverHeal>true</CanOverHeal>
 				<MaxOverHeal>70</MaxOverHeal>
+				<MinArmorPct>0.5</MinArmorPct>
+			</li>
+		</value>
+	</Operation>
+
+	<!--Infiltrator-->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Infiltrator"]/statBases</xpath>
+		<value>
+			<CarryWeight>75</CarryWeight>
+			<CarryBulk>60</CarryBulk>
+			<MeleeDodgeChance>0.12</MeleeDodgeChance>
+			<MeleeCritChance>0.11</MeleeCritChance>
+			<MeleeParryChance>0.09</MeleeParryChance>
+			<ArmorRating_Sharp>6</ArmorRating_Sharp>
+			<ArmorRating_Blunt>9</ArmorRating_Blunt>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Infiltrator"]</xpath>
+		<value>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Infiltrator"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>left fist</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>5</power>
+					<cooldownTime>1.11</cooldownTime>
+					<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+					<armorPenetrationSharp>0</armorPenetrationSharp>
+					<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+					<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>right fist</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>5</power>
+					<cooldownTime>1.11</cooldownTime>
+					<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+					<armorPenetrationSharp>0</armorPenetrationSharp>
+					<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+					<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>head</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>5</power>
+					<cooldownTime>1.85</cooldownTime>
+					<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+					<chanceFactor>0.2</chanceFactor>
+					<armorPenetrationSharp>0</armorPenetrationSharp>
+					<armorPenetrationBlunt>0.625</armorPenetrationBlunt>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Infiltrator"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="IM_Mech_Infiltrator"]</xpath>
+			<value>
+				<comps />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Infiltrator"]/comps</xpath>
+		<value>
+			<li Class="CombatExtended.CompProperties_ArmorDurability">
+				<Durability>1000</Durability>
+				<Regenerates>true</Regenerates>
+				<RegenInterval>500</RegenInterval>
+				<RegenValue>5</RegenValue>
+				<Repairable>true</Repairable>
+				<RepairIngredients>
+					<Steel>5</Steel>
+					<Plasteel>5</Plasteel>
+				</RepairIngredients>
+				<RepairTime>300</RepairTime>
+				<RepairValue>200</RepairValue>
+				<MinArmorPct>0.5</MinArmorPct>
+			</li>
+		</value>
+	</Operation>
+
+	<!--Infiltrator-->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Constrictor"]/statBases</xpath>
+		<value>
+			<CarryWeight>75</CarryWeight>
+			<CarryBulk>60</CarryBulk>
+			<MeleeDodgeChance>0.12</MeleeDodgeChance>
+			<MeleeCritChance>0.11</MeleeCritChance>
+			<MeleeParryChance>0.09</MeleeParryChance>
+			<ArmorRating_Sharp>9</ArmorRating_Sharp>
+			<ArmorRating_Blunt>14</ArmorRating_Blunt>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Constrictor"]</xpath>
+		<value>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Serpentine</bodyShape>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Constrictor"]/tools</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>left fist</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>5</power>
+					<cooldownTime>1.11</cooldownTime>
+					<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+					<armorPenetrationSharp>0</armorPenetrationSharp>
+					<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+					<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>right fist</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>5</power>
+					<cooldownTime>1.11</cooldownTime>
+					<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+					<armorPenetrationSharp>0</armorPenetrationSharp>
+					<armorPenetrationBlunt>1.688</armorPenetrationBlunt>
+					<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>head</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>5</power>
+					<cooldownTime>1.85</cooldownTime>
+					<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+					<chanceFactor>0.2</chanceFactor>
+					<armorPenetrationSharp>0</armorPenetrationSharp>
+					<armorPenetrationBlunt>0.625</armorPenetrationBlunt>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Constrictor"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="IM_Mech_Constrictor"]</xpath>
+			<value>
+				<comps />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="IM_Mech_Constrictor"]/comps</xpath>
+		<value>
+			<li Class="CombatExtended.CompProperties_ArmorDurability">
+				<Durability>1200</Durability>
+				<Regenerates>true</Regenerates>
+				<RegenInterval>500</RegenInterval>
+				<RegenValue>5</RegenValue>
+				<Repairable>true</Repairable>
+				<RepairIngredients>
+					<Steel>5</Steel>
+					<Plasteel>5</Plasteel>
+				</RepairIngredients>
+				<RepairTime>300</RepairTime>
+				<RepairValue>200</RepairValue>
 				<MinArmorPct>0.5</MinArmorPct>
 			</li>
 		</value>
@@ -519,14 +751,15 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="IM_Mech_Templar"]/statBases</xpath>
 		<value>
-			<CarryWeight>50</CarryWeight>
-			<CarryBulk>20</CarryBulk>
+			<CarryWeight>70</CarryWeight>
+			<CarryBulk>50</CarryBulk>
 			<AimingAccuracy>1.0</AimingAccuracy>
 			<ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
 			<MeleeDodgeChance>0.1</MeleeDodgeChance>
 			<MeleeCritChance>0.12</MeleeCritChance>
 			<MeleeParryChance>0.25</MeleeParryChance>
 			<MaxHitPoints>200</MaxHitPoints>
+			<ArmorRating_Heat>0.25</ArmorRating_Heat>
 		</value>
 	</Operation>
 
@@ -639,6 +872,7 @@
 			<MeleeCritChance>0.12</MeleeCritChance>
 			<MeleeParryChance>0.25</MeleeParryChance>
 			<MaxHitPoints>200</MaxHitPoints>
+			<ArmorRating_Heat>0.25</ArmorRating_Heat>
 		</value>
 	</Operation>
 
@@ -766,6 +1000,7 @@
 			<MeleeParryChance>0.5</MeleeParryChance>
 			<AimingDelayFactor>1.25</AimingDelayFactor>
 			<MaxHitPoints>500</MaxHitPoints>
+			<ArmorRating_Heat>0.25</ArmorRating_Heat>
 		</value>
 	</Operation>
 
@@ -801,7 +1036,7 @@
 		</value>
 	</Operation>
 
-  <Operation Class="PatchOperationConditional">
+	<Operation Class="PatchOperationConditional">
 		<xpath>Defs/ThingDef[defName="IM_Mech_Bombardier"]/comps</xpath>
 		<nomatch Class="PatchOperationAdd">
 			<xpath>Defs/ThingDef[defName="IM_Mech_Bombardier"]</xpath>
@@ -810,7 +1045,7 @@
 			</value>
 		</nomatch>
 	</Operation>
-	
+
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="IM_Mech_Bombardier"]/comps</xpath>
 		<value>
