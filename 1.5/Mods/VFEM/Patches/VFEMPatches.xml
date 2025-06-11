@@ -1,32 +1,101 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Patch>	
-	
-	<Operation Class="PatchOperationFindMod">
+<Patch>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/FactionDef[defName = "VFE_Mechanoid"]/pawnGroupMakers</xpath>
+    <value>
+      
+      <!-- Infantry - Invaders + Vanilla Only -->
+      <li Class="VFEMech.PawnGroupMakerMech">
+        <kindDef>Combat</kindDef>
+        <commonality>100</commonality>
+        <maximumPresence>9600</maximumPresence>
+        <options>
+          <VFE_Mech_Lancer>10</VFE_Mech_Lancer>
+          <VFE_Mech_Scyther>10</VFE_Mech_Scyther>
+          <VFE_Mech_Pikeman>5</VFE_Mech_Pikeman>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
+          <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
+        </options>
+      </li>
+
+      <!-- Infantry - Invaders + VFEM Only -->
+      <li Class="VFEMech.PawnGroupMakerMech">
+        <kindDef>Combat</kindDef>
+        <commonality>100</commonality>
+        <maximumPresence>9600</maximumPresence>
+        <options>
+          <VFE_Mech_Knight>10</VFE_Mech_Knight>
+          <VFE_Mech_Inquisitor>5</VFE_Mech_Inquisitor>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
+          <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
+        </options>
+      </li>
+
+      <!-- Invaders + All Types -->
+      <li Class="VFEMech.PawnGroupMakerMech">
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<maximumPresence>9600</maximumPresence>
+				<options>
+					<VFE_Mech_Centipede>10</VFE_Mech_Centipede>
+					<VFE_Mech_Lancer>10</VFE_Mech_Lancer>
+					<VFE_Mech_Scyther>10</VFE_Mech_Scyther>
+					<VFE_Mech_Pikeman>5</VFE_Mech_Pikeman>
+					<VFE_Mech_Inquisitor>10</VFE_Mech_Inquisitor>
+					<VFE_Mech_Knight>10</VFE_Mech_Knight>
+					<VFE_Mech_Termite>5</VFE_Mech_Termite>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
+          <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
+				</options>
+			</li>
+
+      <!-- Invader Settlement-->
+      <li Class="VFEMech.PawnGroupMakerMech">
+				<kindDef>Settlement</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<VFE_Mech_Centipede>10</VFE_Mech_Centipede>
+					<VFE_Mech_Lancer>10</VFE_Mech_Lancer>
+					<VFE_Mech_Scyther>10</VFE_Mech_Scyther>
+					<VFE_Mech_Pikeman>5</VFE_Mech_Pikeman>
+          <IM_Mech_VFEMAide>10</IM_Mech_VFEMAide>
+          <IM_Mech_VFEMSkirmisher>10</IM_Mech_VFEMSkirmisher>
+          <IM_Mech_VFEMTemplar>10</IM_Mech_VFEMTemplar>
+				</options>
+			</li>
+
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>Vanilla Factions Expanded - Mechanoids</li>
+			<li>Biotech</li>
 		</mods>
-		<match Class="PatchOperationSequence">
+    <match Class="PatchOperationSequence">
+			<success>Normal</success>
 			<operations>
 
-	      <li Class="PatchOperationAdd">
-		      <xpath>Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
-		      <value>
-			      <li Class="VFEMech.PawnGroupMakerMech">
-              <!-- Light Infantry -->
-              <kindDef>Combat</kindDef>
-              <commonality>60</commonality>
-              <maximumPresence>9600</maximumPresence>
-              <options>
-                <VFE_Mech_Lancer>10</VFE_Mech_Lancer>
-					      <VFE_Mech_Scyther>10</VFE_Mech_Scyther>
-					      <VFE_Mech_Inquisitor>5</VFE_Mech_Inquisitor>
-					      <VFE_Mech_Knight>10</VFE_Mech_Knight>
-              </options>
-            </li>
-		      </value>
-	      </li>
+        <!-- ThinkTree Constant -->
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_VFEMSkirmisher"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
 
-	    </operations>
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_VFEMAide"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+
+			</operations>
 		</match>
-	</Operation>
+  </Operation>
+
 </Patch>

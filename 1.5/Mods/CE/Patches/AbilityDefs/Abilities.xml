@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--======= Quickjet =======-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="IM_QuickjetJump"]/verbProperties/range</xpath>
+		<value>
+			<range>22.9</range>
+		</value>
+	</Operation>
+
+	<!--======= SystemMerge =======-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="IM_SystemMerge"]/verbProperties/range</xpath>
+		<value>
+			<range>35</range>
+		</value>
+	</Operation>
+</Patch>
