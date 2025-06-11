@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Misc SFX -->
+  <!--======= Misc SFX =======-->
+
+  <!-- Abilities -->
   <SoundDef>
     <defName>IM_QuickjetFlight</defName>  
     <context>MapOnly</context>  
@@ -71,6 +73,116 @@
   </SoundDef>
 
   <SoundDef>
+    <defName>IM_DisguiseDisintegration</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/DisguiseDisintegration</clipPath>
+          </li>
+        </grains>
+        <volumeRange>45~55</volumeRange>
+        <pitchRange>1.02~1.12</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Conceal</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Conceal</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25~35</volumeRange>
+        <pitchRange>0.92~0.97</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_GrappleCast</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Grapple/GrappleCast</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>
+        <pitchRange>0.97~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_GrappleReel</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Grapple/GrappleReel</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>15</volumeRange>
+        <pitchRange>0.92~0.97</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_ConstrictGrab</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Constrict/ConstrictGrab</clipPath>
+          </li>
+        </grains>
+        <volumeRange>6</volumeRange>
+        <pitchRange>0.91~1.04</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>IM_ConstrictChoke</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <maxVoices>1</maxVoices>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainStartSound>IM_ConstrictGrab</sustainStartSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Constrict/ConstrictChoke</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20</volumeRange>
+        <pitchRange>0.91~1.04</pitchRange>
+        <distRange>10~50</distRange>
+        <sustainLoop>False</sustainLoop>
+        <sustainIntervalRange>0.05~0.1</sustainIntervalRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- Guns -->
+  <SoundDef>
     <defName>IM_ChargeHoitzerShot</defName>  
     <context>MapOnly</context>  
 	  <maxSimultaneous>1</maxSimultaneous> 	
@@ -106,9 +218,29 @@
     </subSounds>
   </SoundDef>
 
+  <SoundDef>
+    <defName>IM_StingerShot</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Autocannon</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>15~25</volumeRange>
+        <pitchRange>2.75~2.85</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!--======= Mechanoid Calls =======-->
+
   <!-- Templar Sounds -->
   <SoundDef>
-    <defName>Pawn_Templar_Wounded</defName>  
+    <defName>IM_Pawn_Templar_Wounded</defName>  
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     <subSounds>
@@ -127,7 +259,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Templar_Death</defName>  
+    <defName>IM_Pawn_Templar_Death</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -136,7 +268,7 @@
             <clipFolderPath>Pawn/Mechanoid/Mechanoid_Centipede_Death</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.3~1.4</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -144,7 +276,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Templar_Call</defName>  
+    <defName>IM_Pawn_Templar_Call</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -153,7 +285,7 @@
             <clipFolderPath>Pawn/Mechanoid/Mechanoid_Centipede_Calls</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.3~1.4</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -162,7 +294,7 @@
 
   <!-- Berserker Sounds -->
   <SoundDef>
-    <defName>Pawn_Berserker_Wounded</defName>  
+    <defName>IM_Pawn_Berserker_Wounded</defName>  
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     <subSounds>
@@ -181,7 +313,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Berserker_Death</defName>  
+    <defName>IM_Pawn_Berserker_Death</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -190,7 +322,7 @@
             <clipFolderPath>Pawn/Mechanoid/Mechanoid_Centipede_Death</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.2~1.25</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -198,7 +330,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Berserker_Call</defName>  
+    <defName>IM_Pawn_Berserker_Call</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -207,7 +339,7 @@
             <clipFolderPath>Pawn/Mechanoid/Mechanoid_Centipede_Calls</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.2~1.25</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -216,7 +348,7 @@
 
   <!-- Bombardier Sounds -->
   <SoundDef>
-    <defName>Pawn_Bombardier_Wounded</defName>
+    <defName>IM_Pawn_Bombardier_Wounded</defName>
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     <subSounds>
@@ -235,7 +367,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Bombardier_Death</defName>
+    <defName>IM_Pawn_Bombardier_Death</defName>
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -252,7 +384,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Bombardier_Call</defName>
+    <defName>IM_Pawn_Bombardier_Call</defName>
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -270,7 +402,7 @@
 
   <!-- Skirmisher Sounds -->
   <SoundDef>
-    <defName>Pawn_Skirmisher_Wounded</defName>  
+    <defName>IM_Pawn_Skirmisher_Wounded</defName>  
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     <subSounds>
@@ -280,7 +412,7 @@
             <clipFolderPath>Pawn/Mechanoid/Scyther/Pain</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.05~1.12</pitchRange>      
         <repeatMode>NeverTwice</repeatMode>      
         <sustainLoop>False</sustainLoop>
@@ -289,7 +421,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Skirmisher_Death</defName>  
+    <defName>IM_Pawn_Skirmisher_Death</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -298,7 +430,7 @@
             <clipFolderPath>Pawn/Mechanoid/Scyther/Death</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.02~1.1</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -306,7 +438,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Skirmisher_Call</defName>  
+    <defName>IM_Pawn_Skirmisher_Call</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -315,7 +447,7 @@
             <clipFolderPath>Pawn/Mechanoid/Scyther/Calls</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.02~1.1</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -324,7 +456,7 @@
 
   <!-- Ripperling Sounds -->
   <SoundDef>
-    <defName>Pawn_Ripperling_Wounded</defName>  
+    <defName>IM_Pawn_Ripperling_Wounded</defName>  
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     <subSounds>
@@ -334,7 +466,7 @@
             <clipFolderPath>Pawn/Mechanoid/Scyther/Pain</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.16~1.21</pitchRange>      
         <repeatMode>NeverTwice</repeatMode>      
         <sustainLoop>False</sustainLoop>
@@ -343,7 +475,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Ripperling_Death</defName>  
+    <defName>IM_Pawn_Ripperling_Death</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -352,7 +484,7 @@
             <clipFolderPath>Pawn/Mechanoid/Scyther/Death</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.13~1.18</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -360,7 +492,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_Ripperling_Call</defName>  
+    <defName>IM_Pawn_Ripperling_Call</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -369,16 +501,16 @@
             <clipFolderPath>Pawn/Mechanoid/Scyther/Calls</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>20~20</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>1.13~1.18</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>
   </SoundDef>
 
-  <!-- Light Mech Sounds -->
+  <!-- Aide Sounds -->
   <SoundDef>
-    <defName>Pawn_MechLight_Wounded</defName>  
+    <defName>IM_Pawn_Aide_Wounded</defName>  
     <context>MapOnly</context>  
     <maxVoices>1</maxVoices>  
     <subSounds>
@@ -388,7 +520,7 @@
             <clipPath>Things/LightMech/LightMechHurt</clipPath>
           </li>
         </grains>      
-        <volumeRange>15</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>0.73~0.78</pitchRange>      
         <repeatMode>NeverTwice</repeatMode>      
         <sustainLoop>False</sustainLoop>
@@ -397,7 +529,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_MechLight_Death</defName>  
+    <defName>IM_Pawn_Aide_Death</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -406,7 +538,7 @@
             <clipPath>Things/LightMech/LightMechDeath</clipPath>
           </li>
         </grains>      
-        <volumeRange>15</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>0.78~0.86</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
@@ -414,7 +546,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>Pawn_MechLight_Call</defName>  
+    <defName>IM_Pawn_Aide_Call</defName>  
     <context>MapOnly</context>  
     <subSounds>
       <li>
@@ -423,8 +555,116 @@
             <clipPath>Things/LightMech/LightMechCall</clipPath>
           </li>
         </grains>      
-        <volumeRange>15</volumeRange>      
+        <volumeRange>20</volumeRange>      
         <pitchRange>0.78~0.85</pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- Infiltrator Sounds -->
+  <SoundDef>
+    <defName>IM_Pawn_Infiltrator_Wounded</defName>  
+    <context>MapOnly</context>  
+    <maxVoices>1</maxVoices>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechHurt</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>1.12~1.25</pitchRange>      
+        <repeatMode>NeverTwice</repeatMode>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Pawn_Infiltrator_Death</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechDeath</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>1.12~1.25</pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Pawn_Infiltrator_Call</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechCall</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>1.12~1.25</pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- Constrictor Sounds -->
+  <SoundDef>
+    <defName>IM_Pawn_Constrictor_Wounded</defName>  
+    <context>MapOnly</context>  
+    <maxVoices>1</maxVoices>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechHurt</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>0.9~1</pitchRange>      
+        <repeatMode>NeverTwice</repeatMode>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Pawn_Constrictor_Death</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechDeath</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>0.9~1</pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>IM_Pawn_Constrictor_Call</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/SnakeMech/SnakeMechCall</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>20</volumeRange>      
+        <pitchRange>0.9~1</pitchRange>      
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>

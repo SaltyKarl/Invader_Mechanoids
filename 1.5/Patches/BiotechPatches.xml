@@ -23,6 +23,8 @@
                   <subNodes>
                     <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
                       <subNodes>
+                        
+                        <!--== General Ability AI ==-->
                         <li Class="ThinkNode_ConditionalHashIntervalTick">
                           <interval>45</interval>
                           <subNodes>
@@ -49,7 +51,7 @@
                               <subNodes>
                                 <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                                   <ability>IM_SystemMerge</ability>
-                                  <minTicksAgo>600</minTicksAgo>
+                                  <minTicksAgo>300</minTicksAgo>
                                   <subNodes>
                                     <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                       <dangerRadius>40</dangerRadius>
@@ -71,9 +73,220 @@
                                 </li>
                               </subNodes>
                             </li>
+
+                            <!-- Grapple Pull -->
+                            <li Class="ThinkNode_ConditionalHasAbility">
+                              <ability>IM_CrushingBind</ability>
+                              <subNodes>
+                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                  <ability>IM_CrushingBind</ability>
+                                  <minTicksAgo>180</minTicksAgo>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                      <dangerRadius>3</dangerRadius>
+                                      <minCount>1</minCount>
+                                      <subNodes>
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
+                                          <ability>IM_CrushingBind</ability>
+                                          <onlyHostiles>True</onlyHostiles>
+                                          <onlyInFaction>False</onlyInFaction>
+                                          <subNodes>
+                                            <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                              <abilities>
+                                                <li>IM_CrushingBind</li>
+                                              </abilities>
+                                            </li>
+                                          </subNodes>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+
+                            <!-- Grapple Pull -->
+                            <li Class="ThinkNode_ConditionalHasAbility">
+                              <ability>IM_GrapplePull</ability>
+                              <subNodes>
+                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                  <ability>IM_GrapplePull</ability>
+                                  <minTicksAgo>180</minTicksAgo>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                      <dangerRadius>21</dangerRadius>
+                                      <minCount>1</minCount>
+                                      <subNodes>
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
+                                          <ability>IM_GrapplePull</ability>
+                                          <onlyHostiles>True</onlyHostiles>
+                                          <onlyInFaction>False</onlyInFaction>
+                                          <subNodes>
+                                            <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                              <abilities>
+                                                <li>IM_GrapplePull</li>
+                                              </abilities>
+                                            </li>
+                                          </subNodes>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+
+                            <!-- Crushing Bind -->
+                            <li Class="ThinkNode_ConditionalHasAbility">
+                              <ability>IM_CrushingBind</ability>
+                              <subNodes>
+                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                  <ability>IM_CrushingBind</ability>
+                                  <minTicksAgo>120</minTicksAgo>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                      <dangerRadius>3</dangerRadius>
+                                      <minCount>1</minCount>
+                                      <subNodes>
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
+                                          <ability>IM_CrushingBind</ability>
+                                          <onlyHostiles>True</onlyHostiles>
+                                          <onlyInFaction>False</onlyInFaction>
+                                          <subNodes>
+                                            <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                              <abilities>
+                                                <li>IM_CrushingBind</li>
+                                              </abilities>
+                                            </li>
+                                          </subNodes>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+
+                            <!-- Conceal -->
+                            <li Class="ThinkNode_ConditionalHasHediff">
+                              <hediff>IM_Unmasked</hediff>
+                              <invert>true</invert>
+                              <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                  <ability>IM_Conceal</ability>
+                                  <subNodes>
+                                    <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                      <ability>IM_Conceal</ability>
+                                      <minTicksAgo>240</minTicksAgo>
+                                      <subNodes>
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                          <dangerRadius>13</dangerRadius>
+                                          <minCount>1</minCount>
+                                          <subNodes>
+                                            <li Class="JobGiver_AICastAbilityOnSelf">
+                                              <ability>IM_Conceal</ability>
+                                            </li>
+                                          </subNodes>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                                <!-- Reposition when invisible -->
+                                <li Class="EBSGFramework.ThinkNode_ConditionalHasAnyOfHediff">
+                                  <hediffs>
+                                    <li>IM_Concealed</li>
+                                    <li>IM_ReactiveCloak</li>
+                                  </hediffs>
+                                  <subNodes>
+                                    <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                      <dangerRadius>13</dangerRadius>
+                                      <minCount>3</minCount>
+                                      <subNodes>
+                                        <li Class="JobGiver_FleeForDistance">
+                                          <enemyDistToFleeRange>0~12.9</enemyDistToFleeRange>
+                                          <fleeDistRange>13.9~21.9</fleeDistRange>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
                         
                           </subNodes>
                         </li>
+
+                        <!--== Unmasked Infiltrator ==-->
+                        <li Class="ThinkNode_ConditionalHasHediff">
+                          <hediff>IM_Unmasked</hediff>
+                          <subNodes>
+
+                            <!-- Reposition when invisible - inserted separately for unmasked infiltrators to make them listen -->
+                            <li Class="EBSGFramework.ThinkNode_ConditionalHasAnyOfHediff">
+                              <hediffs>
+                                <li>IM_Concealed</li>
+                                <li>IM_ReactiveCloak</li>
+                              </hediffs>
+                              <subNodes>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                  <dangerRadius>13</dangerRadius>
+                                  <minCount>3</minCount>
+                                  <subNodes>
+                                    <li Class="JobGiver_FleeForDistance">
+                                      <enemyDistToFleeRange>0~12.9</enemyDistToFleeRange>
+                                      <fleeDistRange>13.9~21.9</fleeDistRange>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                              </subNodes>
+                            </li>
+
+                            <!-- Try to Conceal if surrounded, if not/can't, attack -->
+                            <li Class="EBSGFramework.ThinkNode_ConditionalHasAnyOfHediff">
+                              <hediffs>
+                                <li>IM_Concealed</li>
+                                <li>IM_ReactiveCloak</li>
+                              </hediffs>
+                              <invert>true</invert>
+                              <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                  <ability>IM_Conceal</ability>
+                                  <subNodes>
+                                    <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                      <ability>IM_Conceal</ability>
+                                      <minTicksAgo>240</minTicksAgo>
+                                      <subNodes>
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                                          <dangerRadius>13</dangerRadius>
+                                          <minCount>3</minCount>
+                                          <subNodes>
+                                            <li Class="JobGiver_AICastAbilityOnSelf">
+                                              <ability>IM_Conceal</ability>
+                                            </li>
+                                          </subNodes>
+                                        </li>
+                                      </subNodes>
+                                    </li>
+                                  </subNodes>
+                                </li>
+                                <li Class="JobGiver_AIFightEnemies">
+                                  <targetAcquireRadius>65</targetAcquireRadius>
+                                  <targetKeepRadius>72</targetKeepRadius>
+                                </li>
+                                <li Class="JobGiver_AITrashColonyClose" />
+                                <li Class="JobGiver_AITrashBuildingsDistant" />
+                                <li Class="JobGiver_AIGotoNearestHostile" />
+                                <li Class="JobGiver_AITrashBuildingsDistant">
+                                  <attackAllInert>true</attackAllInert>
+                                </li>
+                                <li Class="JobGiver_WanderAnywhere" />
+                              </subNodes>
+                            </li>
+
+                          </subNodes>
+                        </li>
+
                       </subNodes>
                     </li>
                   </subNodes>
@@ -129,7 +342,7 @@
                             <subNodes>
                               <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                                 <ability>IM_SystemMerge</ability>
-                                <minTicksAgo>600</minTicksAgo>
+                                <minTicksAgo>300</minTicksAgo>
                                 <subNodes>
                                   <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
                                     <dangerRadius>40</dangerRadius>
@@ -179,6 +392,13 @@
 					</value>
 				</li>
 
+        <li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName = "IM_Mech_Infiltrator"]/race/thinkTreeConstant</xpath>
+					<value>
+            <thinkTreeConstant>MechConstant</thinkTreeConstant>
+					</value>
+				</li>
+
         <!-- Gestation and resurrection -->
         <li Class="PatchOperationAdd">
           <xpath>Defs/RecipeDef[defName = "ResurrectLightMech"]/fixedIngredientFilter/thingDefs</xpath>
@@ -192,6 +412,7 @@
           <value>
             <li>Corpse_IM_Mech_Skirmisher</li>
             <li>Corpse_IM_Mech_Ripper</li>
+            <li>Corpse_IM_Mech_Infiltrator</li>
           </value>
         </li>
 
@@ -222,6 +443,7 @@
           <value>
             <li>IM_Skirmisher</li>
             <li>IM_Ripper</li>
+            <li>IM_Infiltrator</li>
             <li>IM_Templar</li>
             <li>IM_Berserker</li>
             <li>IM_Bombardier</li>
@@ -355,6 +577,54 @@
               </products>
               <descriptionHyperlinks>
                 <ThingDef>IM_Mech_Ripper</ThingDef>
+              </descriptionHyperlinks>
+            </RecipeDef>
+
+            <!-- Infiltrator -->
+            <RecipeDef ParentName="MediumMechanoidRecipe">
+              <defName>IM_Infiltrator</defName>
+              <label>gestate infiltrator</label>
+              <description>Gestate an infiltrator mechanoid.</description>
+              <researchPrerequisite>HighMechtech</researchPrerequisite>
+              <ingredients Inherit="False">
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>120</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Plasteel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>60</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>ComponentIndustrial</li>
+                    </thingDefs>
+                  </filter>
+                 <count>6</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>SubcoreHigh</li>
+                    </thingDefs>
+                  </filter>
+                 <count>1</count>
+                </li>
+              </ingredients>
+              <products>
+                <IM_Mech_Infiltrator>1</IM_Mech_Infiltrator>
+              </products>
+              <descriptionHyperlinks>
+                <ThingDef>IM_Mech_Infiltrator</ThingDef>
               </descriptionHyperlinks>
             </RecipeDef>
 
