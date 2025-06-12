@@ -57,6 +57,7 @@
 					<graphicClass>Graphic_Single</graphicClass>
 					<drawSize>1.5</drawSize>
 				</graphicData>
+				<equippedAngleOffset>-55</equippedAngleOffset>
 				<tradeability>None</tradeability>
 				<destroyOnDrop>true</destroyOnDrop>
 				<relicChance>0</relicChance>
